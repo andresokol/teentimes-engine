@@ -1,0 +1,17 @@
+body {
+	min-height: 600px;
+	min-width: 800px;
+}
+
+div {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	text-align: left;
+}
+
+img {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
