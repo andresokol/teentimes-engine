@@ -1,25 +1,25 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "name": "teentimes-engine",
+  "version": "1.0.0",
+  "description": "Engine for rinsdesyu's TeenTimes blog",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
-    "express": "^4.9.8"
+    "ejs": "^1.0.0",
+    "express": "^4.9.8",
+    "pg": "^4.1.1"
   },
-  "engines": {
-    "node": "0.10.x"
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/AndreSokol/teentimes-engine.git"
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+  "author": "AndreSokol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreSokol/teentimes-engine/issues"
+  },
+  "homepage": "https://github.com/AndreSokol/teentimes-engine"
 }
