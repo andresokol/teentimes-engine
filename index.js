@@ -16,7 +16,6 @@ if (db_url == undefined) {
   db_url = "postgres://postgres:lollipop11@localhost:5432/postgres";
 };
 
-
 app.get('/db', function (request, response) {
   pg.connect(db_url, function(err, client, done) {
     client.query('SELECT * FROM test_posts', function(err, result) {
