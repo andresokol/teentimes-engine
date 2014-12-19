@@ -3,15 +3,18 @@ var app = express();
 var pctrl = require(__dirname + '/page_controller')
 
 app.set('port', (process.env.PORT || 5000));
-app.set('view engine', 'ejs');
+app.set('views engine', 'ejs');
 app.set('views', __dirname + '/views')
 app.use(express.static(__dirname + '/public'));
 
 //-----  connect database  ---------
 var pg = require('pg');
+var db_url = process.env.DATABASE_URL;
+if (db_url == undefined) {db_url = 0};
 
 app.get('/db', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  console.log(db_url);
+  pg.connect(db_url, function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
       if (err)
