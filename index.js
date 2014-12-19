@@ -9,11 +9,15 @@ app.use(express.static(__dirname + '/public'));
 
 //-----  connect database  ---------
 var pg = require('pg');
+
+//-----  debug feature - off for production!! ----- 
 var db_url = process.env.DATABASE_URL;
-if (db_url == undefined) {db_url = 0};
+if (db_url == undefined) {
+  db_url = "postgres://postgres:lollipop11@localhost:5432/postgres";
+};
+
 
 app.get('/db', function (request, response) {
-  console.log(db_url);
   pg.connect(db_url, function(err, client, done) {
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
