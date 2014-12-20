@@ -1,0 +1,14 @@
+{
+    "port": 5432,
+    "db": {
+        "connection": "postgres://localhost",
+        "name": "postgres",
+        "options": {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": 1
+                }
+            }
+        }
+    }
+}
