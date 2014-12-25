@@ -4,6 +4,7 @@
   "description": "Engine for rinsdesyu's TeenTimes blog",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.10.0",
     "ejs": "^1.0.0",
     "ejs-locals": "^1.0.2",
     "express": "^4.10.6",
