@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="ya-title=#2f4cd6,ya-dock=#fff">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
@@ -12,12 +12,10 @@
     <title>New post</title>
 </head>
 <body>
-	<form method="post" action="admin/submit">
+	<form method="post" action="admin/submit" style="background-color:rgba(255, 255, 255, 0.8);">
 		<p>Новый пост</p><br>
-		<input name="title" type="text">
-		<textarea name="comment" cols="40" rows="3"></textarea>
-		<p>Дата</p><br>
-		<input name="created" type="text">
+		<input name="title" type="text"><br>
+		<textarea name="body" cols="40" rows="3"></textarea>
 		<input type="submit" value="Submit">
 	</form>
 </body>
