@@ -7,7 +7,7 @@ exports.show_add_page = function(req, res) {
 
 exports.show_submit_page = function(req, res) {
 	var date = (new Date()).toUTCString();
-	var ans = '<div class="article"><h3><a href="/articles/001">' + req.body.title + '</a></h3>' + req.body.body + '<div id="time"><time>' + String(date).slice(16, 21) + '</time></div></div>';
+	var ans = '<div class="article"><h3><a href="/articles/001">' + req.body.title + '</a></h3>' + req.body.body + '<div id="time"><time>' + String(date).slice(17, 22) + '</time></div></div>';
 	res.render('../templates/submit_new_post', {
 		body: ans,
 		post_body: req.body.body,

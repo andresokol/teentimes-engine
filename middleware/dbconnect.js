@@ -14,7 +14,7 @@ exports.get_data = function (table, callback) {
 		
 		if (!handleError) {return true};
 		
-		var qstring = "SELECT * FROM " + table;
+		var qstring = "SELECT * FROM " + table + " ORDER BY created DESC";
 		
 		console.log(qstring);
 		
