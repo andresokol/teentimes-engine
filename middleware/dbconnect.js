@@ -68,3 +68,35 @@ exports.send_post = function (qstring, table, callback) {
 		done();
 	}.bind({qstring:qstring}) );
 };
+
+exports.get_max_id = function (table, callback) {
+	console.log("Getting max id from table " + table + "...");
+	pg.connect(db_url, function(err, client, done) {
+		var handleError = function(err) {
+			if(!err) return false;
+			done(client);
+			res.writeHead(500, {'content-type': 'text/plain'});
+			res.end('An error occurred');
+			return true;
+		};
+		
+		if (!handleError) {return true};
+		
+		var qstring = "SELECT id FROM " + table + " ORDER BY id DESC LIMIT 1";
+		
+		console.log(qstring);
+		
+		var query = client.query(qstring),
+			cnt = 0;
+		
+		query.on('row', function (row, result) {
+			result.addRow(row);
+		});
+		
+		query.on('end', function(result) {
+			console.log("Max id in table " + table + " is " + (result.rows));
+			callback(result);
+		});
+		done();
+	});
+};
