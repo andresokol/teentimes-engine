@@ -14,7 +14,7 @@ exports.get_data = function (table, limit, callback) {
 		
 		if (!handleError) {return true};
 		
-		var qstring = "SELECT * FROM " + table + " ORDER BY created DESC LIMIT " + limit;
+		var qstring = "SELECT * FROM " + table + " ORDER BY id DESC LIMIT " + limit;
 		
 		console.log(qstring);
 		
