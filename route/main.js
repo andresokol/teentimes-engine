@@ -20,3 +20,7 @@ exports.add_post_to_db = function (req, res) {
 exports.admin_page = function (req, res) {
 	adm.show_admin_page(req, res);
 };
+
+exports.article = function (req, res) {
+	pages.article(req, res);
+};
