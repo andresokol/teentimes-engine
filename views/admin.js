@@ -1,17 +1,24 @@
 var db = require('../middleware/dbconnect'),
 	table = "test_posts";
 
+exports.show_admin_page = function(req, res) {
+	db.get_data(table, 100, function(query){
+		res.render("../templates/admin", {
+			posts: query.rows
+		});
+	});
+};
+
 exports.show_add_page = function(req, res) {
 	res.render('../templates/add_new_post', {});
 };
 
 exports.show_submit_page = function(req, res) {
 	var date = (new Date()).toUTCString();
-	var ans = '<div class="article"><h3><a href="/articles/001">' + req.body.title + '</a></h3>' + req.body.body + '<div id="time"><time>' + String(date).slice(17, 22) + '</time></div></div>';
 	res.render('../templates/submit_new_post', {
-		body: ans,
-		post_body: req.body.body,
-		post_title: req.body.title
+		title: req.body.title,
+		body: req.body.body,
+		time: String(date).slice(17, 22)
 	});
 };
 

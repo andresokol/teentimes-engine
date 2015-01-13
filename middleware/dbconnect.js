@@ -1,7 +1,7 @@
 var pg = require('pg'),
 	db_url = process.env.DATABASE_URL || "postgres://postgres:lollipop11@localhost:5432/postgres";
 
-exports.get_data = function (table, callback) {
+exports.get_data = function (table, limit, callback) {
 	console.log("Gettin data from " + table + "...");
 	pg.connect(db_url, function(err, client, done) {
 		var handleError = function(err) {
@@ -14,7 +14,7 @@ exports.get_data = function (table, callback) {
 		
 		if (!handleError) {return true};
 		
-		var qstring = "SELECT * FROM " + table + " ORDER BY created DESC";
+		var qstring = "SELECT * FROM " + table + " ORDER BY created DESC LIMIT " + limit;
 		
 		console.log(qstring);
 		

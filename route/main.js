@@ -16,3 +16,7 @@ exports.submit_new_post = function (req, res) {
 exports.add_post_to_db = function (req, res) {
 	adm.show_success_page(req, res);
 };
+
+exports.admin_page = function (req, res) {
+	adm.show_admin_page(req, res);
+};

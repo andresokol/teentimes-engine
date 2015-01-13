@@ -1,0 +1,10 @@
+<table>
+	<% for(var i = 0; i < posts.length; i++) { %>
+		<tr>
+			<td><%- posts[i].id %></td>
+			<td><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>>
+			<td><%- posts[i].body %></td>
+			<td><time><%- String(posts[i].created).slice(16, 21) %></time></td>
+		</tr>
+	<% } %>
+</table>

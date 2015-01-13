@@ -24,8 +24,8 @@
 			<input type="submit" value="Cancel" style="height:50px">
 		</form>
 		<form class="submitbar" method="post" action="/admin" style="display:inline;">
-			<input name="title" type="text" value="<%- post_title %>" style="display:none;"><br>
-			<textarea name="body" cols="40" rows="3" style="display:none;"><%- post_body %></textarea>
+			<input name="title" type="text" value="<%- title %>" style="display:none;"><br>
+			<textarea name="body" cols="40" rows="3" style="display:none;"><%- body %></textarea>
 			<input type="submit" value="Proceed" style="height:50px; font-weight:bold;">
 		</form>
 	</div>
@@ -44,8 +44,16 @@
         <h1><a href="http://rinsdesyu.github.io/another_directory/another_page.html">Zen Sick</a></h1>
         <p>The magazine about art, modern culture, net projects, music, experimental literature and lifestyle.</p>
     </div>
-    <%- body %>
-    <div class="lowbar">
+	
+	<div class="article">
+		<h3><a href=""><%- title %></a></h3>
+		<%- body %>
+		<div id="time">
+			<time><%- time %></time>
+		</div>
+	</div>
+	
+	<div class="lowbar">
         <ul>
             <li><a href="http://zensick.net/about">About</a></li>
             <li><a href="http://zensick.net/authors">Authors</a></li>
