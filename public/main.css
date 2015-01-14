@@ -72,6 +72,7 @@ body {
 @media screen and (max-width: 768px) {
     body {
         max-width: 768px;
+        background-image: url(img/mobg.png);
     }     
     .Header p {
         font-family: PT Sans, monospace;
