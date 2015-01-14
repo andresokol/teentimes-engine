@@ -31,12 +31,13 @@
         </ul>
     </div>
     
-    <div class="Header">
-        <h1><a href="http://rinsdesyu.github.io/another_directory/another_page.html">Zen Sick</a></h1>
-        <p>The magazine about art, modern culture, net projects, music, experimental literature and lifestyle.</p>
-    </div>
-	
-	
+    <div class="bars">
+        <div class="Header">
+            <h1><a href="http://rinsdesyu.github.io/another_directory/another_page.html">Zen Sick</a></h1>
+            <p>The magazine about art, modern culture, net projects, music, experimental literature and lifestyle.</p>
+        </div>
+	</div>
+	<div class="column">
 	
     <!-- template thingy -->
 	
@@ -44,23 +45,32 @@
     	<div class="<%- posts[i].type %>">
 			<h3><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></h3>
 			<%- posts[i].body %>
+            <div class="img">
+                <%- posts[i].body %>
+            </div>
+            <div id="music" class="ui-widget ui-corner-all ui-state-error">
+                <%- posts[i].body %>
+            </div>
 			<div id="time">
 				<time><%- String(posts[i].created).slice(16, 21) %></time>
 			</div>
 		</div>
+        
     <% } %>
 	
     <!-- end of template thingy -->
 	
+	</div>
 	
-	
-    <div class="lowbar">
-        <ul>
-            <li><a href="http://zensick.net/about">About</a></li>
-            <li><a href="http://zensick.net/authors">Authors</a></li>
-            <li><a href="http://zensick.net/contacts">Contact Us</a></li>
-            <li><p>©Zen Sick Webzin. 2014.</p></li>
-        </ul>
+    <div class="bars">
+        <div class="lowbar">
+            <ul>
+                <li><a href="http://zensick.net/about">About</a></li>
+                <li><a href="http://zensick.net/authors">Authors</a></li>
+                <li><a href="http://zensick.net/contacts">Contact Us</a></li>
+                <li><p>©Zen Sick Webzin. 2014.</p></li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
