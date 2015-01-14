@@ -59,6 +59,12 @@ body {
     width: 1333px;
     text-align: center;
 }     
+.column {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 @media screen and (max-width: 768px) {
     body {
         max-width: 768px;
@@ -101,7 +107,7 @@ body {
         margin-left: auto;
         margin-right: auto;
         opacity: 0.85;
-        width: 763px;
+        width: 100vw;
         text-align: center;
 }         
     .img {
