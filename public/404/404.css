@@ -7,12 +7,13 @@ body {
 div {
 	position: absolute;
 	top: 50px;
-	left: 50px;
-	text-align: left;
+	left: 150px;
+	text-align: center;
+    margin: auto;
 }
 
 img {
-	position: absolute;
 	bottom: 0px;
 	right: 0px;
+    margin-right: auto;
 }
