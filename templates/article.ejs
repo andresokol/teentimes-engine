@@ -1,0 +1,5 @@
+<%- posts[0].id %>
+<%- posts[0].type %>
+<a href="/articles/<%- posts[0].id %>"><%- posts[0].title %></a>
+<%- posts[0].body %>
+<time><%- String(posts[0].created).slice(16, 21) %></time>

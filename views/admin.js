@@ -18,6 +18,7 @@ exports.show_submit_page = function(req, res) {
 	res.render('../templates/submit_new_post', {
 		title: req.body.title,
 		body: req.body.body,
+		type: req.body.type,
 		time: String(date).slice(17, 22)
 	});
 };
@@ -25,7 +26,7 @@ exports.show_submit_page = function(req, res) {
 exports.show_success_page = function (req, res) {
 	db.get_max_id(table, function (id) {
 		var date = (new Date()).toUTCString(),
-			qstring = "values(" + (id.rows[0].id+1) + ",'" + req.body.title + "','" + req.body.body + "','" + date + "')";
+			qstring = "values(" + (id.rows[0].id+1) + ",'" + req.body.title + "','" + req.body.body + "','" + date + "','" + req.body.type + "')";
 		console.log("Trying to put in db " + qstring);
 		db.send_post(qstring, table, function (result) {
 			console.log("Successed");

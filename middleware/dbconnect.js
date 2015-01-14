@@ -101,7 +101,7 @@ exports.get_max_id = function (table, callback) {
 	});
 };
 
-exports.get_article = function(table, id, callback) {
+exports.get_article = function(table, id, callback, failed) {
 	console.log("Looking for article " + id + " from table " + table);
 	pg.connect(db_url, function(err, client, done) {
 		var handleError = function(err) {
@@ -126,8 +126,12 @@ exports.get_article = function(table, id, callback) {
 		});
 		
 		query.on('end', function(result) {
-			console.log("Got article '" + result.rows[0].title + "' for id " + id);
-			callback(result);
+			if (result.rows.length == 0) {
+				failed();
+			} else {
+				console.log("Got article '" + result.rows[0].title + "' for id " + id);
+				callback(result);
+			}
 		});
 		done();
 	});
