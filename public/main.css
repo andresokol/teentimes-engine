@@ -69,7 +69,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
     body {
         max-width: 768px;
         background-image: url(img/mobg.png);
