@@ -12,18 +12,20 @@
     <title>New post</title>
 </head>
 <body>
-	<form method="post" action="submit" style="background-color:rgba(255, 255, 255, 0.8);">
-		<p>Новый пост</p><br>
+	<form method="post" action="submit" style="background-color:rgba(255, 255, 255, 0.8);padding:5px;">
+		<h3>Новый пост</h3>
 		Title:
-		<input name="title" type="text" value="title"><br>
+		<input name="title" type="text">
+		<br>
 		Type:
 		<select name="type" required>
 			<option>article</option>
 			<option>music</option>
 			<option>picture</option>
 		</select>
-		Body:
-		<textarea name="body" cols="40" rows="3"></textarea>
+		<br>Body:<br>
+		<textarea name="body" cols="50" rows="10"></textarea>
+		<br>
 		<input type="submit" value="Submit">
 	</form>
 </body>

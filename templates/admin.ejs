@@ -1,11 +1,42 @@
+<style>
+	table {
+		width: 100%;
+		min-width: 900px;
+		border-style:solid;
+		border-width:1px;
+	}
+	
+	#time {
+		width:160px;
+	}
+	
+	#id {
+		width:20px;
+	}
+	
+	#type {
+		width:50px;
+	}
+	
+	#title {
+		width:300px;
+	}
+	
+	#body {
+	}
+</style>
+
+<a href="/admin/add"><h3>Add new post here</h3></a>
+<br>
+
 <table>
 	<% for(var i = 0; i < posts.length; i++) { %>
 		<tr>
-			<td><%- posts[i].id %></td>
-			<td><%- posts[i].type %></td>
-			<td><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>>
-			<td><%- posts[i].body %></td>
-			<td><time><%- String(posts[i].created).slice(0, 21) %></time></td>
+			<td id="id"><%- posts[i].id %></td>
+			<td id="type"><%- posts[i].type %></td>
+			<td id="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>>
+			<td id="body"><%- posts[i].body %></td>
+			<td id="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
 		</tr>
 	<% } %>
 </table>
