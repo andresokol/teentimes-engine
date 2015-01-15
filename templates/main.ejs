@@ -45,11 +45,6 @@
     	<div class="<%- posts[i].type %>">
 			<h3><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></h3>
 			<%- posts[i].body %>
-            <div class="img">
-                <%- posts[i].body %>
-            </div>
-            <div id="music" class="ui-widget ui-corner-all ui-state-error">
-                <%- posts[i].body %>
             </div>
 			<div id="time">
 				<time><%- String(posts[i].created).slice(16, 21) %></time>
