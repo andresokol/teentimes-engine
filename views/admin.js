@@ -33,7 +33,7 @@ exports.show_submit_page = function(req, res) {
 exports.show_success_page = function (req, res) {
 	db.get_max_id(table, function (id) {
 		var date = (new Date()).toUTCString(),
-			qstring = "values(" + (id.rows[0].id+1) + ",'" + req.body.title + "','" + req.body.body + "','" + date + "','" + req.body.type + "')";
+			qstring = "values(" + (id.rows[0].id+1) + ",'" + req.body.title + "','" + req.body.body.replace(/'/g, "''") + "','" + date + "','" + req.body.type + "')";
 		console.log("Trying to put in db " + qstring);
 		db.send_post(qstring, table, function (result) {
 			console.log("Successed");
