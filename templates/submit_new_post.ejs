@@ -23,9 +23,9 @@
 		<form class="submitbar" method="get" action="/admin" style="display:inline;">
 			<input type="submit" value="Cancel" style="height:50px">
 		</form>
-		<form class="submitbar" method="post" action="/admin" style="display:inline;">
-			<input name="title" type="text" value="<%- title %>" style="display:none;"><br>
-			<input name="type" type="text" value="<%- type %>" style="display:none;"><br>
+		<form class="submitbar" method="post" action="/admin" style="display:inline-block;">
+			<input name="title" type="text" value="<%- title %>" style="display:none;">
+			<input name="type" type="text" value="<%- type %>" style="display:none;">
 			<textarea name="body" cols="40" rows="3" style="display:none;"><%- body %></textarea>
 			<input type="submit" value="Proceed" style="height:50px; font-weight:bold;">
 		</form>
@@ -46,7 +46,7 @@
         <p>The magazine about art, modern culture, net projects, music, experimental literature and lifestyle.</p>
     </div>
 	
-	<div class="article">
+	<div class="<%- type %>">
 		<h3><a href=""><%- title %></a></h3>
 		<%- body %>
 		<div id="time">
