@@ -15,9 +15,16 @@ exports.show_add_page = function(req, res) {
 
 exports.show_submit_page = function(req, res) {
 	var date = (new Date()).toUTCString();
+	
+	// rendering HTML-code from post
+	var post = req.body.body;
+	post = "<p>" + post + "</p>";
+	post = post.replace(/\r?\n/g, "</p>\n<p>");
+	//-------------------------------
+	
 	res.render('../templates/submit_new_post', {
 		title: req.body.title,
-		body: req.body.body,
+		body: post,
 		type: req.body.type,
 		time: String(date).slice(17, 22)
 	});
@@ -30,7 +37,7 @@ exports.show_success_page = function (req, res) {
 		console.log("Trying to put in db " + qstring);
 		db.send_post(qstring, table, function (result) {
 			console.log("Successed");
-			res.send("Success!\r\rSome info for specially trained Mexicans:\r" + result.toString());
+			res.send("<h3>Success!</h3>Get back now to <a href='/admin'>admin page</a> or <a href='/'>main page</a>");
 		});
 	});
 };
