@@ -2,7 +2,7 @@
   "name": "teentimes-engine",
   "version": "1.0.0",
   "description": "Engine for rinsdesyu's TeenTimes blog",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.10.0",
     "ejs": "^1.0.0",
@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
