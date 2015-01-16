@@ -59,15 +59,12 @@ body {
     width: 98vw;
     text-align: center;
 }     
-.column {
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-}
 .column div {
     background: #fff;
     font-family: PT Sans, monospace;
     padding: : 50px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: left;
     width: 750px;
     border: white solid;
