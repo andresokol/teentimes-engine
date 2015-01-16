@@ -64,6 +64,15 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+.column div {
+    background: #fff;
+    font-family: PT Sans, monospace;
+    padding: : 50px;
+    text-align: left;
+    width: 750px;
+    border: white solid;
+    box-shadow: 5px 5px 5px #888888;
+}
 .bars {
     max-width: 1333px;
     margin-left: auto;
@@ -96,7 +105,7 @@ body {
         text-align: center;
         font-size: 20px;
     }
-    .img img {
+    .picture img {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -114,7 +123,7 @@ body {
         width: 100vw;
         text-align: center;
     }         
-    .img {
+    .picture {
         background: #fff;
         font-family: PT Sans, monospace;
         padding: : 50px;
@@ -127,7 +136,7 @@ body {
         margin-bottom: 20px;
         box-shadow: 5px 5px 5px #888888;
     }
-    #music {
+    .music {
         background-color: : #fff;
         font-family: PT Sans, monospace;
         padding: : 50px;
@@ -196,7 +205,7 @@ body {
 .article p {
     margin: 20px;
 }
-.img {
+.picture {
     background: #fff;
     font-family: PT Sans, monospace;
     padding: : 50px;
@@ -209,32 +218,32 @@ body {
     margin-bottom: 20px;
     box-shadow: 5px 5px 5px #888888;
 }
-.img img {
+.picture img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     max-width: 725px; 
 }
-.img a {
+.picture a {
     color: #000;
     margin-left: auto;
     margin-right: auto;
     font-weight: normal;
 }
-.img a:hover {
+.picture a:hover {
     color: #000;
     margin-left: auto;
     margin-right: auto;
     font-weight: normal;
     opacity: 0.7;
 }
-.img p {
+.picture p {
     text-align: center;
     font-weight: bold;
 }
         
-#music {
+.music {
     background: #fff;
     font-family: PT Sans, monospace;
     padding-top: 25px;
@@ -249,7 +258,7 @@ body {
     padding-left: 10px;
         
 }
-#music iframe {
+.music iframe {
     padding: 25px:
     width: 350px;
     display: block;
