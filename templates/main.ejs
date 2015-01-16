@@ -37,12 +37,12 @@
             <p>The magazine about art, modern culture, net projects, music, experimental literature and lifestyle.</p>
         </div>
 	</div>
-	<div class="column">
+	
 	
     <!-- template thingy -->
-	
+	<div class="column">
 	<% for(var i = 0; i < posts.length; i++) { %>
-    	<div class="<%- posts[i].type %>">
+        <div class="<%- posts[i].type %>">
 			<h3><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></h3>
 			<%- posts[i].body %>
             <div id="time">
@@ -50,10 +50,10 @@
 			</div>
 		</div>
     <% } %>
-	
+	</div>
     <!-- end of template thingy -->
 	
-	</div>
+	
 	
     <div class="bars">
         <div class="lowbar">
