@@ -3,7 +3,8 @@ module.exports = function (app, express) {
         //config = require('../config'),
         path = require('path'),
 		bodyParser = require('body-parser'),
-        router = require('../route');
+        router = require('../route'),
+		session = require('express-session');
 
     app.set('port', process.env.PORT || 5000);
     /**
@@ -19,6 +20,13 @@ module.exports = function (app, express) {
 	 * */
 	app.use(bodyParser.urlencoded({ extended: false }));
 	
+	/* *
+	 * Authentification
+	 * */
+	app.use(session({secret: 'they call me mellow yellow',
+					resave: false,
+					saveUninitialized: true
+					}));
 	
     /* *
      * Routing

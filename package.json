@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.10.0",
+    "crypto": "0.0.3",
     "ejs": "^1.0.0",
     "ejs-locals": "^1.0.2",
     "express": "^4.10.6",

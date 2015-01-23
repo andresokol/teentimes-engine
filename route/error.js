@@ -1,3 +1,3 @@
-exports.p404 = function (req, res, next) {
-	res.redirect("public/404.html");
+exports.p404 = function (req, res) {
+	res.render("../templates/404");
 };
