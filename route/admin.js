@@ -22,3 +22,7 @@ exports.add_post_to_db = function (req, res) {
 exports.admin_page = function (req, res) {
 	restricted(req, res, adm.show_admin_page);
 };
+
+exports.switch_visibility = function (req, res) {
+	restricted(req, res, adm.switch_visibility);
+};

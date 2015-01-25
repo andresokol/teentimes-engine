@@ -6,23 +6,42 @@
 		border-width:1px;
 	}
 	
-	#time {
+	tr:nth-child(odd) {
+		background-color:rgba(245, 230, 203, 0.3);	
+	}
+	tr:nth-child(even) {
+		background-color:rgba(120, 219, 226, 0.1);	
+	}
+	.time {
 		width:160px;
 	}
 	
-	#id {
+	.id {
 		width:20px;
 	}
 	
-	#type {
+	.type {
 		width:50px;
 	}
 	
-	#title {
-		width:300px;
+	.title {
+		width:200px;
 	}
 	
-	#body {
+	.body>div {
+		max-height:300px;
+		overflow-y:auto;
+	}
+	
+	.false {
+		background-color:rgba(100, 100, 100, 0.8)!important;
+	}
+	.switch {
+		text-align: center;
+	}	
+	thead {
+		font-weight: bold;
+		text-align: center;
 	}
 </style>
 
@@ -30,13 +49,24 @@
 <br>
 
 <table>
+	<thead>
+		<td class="id">ID</td>
+		<td class="type">TYPE</td>
+		<td class="title">TITLE</td>
+		<td class="body">BODY</td>
+		<td class="time">TIME</td>
+		<td class="switch">SHOW/HIDE</td>
+	</thead>
 	<% for(var i = 0; i < posts.length; i++) { %>
-		<tr>
-			<td id="id"><%- posts[i].id %></td>
-			<td id="type"><%- posts[i].type %></td>
-			<td id="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>>
-			<td id="body"><%- posts[i].body %></td>
-			<td id="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
+		<tr class="<%- posts[i].visible %>">
+			<td class="id"><%- posts[i].id %></td>
+			<td class="type"><%- posts[i].type %></td>
+			<td class="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>
+			<td class="body"><div><%- posts[i].body %></div></td>
+			<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
+			<td class="switch"><form action="/admin/switch/<%- posts[i].id %>" method="post">
+				<input type='submit' value="Switch">
+			</form></td>
 		</tr>
 	<% } %>
 </table>

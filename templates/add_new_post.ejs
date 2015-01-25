@@ -64,7 +64,7 @@
 <form id='main_form' method="post" action="submit"></form>
 <div class="outer">
 	<div class="inner">
-		<input name="title" type="text" form='main_form'>
+		<input id='title' name="title" type="text" form='main_form'>
 		<br>
 		Type:
 		<select name="type" required  form='main_form'>
@@ -84,6 +84,7 @@
 	<script>
 		update = function () {
 			document.getElementById('output').innerHTML = 
+				'<h3>' + document.getElementById('title').value + '</h3>' + 
 				marked(document.getElementById('input').value);
 		}
 	</script>

@@ -8,7 +8,7 @@ exports.login = function(req, res) {
 	auth.login(req.body.username, req.body.password, function() {
 		req.session.username = req.body.username;
 		console.log(req.body.password);
-		res.redirect('/private');
+		res.redirect('/admin');
 	}, function(error) {
 		res.send(error);
 	});

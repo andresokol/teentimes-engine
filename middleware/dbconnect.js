@@ -1,7 +1,7 @@
 var pg = require('pg'),
 	db_url = process.env.DATABASE_URL || "postgres://postgres:lollipop11@localhost:5432/postgres";
 
-exports.get_data = function (table, limit, callback) {
+exports.get_data = function (table, limit, show_hidden, callback) {
 	console.log("Gettin data from " + table + "...");
 	pg.connect(db_url, function(err, client, done) {
 		var handleError = function(err) {
@@ -14,7 +14,11 @@ exports.get_data = function (table, limit, callback) {
 		
 		if (!handleError) {return true};
 		
-		var qstring = "SELECT * FROM " + table + " ORDER BY id DESC LIMIT " + limit;
+		var qstring = "SELECT * FROM " + table;
+		
+		if (!show_hidden) qstring += " WHERE visible = true";
+		
+		qstring += " ORDER BY id DESC LIMIT " + limit;
 		
 		console.log(qstring);
 		
@@ -164,6 +168,39 @@ exports.get_user = function(table, username, callback) {
 		query.on('end', function(result) {
 			console.log("Found " + result.rows.length + " users " + username);
 			callback(result);
+		});
+		done();
+	});
+};
+
+exports.switch_visibility = function(table, id, callback) {
+	console.log("Switching visibility for post " + id);
+	pg.connect(db_url, function(err, client, done) {
+		var handleError = function(err) {
+			if(!err) return false;
+			done(client);
+			res.writeHead(500, {'content-type': 'text/plain'});
+			res.end('An error occurred');
+			return true;
+		};
+		
+		if (!handleError) {return true};
+		
+		var qstring = "UPDATE " + table + " SET visible = not (SELECT visible FROM " + table + " WHERE id = " + id + 
+						") WHERE id = " + id + ";";
+		
+		console.log(qstring);
+		
+		var query = client.query(qstring),
+			cnt = 0;
+		
+		query.on('row', function (row, result) {
+			result.addRow(row);
+		});
+		
+		query.on('end', function(result) {
+			console.log("done");
+			callback();
 		});
 		done();
 	});

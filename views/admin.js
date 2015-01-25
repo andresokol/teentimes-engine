@@ -3,7 +3,7 @@ var db = require('../middleware/dbconnect'),
 	md = require('marked');
 
 exports.show_admin_page = function(req, res) {
-	db.get_data(table, 100, function(query){
+	db.get_data(table, 100, true, function(query){
 		res.render("../templates/admin", {
 			posts: query.rows
 		});
@@ -34,11 +34,17 @@ exports.show_submit_page = function(req, res) {
 exports.show_success_page = function (req, res) {
 	db.get_max_id(table, function (id) {
 		var date = (new Date()).toUTCString(),
-			qstring = "values(" + (id.rows[0].id+1) + ",'" + req.body.title + "','" + req.body.body.replace(/'/g, "''") + "','" + date + "','" + req.body.type + "')";
+			qstring = "values(" + (id.rows[0].id+1) + ",'" + req.body.title + "','" + req.body.body.replace(/'/g, "''") + "','" + date + "','" + req.body.type + "','false')";
 		console.log("Trying to put in db " + qstring);
 		db.send_post(qstring, table, function (result) {
 			console.log("Successed");
 			res.send("<h3>Success!</h3>Get back now to <a href='/admin'>admin page</a> or <a href='/'>main page</a>");
 		});
+	});
+};
+
+exports.switch_visibility = function(req, res) {
+	db.switch_visibility(table, req.params.id, function() {
+		res.redirect('/admin');
 	});
 };
