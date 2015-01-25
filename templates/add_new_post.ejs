@@ -9,24 +9,83 @@
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="/img/favicon1.png" type="image/png">
+	<script src="/js/marked.js"></script>
+	<style>
+		body {
+			margin:0;
+			height:100vh;
+		}
+		form {
+			display: none;
+		}
+		div.outer {
+			height: 100%;
+			background-color: rgba(255, 255, 255, 0.8);
+		}
+		div.inner {
+			height: 10vh;
+			min-height:80px;
+		}
+		div.container {
+			min-height:200px;
+			height: 90vh;
+			min-width: 1200px;
+			width: 100%;
+			margin: auto;
+		}
+		div.container>textarea {
+			margin:0px;
+			padding:0px;
+			min-width: 600px;
+			width: 48%;
+			float: left;
+			height: 90%;
+			border: 1px;
+		}
+		div.container>div.render {
+			min-width:600px;
+			float:right;
+			background-color:rgb(250, 250, 250);
+			margin-top:0px;
+			width:48%;
+			height:90%;
+			border:1px;
+			overflow-y:auto;
+		}
+		input.update {
+			position: absolute;
+			top:10px;
+			right:10px;
+		}
+	</style>
     <title>New post</title>
 </head>
 <body>
-	<form method="post" action="submit" style="background-color:rgba(255, 255, 255, 0.8);padding:5px;">
-		<h3>Новый пост</h3>
-		Title:
-		<input name="title" type="text">
+<form id='main_form' method="post" action="submit"></form>
+<div class="outer">
+	<div class="inner">
+		<input name="title" type="text" form='main_form'>
 		<br>
 		Type:
-		<select name="type" required>
+		<select name="type" required  form='main_form'>
 			<option>article</option>
 			<option>music</option>
 			<option>picture</option>
 		</select>
-		<br>Body:<br>
-		<textarea name="body" cols="50" rows="10"></textarea>
 		<br>
-		<input type="submit" value="Submit">
-	</form>
+		<input type="submit" value="Submit" form='main_form'>
+		<input class='update' value="Update" type="button" onclick="update();">
+	</div>
+	<div class='container'>
+		<textarea id='input' name="body" type='text' form='main_form'></textarea>
+		<div id='output' class="article render"></div>
+	</div>
+</div>
+	<script>
+		update = function () {
+			document.getElementById('output').innerHTML = 
+				marked(document.getElementById('input').value);
+		}
+	</script>
 </body>
 </html>

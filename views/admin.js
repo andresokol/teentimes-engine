@@ -1,5 +1,6 @@
 var db = require('../middleware/dbconnect'),
-	table = "test_posts";
+	table = "test_posts",
+	md = require('marked');
 
 exports.show_admin_page = function(req, res) {
 	db.get_data(table, 100, function(query){
@@ -18,9 +19,9 @@ exports.show_submit_page = function(req, res) {
 	
 	// rendering HTML-code from post
 	var post = req.body.body;
-	post = "<p>" + post + "</p>";
-	post = post.replace(/\r?\n/g, "</p>\n<p>");
+	post = md(post);
 	//-------------------------------
+	
 	
 	res.render('../templates/submit_new_post', {
 		title: req.body.title,

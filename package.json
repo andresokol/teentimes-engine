@@ -10,6 +10,7 @@
     "ejs-locals": "^1.0.2",
     "express": "^4.10.6",
     "express-session": "^1.10.1",
+    "marked": "^0.3.2",
     "pg": "^4.1.1",
     "session": "^0.1.0"
   },
