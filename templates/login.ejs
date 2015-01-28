@@ -1,5 +1,22 @@
-<form method="post" action="">
-	<input name="username" type="text">
-	<input name="password" type="password">
-	<input type="submit" value="Login">
-</form>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/public/img/favicon1.png">
+    <title>Login</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/bootstrap/css/signin.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<form class="form-signin" method="post" action="">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<label for="inputEmail" class="sr-only">Username</label>
+			<input name="username" type="username" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		</form>
+	</div>
+</body>
+</html>

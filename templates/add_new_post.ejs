@@ -2,90 +2,81 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="ya-title=#2f4cd6,ya-dock=#fff">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="ya-title=#2f4cd6,ya-dock=#fff">-->
     <link rel="stylesheet" type="text/css" href="/main.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>	
     <link rel="shortcut icon" href="/img/favicon1.png" type="image/png">
+	<link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="/js/marked.js"></script>
 	<style>
 		body {
-			margin:0;
 			height:100vh;
+			min-width:0;
 		}
-		form {
-			display: none;
-		}
-		div.outer {
+		.container-fluid {
 			height: 100%;
-			background-color: rgba(255, 255, 255, 0.8);
 		}
-		div.inner {
-			height: 10vh;
-			min-height:80px;
+		.row {
+			height:100%;
 		}
-		div.container {
-			min-height:200px;
-			height: 90vh;
-			min-width: 1200px;
+		.col {
+			height:100%;
+		}
+		.article {
 			width: 100%;
-			margin: auto;
 		}
-		div.container>textarea {
-			margin:0px;
-			padding:0px;
-			min-width: 600px;
-			width: 48%;
-			float: left;
-			height: 90%;
-			border: 1px;
+		.col2 {
+			margin-bottom: 15px;
 		}
-		div.container>div.render {
-			min-width:600px;
-			float:right;
-			background-color:rgb(250, 250, 250);
-			margin-top:0px;
-			width:48%;
-			height:90%;
-			border:1px;
-			overflow-y:auto;
-		}
-		input.update {
-			position: absolute;
-			top:10px;
-			right:10px;
+		textarea {
+			resize: none;
 		}
 	</style>
     <title>New post</title>
 </head>
 <body>
 <form id='main_form' method="post" action="submit"></form>
-<div class="outer">
-	<div class="inner">
-		<input id='title' name="title" type="text" form='main_form'>
-		<br>
-		Type:
-		<select name="type" required  form='main_form'>
-			<option>article</option>
-			<option>music</option>
-			<option>picture</option>
-		</select>
-		<br>
-		<input type="submit" value="Submit" form='main_form'>
-		<input class='update' value="Update" type="button" onclick="update();">
-	</div>
-	<div class='container'>
-		<textarea id='input' name="body" type='text' form='main_form'></textarea>
-		<div id='output' class="article render"></div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-md-6 col" id='control' style="padding-top:10px;background-color:white;">
+			<div class="form-group">
+				<input id='title' name="title" type="text" form='main_form' placeholder="Title" class="form-control">
+			</div>
+			<div class="form-group">
+				<select name="type" required class="btn btn-default dropdown-toggle" form='main_form'>
+					<option class="btn">article</option>
+					<option class="btn">music</option>
+					<option class="btn">picture</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input class='update btn btn-default' value="Update" type="button" onclick="update();">
+				<input type="submit" value="Submit" form='main_form' class="btn btn-primary">
+			</div>
+			<textarea id='input' name="body" type='text' form='main_form' class="form-control"></textarea>
+		</div>
+		<div class="col-xs-12 col-md-6 col2">
+			<div id='output' class="article render">
+				<h3>Here goes title</h3>
+				<p>Here goes post</p>
+				<div id="time"><time>00:00</time></div>
+			</div>
+		</div>
 	</div>
 </div>
 	<script>
+		document.getElementById('input').style.height = 
+			(document.getElementById('control').offsetHeight - 175) + 'px';
+		//alert((document.getElementById('control').offsetHeight - 175) + 'px');
 		update = function () {
 			document.getElementById('output').innerHTML = 
 				'<h3>' + document.getElementById('title').value + '</h3>' + 
-				marked(document.getElementById('input').value);
+				marked(document.getElementById('input').value) + '<div id="time"><time>'  + 
+				String(new Date()).slice(16, 21) + '</time></div>';
 		}
 	</script>
 </body>

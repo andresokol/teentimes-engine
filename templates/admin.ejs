@@ -1,23 +1,18 @@
+<link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
-	table {
-		width: 100%;
-		min-width: 900px;
-		border-style:solid;
-		border-width:1px;
+	.body>div {
+		max-height:300px;
+		overflow-y:auto;
 	}
 	
-	tr:nth-child(odd) {
-		background-color:rgba(245, 230, 203, 0.3);	
-	}
-	tr:nth-child(even) {
-		background-color:rgba(120, 219, 226, 0.1);	
-	}
 	.time {
 		width:160px;
 	}
 	
 	.id {
-		width:20px;
+		width:30px;
+		font-weight:bold;
 	}
 	
 	.type {
@@ -28,13 +23,65 @@
 		width:200px;
 	}
 	
-	.body>div {
-		max-height:300px;
-		overflow-y:auto;
+	.switch {
+		text-align:center;
+	}
+</style>
+<br>
+<center><a class="btn btn-primary btn-lg" href="/admin/add">Add new post here</a></center>
+<br>
+
+<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
+	<thead>
+		<th class="id">ID</th>
+		<th class="type">TYPE</th>
+		<th class="title">TITLE</th>
+		<th class="body">BODY</th>
+		<th class="time">TIME</th>
+		<th class="switch">SHOW/HIDE</th>
+	</thead>
+	<% for(var i = 0; i < posts.length; i++) { %>
+		<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
+			<td class="id"><%- posts[i].id %></td>
+			<td class="type"><%- posts[i].type %></td>
+			<td class="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>
+			<td class="body"><div><%- posts[i].body %></div></td>
+			<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
+			<td class="switch"><form action="/admin/switch/<%- posts[i].id %>" method="post">
+				<input type='submit' value="Switch" class="btn btn-default">
+			</form></td>
+		</tr>
+	<% } %>
+</table>
+
+<!-- 
+<style>
+	table {
+		width: 100%;
+		min-width: 900px;
+		border-style:solid;
+		border-width:1px;
 	}
 	
+	td {
+		padding:0px;
+	}
+	
+	tr:nth-child(odd) {
+		background-color:rgba(245, 230, 203, 0.3);	
+	}
+	
+	tr:nth-child(odd)>td:nth-child(odd) {
+		background-color:rgba(187, 179, 163, 0.3);	
+	}
+	
+	tr:nth-child(even)>td:nth-child(odd) {	
+		background-color:rgba(189, 189, 189, 0.3);
+	}
+	
+	
 	.false {
-		background-color:rgba(100, 100, 100, 0.8)!important;
+		background:url('/img/closed.png');
 	}
 	.switch {
 		text-align: center;
@@ -43,30 +90,4 @@
 		font-weight: bold;
 		text-align: center;
 	}
-</style>
-
-<a href="/admin/add"><h3>Add new post here</h3></a>
-<br>
-
-<table>
-	<thead>
-		<td class="id">ID</td>
-		<td class="type">TYPE</td>
-		<td class="title">TITLE</td>
-		<td class="body">BODY</td>
-		<td class="time">TIME</td>
-		<td class="switch">SHOW/HIDE</td>
-	</thead>
-	<% for(var i = 0; i < posts.length; i++) { %>
-		<tr class="<%- posts[i].visible %>">
-			<td class="id"><%- posts[i].id %></td>
-			<td class="type"><%- posts[i].type %></td>
-			<td class="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>
-			<td class="body"><div><%- posts[i].body %></div></td>
-			<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
-			<td class="switch"><form action="/admin/switch/<%- posts[i].id %>" method="post">
-				<input type='submit' value="Switch">
-			</form></td>
-		</tr>
-	<% } %>
-</table>
+</style> --> d
