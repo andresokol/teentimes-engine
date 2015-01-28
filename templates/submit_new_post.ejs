@@ -36,7 +36,7 @@
 		<form class="submitbar" method="post" action="/admin" style="display:inline-block;" id="forward">
 			<input name="title" type="text" value="<%- title %>" style="display:none;">
 			<input name="type" type="text" value="<%- type %>" style="display:none;">
-			<textarea name="body" cols="40" rows="3" style="display:none;"><%- body %></textarea>
+			<textarea name="body" cols="40" rows="3" style="display:none;"><%- unrendered %></textarea>
 		</form>
 		<input type="submit" value="Cancel" class="btn btn-default btn-lg" form="back">
 		<input type="submit" value="Proceed" class="btn btn-primary btn-lg" form="forward">
@@ -44,7 +44,7 @@
 	
 	<div class="<%- type %>">
 		<h3><a href=""><%- title %></a></h3>
-		<%- body %>
+		<%- rendered %>
 		<div id="time">
 			<time><%- time %></time>
 		</div>

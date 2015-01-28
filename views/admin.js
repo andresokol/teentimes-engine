@@ -4,8 +4,11 @@ var db = require('../middleware/dbconnect'),
 
 exports.show_admin_page = function(req, res) {
 	db.get_data(table, 100, true, function(query){
+		var posts = query.rows;
+		for(var i = 0; i < posts.length; i++)
+			posts[i].body = md(posts[i].body);
 		res.render("../templates/admin", {
-			posts: query.rows
+			posts: posts
 		});
 	});
 };
@@ -19,13 +22,13 @@ exports.show_submit_page = function(req, res) {
 	
 	// rendering HTML-code from post
 	var post = req.body.body;
-	post = md(post);
 	//-------------------------------
 	
 	
 	res.render('../templates/submit_new_post', {
 		title: req.body.title,
-		body: post,
+		rendered: md(post),
+		unrendered: post,
 		type: req.body.type,
 		time: String(date).slice(17, 22)
 	});
@@ -34,7 +37,7 @@ exports.show_submit_page = function(req, res) {
 exports.show_success_page = function (req, res) {
 	db.get_max_id(table, function (id) {
 		var date = (new Date()).toUTCString(),
-			qstring = "values(" + (id.rows[0].id+1) + ",'" + req.body.title + "','" + req.body.body.replace(/'/g, "''") + "','" + date + "','" + req.body.type + "','false')";
+			qstring = "values(" + (id.rows[0].id+1) + ",'" + req.body.title.replace(/'/g, "''") + "','" + req.body.body.replace(/'/g, "''") + "','" + date + "','" + req.body.type + "','false')";
 		console.log("Trying to put in db " + qstring);
 		db.send_post(qstring, table, function (result) {
 			console.log("Successed");
