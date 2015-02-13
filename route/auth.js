@@ -1,7 +1,7 @@
 var auth = require('../middleware/auth');
 
 exports.show_login_form = function(req, res) {
-	res.render('../templates/login');
+	res.render('../templates/admin/login');
 };
 
 exports.login = function(req, res) {

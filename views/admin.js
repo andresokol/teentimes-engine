@@ -14,7 +14,7 @@ exports.show_admin_page = function(req, res) {
 };
 
 exports.show_add_page = function(req, res) {
-	res.render('../templates/add_new_post', {});
+	res.render('../templates/admin/add_new_post', {});
 };
 
 exports.show_submit_page = function(req, res) {
@@ -24,8 +24,7 @@ exports.show_submit_page = function(req, res) {
 	var post = req.body.body;
 	//-------------------------------
 	
-	
-	res.render('../templates/submit_new_post', {
+	res.render('../templates/admin/submit_new_post', {
 		title: req.body.title,
 		rendered: md(post),
 		unrendered: post,
@@ -51,3 +50,15 @@ exports.switch_visibility = function(req, res) {
 		res.redirect('/admin');
 	});
 };
+
+exports.ask_for_delete = function(req, res) {
+	db.get_article(table, req.params.id, undefined, function(query) {
+		res.render('../templates/admin/delete_post', {
+				   post: query.rows[0]
+		});
+	}, function () {
+		res.send('No such article =(');
+	});
+};
+
+exports.delete_post

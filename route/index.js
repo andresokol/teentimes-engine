@@ -6,13 +6,25 @@ var main = require("./main"),
 
 module.exports = function (app) {
 	app.get('/', main.home);
+	
+	app.get('/articles/', main.hub_article);
 	app.get('/articles/:id', main.article);
+	app.get('/img/', main.hub_img);
+	app.get('/img/:id', main.img);
+	app.get('/music/', main.hub_music);
+	app.get('/articles/:id', main.music);
+	app.get('/lastissue/', main.hub_lastissue);
+	app.get('/lastissue/:id', main.lastissue);
+	
 	app.get('/admin', admin.admin_page);
 	app.get('/admin/add', admin.add_new_post);
 	app.post('/admin/submit', admin.submit_new_post);
 	app.post('/admin/switch/:id', admin.switch_visibility);
 	app.post('/admin', admin.add_post_to_db);
-	app.get('/db/*', dbcheck.main);
+	app.get('/admin/delete/:id', admin.ask_for_delete);
+	app.post('/admin/delete', admin.delete_post);
+	//app.get('/db/*', dbcheck.main);
+	
 	app.get('/login', auth.show_login_form);
 	app.post('/login', auth.login);
 	app.get('/private', auth.check_login);

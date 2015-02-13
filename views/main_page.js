@@ -7,17 +7,26 @@ exports.main = function(req, res, posts_on_page) {
 		var posts = query.rows;
 		for(var i = 0; i < posts.length; i++)
 			posts[i].body = md(posts[i].body);
-		res.render('../templates/main', {
+		res.render('../templates/pages/main', {
 			posts: query.rows
 		});
 	});
 };
 
-exports.article = function(req, res) {
-	db.get_article(table, req.params.id, function (query) {
+exports.article = function(req, res, type) {
+	db.get_article(table, req.params.id, type, function (query) {
 		query = query.rows;
-		res.render('../templates/page.ejs', {
+		res.render('../templates/pages/article.ejs', {
 			posts: query
 		});
-	}, function() {res.send('Something broke here =( Cannot find the article with id ' + req.params.id);});
+	}, function() {res.redirect('/lost');});
+};
+
+exports.hub = function(req, res, type) {
+	db.get_hub(table, type, 10, function (query) {
+		query = query.rows;
+		res.render('../templates/pages/main.ejs', {
+			posts: query
+		});
+	}, function() {res.redirect('/lost');});
 };

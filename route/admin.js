@@ -3,7 +3,7 @@ var adm = require('../views/admin'),
 
 restricted = function(req, res, callback) {
 	auth.isAuthentificated(req, res, callback, function(req, res) {
-		res.redirect('/lost');
+		res.redirect('/login');
 	});
 };
 
@@ -25,4 +25,12 @@ exports.admin_page = function (req, res) {
 
 exports.switch_visibility = function (req, res) {
 	restricted(req, res, adm.switch_visibility);
+};
+
+exports.ask_for_delete = function (req, res) {
+	restricted(req, res, adm.ask_for_delete);
+};
+
+exports.delete_post = function (req, res) {
+	restricted(req, res, adm.delete_post);
 };

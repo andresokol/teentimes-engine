@@ -105,7 +105,7 @@ exports.get_max_id = function (table, callback) {
 	});
 };
 
-exports.get_article = function(table, id, callback, failed) {
+exports.get_article = function(table, id, type, callback, failed) {
 	console.log("Looking for article " + id + " from table " + table);
 	pg.connect(db_url, function(err, client, done) {
 		var handleError = function(err) {
@@ -130,10 +130,48 @@ exports.get_article = function(table, id, callback, failed) {
 		});
 		
 		query.on('end', function(result) {
-			if (result.rows.length == 0) {
+			if ((result.rows.length == 0 || result.rows[0].type != type) && type != undefined) {
+				console.log('Failed');
 				failed();
 			} else {
 				console.log("Got article '" + result.rows[0].title + "' for id " + id);
+				callback(result);
+			}
+		});
+		done();
+	});
+};
+
+
+exports.get_hub = function(table, type, limit, callback, failed) {
+	console.log("Looking for " + type + " from table " + table);
+	pg.connect(db_url, function(err, client, done) {
+		var handleError = function(err) {
+			if(!err) return false;
+			done(client);
+			res.writeHead(500, {'content-type': 'text/plain'});
+			res.end('An error occurred');
+			return true;
+		};
+		
+		if (!handleError) {return true};
+		
+		var qstring = "SELECT * FROM " + table + " WHERE type = '" + type + "' ORDER BY id DESC LIMIT " + limit;
+		
+		console.log(qstring);
+		
+		var query = client.query(qstring),
+			cnt = 0;
+		
+		query.on('row', function (row, result) {
+			result.addRow(row);
+		});
+		
+		query.on('end', function(result) {
+			if (result.rows.length == 0) {
+				failed();
+			} else {
+				console.log("Got " + result.rows.length + " of " + type);
 				callback(result);
 			}
 		});
