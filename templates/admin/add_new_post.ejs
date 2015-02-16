@@ -9,9 +9,9 @@
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>	
-    <link rel="shortcut icon" href="/img/favicon1.png" type="image/png">
+    <link rel="shortcut icon" href="/public/img/favicon1.png" type="image/png">
 	<link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="/js/marked.js"></script>
+	<script src="/public/js/marked.js"></script>
 	<style>
 		body {
 			height:100vh;
@@ -47,10 +47,14 @@
 				<input id='title' name="title" type="text" form='main_form' placeholder="Title" class="form-control">
 			</div>
 			<div class="form-group">
+				<input id='tags' name="tags" type="text" form='main_form' placeholder="Tags" class="form-control">
+			</div>
+			<div class="form-group">
 				<select name="type" required class="btn btn-default dropdown-toggle" form='main_form'>
 					<option class="btn">article</option>
 					<option class="btn">music</option>
-					<option class="btn">picture</option>
+					<option class="btn">img</option>
+					<option class="btn">lastissue</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -70,7 +74,7 @@
 </div>
 	<script>
 		document.getElementById('input').style.height = 
-			(document.getElementById('control').offsetHeight - 175) + 'px';
+			(document.getElementById('control').offsetHeight - 224) + 'px';
 		//alert((document.getElementById('control').offsetHeight - 175) + 'px');
 		update = function () {
 			document.getElementById('output').innerHTML = 

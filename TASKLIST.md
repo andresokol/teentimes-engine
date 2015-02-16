@@ -2,9 +2,9 @@
 
 These a things to be done
 
-* Users info
 * Tags
 * Post editing
+* Users info
 * Admin page on React
 * Cipher passwords in table
 * Markdown posts rendering - beautify plz

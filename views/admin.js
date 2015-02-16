@@ -29,6 +29,7 @@ exports.show_submit_page = function(req, res) {
 		title: req.body.title,
 		rendered: md(post),
 		unrendered: post,
+		tags: req.body.tags,
 		type: req.body.type,
 		time: String(date).slice(17, 22)
 	});

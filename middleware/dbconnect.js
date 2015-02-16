@@ -307,3 +307,24 @@ exports.delete_article = function(table, id, callback) {
 		done();
 	});
 };
+
+exports.get_tags_by_post = function(table, id, callback) {
+	console.log('Searching tags for id' + id);
+	pg.connect(db_url, function(err, client, done) {
+		var qstring = "SELECT tag FROM " + table + " WHERE id = " + id + ";";
+		
+		console.log(qstring);
+		
+		var query = client.query(qstring);
+		
+		query.on('row', function (row, result) {
+			result.addRow(row);
+		});
+		
+		query.on('end', function(result) {
+			console.log(result.rows.length);
+			callback(result);
+		});
+		done();
+	});
+};

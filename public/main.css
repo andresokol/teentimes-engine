@@ -1,5 +1,5 @@
 body {
-    background-image: url(img/teentimesbg2.png);  
+    background-image: url(/public/img/teentimesbg2.png);  
     background-size: auto;
     background-repeat: auto;
     min-width: 600px;
@@ -78,7 +78,7 @@ body {
 @media only screen and (max-width: 480px) {
     body {
         max-width: 768px;
-        background-image: url(img/mobg.png);
+        background-image: url(/public/img/mobg.png);
     }     
     .Header p {
         font-family: PT Sans, monospace;
