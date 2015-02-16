@@ -8,7 +8,8 @@ exports.show_admin_page = function(req, res) {
 		for(var i = 0; i < posts.length; i++)
 			posts[i].body = md(posts[i].body);
 		res.render("../templates/admin", {
-			posts: posts
+			posts: posts,
+			username: req.session.username
 		});
 	});
 };
@@ -61,4 +62,16 @@ exports.ask_for_delete = function(req, res) {
 	});
 };
 
-exports.delete_post
+exports.delete_post = function(req, res) {
+	db.delete_article(table, req.body.id, function() {
+		res.redirect('/admin');
+	});
+};
+
+exports.show_user = function(req, res) {
+	db.get_user('users', req.session.username, function(query) {
+		res.render('../templates/admin/user_page', {
+			user: query.rows[0]
+		});
+	});
+};

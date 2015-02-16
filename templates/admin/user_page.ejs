@@ -1,0 +1,60 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/public/img/favicon1.png">
+    <title>Login</title>
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<style>
+	body {
+		background-color: #eee;
+	}
+	
+	.row {
+		margin: 10px;
+	}
+	
+	.row>div {
+		border-radius: 5px;
+		background-color: #fff;
+		padding: 5px;
+	}
+	
+	.name {
+		text-align: center;
+	}
+	
+	.name>h1 {
+		margin: 15px;
+	}
+	
+	.about>p {
+		margin: 10px;
+	}
+	
+	/*.logo {
+		width: 100px;
+		height: 100px;
+	}
+	
+	.row>img {
+		border-radius: 50%;
+	}*/
+</style>
+<div class='container'>
+	<div class="row">
+		<img class="img-responsive img-circle col-md-2 col-xs-6" src="/public/img/profile_pics/<%- user.username %>.jpg">
+		<div class="name col-md-10 col-xs-6">
+			<h1><%- user.name %></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="about">
+			<p><%- user.about %></p>
+		</div>
+	</div>
+	<a href="./" class="btn btn-lg btn-primary" role="button">Back</a>
+</div>
+</body>

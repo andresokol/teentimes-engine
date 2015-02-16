@@ -20,7 +20,7 @@
 <center>
 <a href="/admin" class='btn btn-lg btn-default'>Cancel</a>
 <form method="post" action="/admin/delete" id="form" style="display:none;">
-	<input type="text" value='<%- post.id %>'>
+	<input type="text"  name="id" value='<%- post.id %>'>
 </form>
 <input type="submit" value="Delete" class="btn btn-lg btn-danger" form="form">
 </center>

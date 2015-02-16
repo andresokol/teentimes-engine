@@ -34,3 +34,8 @@ exports.ask_for_delete = function (req, res) {
 exports.delete_post = function (req, res) {
 	restricted(req, res, adm.delete_post);
 };
+
+exports.show_user = function (req, res) {
+	restricted(req, res, adm.show_user);
+};
+

@@ -23,6 +23,7 @@ module.exports = function (app) {
 	app.post('/admin', admin.add_post_to_db);
 	app.get('/admin/delete/:id', admin.ask_for_delete);
 	app.post('/admin/delete', admin.delete_post);
+	app.get('/admin/user', admin.show_user);
 	//app.get('/db/*', dbcheck.main);
 	
 	app.get('/login', auth.show_login_form);

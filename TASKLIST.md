@@ -3,7 +3,8 @@
 These a things to be done
 
 * Users info
-* Admin page on Sockets.IO
+* Tags
 * Post editing
+* Admin page on React
 * Cipher passwords in table
 * Markdown posts rendering - beautify plz
