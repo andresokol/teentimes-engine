@@ -99,7 +99,7 @@ exports.show_edit_page = function(req, res) {
 };
 
 exports.save_edited_post = function(req, res) {
-	var qsrting =   'UPDATE ' + table + 
+	var qstring =   'UPDATE ' + table + 
 					" SET body = '" + req.body.body + 
 					"', title = '" + req.body.title +
 					"' WHERE id = " + req.params.id;					;
