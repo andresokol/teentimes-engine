@@ -45,6 +45,9 @@
 			<time><%- time %></time>
 		</div>
 	</div>
-	<script defer>alert('<%- tags %>');</script>
+	<script defer>
+		var x = '<%- tags %>';
+		alert(x.split(' '));
+	</script>
 </body>
 </html>

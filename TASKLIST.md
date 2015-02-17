@@ -2,7 +2,7 @@
 
 These a things to be done
 
-* Tags
+* INSERT TAGS INTO PAGE.EJS !!
 * Post editing
 * Users info
 * Admin page on React

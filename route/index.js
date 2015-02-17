@@ -5,7 +5,7 @@ var main = require("./main"),
 	dbcheck = require("./dbcheck"),
 	ajax = require('./ajax'),
 	test = function(req, res) {
-		res.send('<script src="/ajax/tags/16" type="text/javascript"></script>');
+		res.send('<div id="p16"></div><script src="/ajax/tags/16" type="text/javascript"></script>');
 	};
 
 module.exports = function (app) {
@@ -32,6 +32,8 @@ module.exports = function (app) {
 	app.get('/admin/delete/:id', admin.ask_for_delete);
 	app.post('/admin/delete', admin.delete_post);
 	app.get('/admin/user', admin.show_user);
+	app.get('/admin/edit/:id', admin.edit_post);
+	app.post('/admin/edit/:id', admin.save_post);
 	
 	// Authentification
 	app.get('/login', auth.show_login_form);

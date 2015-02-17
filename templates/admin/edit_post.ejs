@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="ya-title=#2f4cd6,ya-dock=#fff">-->
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>	
+    <link rel="shortcut icon" href="/public/img/favicon1.png" type="image/png">
+	<link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="/public/js/marked.js"></script>
+	<style>
+		body {
+			height:100vh;
+			min-width:0;
+		}
+		.container-fluid {
+			height: 100%;
+		}
+		.row {
+			height:100%;
+		}
+		.col {
+			height:100%;
+		}
+		.article {
+			width: 100%;
+		}
+		.col2 {
+			margin-bottom: 15px;
+		}
+		textarea {
+			resize: none;
+		}
+	</style>
+    <title>Edit post "<%- post.title %>"</title>
+</head>
+<body>
+<form id='main_form' method="post" action=""></form>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-md-6 col" id='control' style="padding-top:10px;background-color:white;">
+			<div class="form-group">
+				<input value='<%- post.title %>' id='title' name="title" type="text" form='main_form' placeholder="Title" class="form-control">
+			</div>
+			<div class="form-group">
+				<input id='p<%- post.id %>' name="tags" type="text" form='main_form' placeholder="Tags" class="form-control">
+			</div>
+			<div class="form-group">
+				<select name="type" required class="btn btn-default dropdown-toggle" form='main_form'>
+					<option class="btn">article</option>
+					<option class="btn">music</option>
+					<option class="btn">img</option>
+					<option class="btn">lastissue</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input class='update btn btn-default' value="Update" type="button" onclick="update();">
+				<input type="submit" value="Submit" form='main_form' class="btn btn-primary">
+			</div>
+			<textarea id='input' name="body" type='text' form='main_form' class="form-control"><%- post.body %>		</textarea>
+		</div>
+		<div class="col-xs-12 col-md-6 col2">
+			<div id='output' class="article render">
+				<h3>Here goes title</h3>
+				<p>Here goes post</p>
+				<div id="time"><time>00:00</time></div>
+			</div>
+		</div>
+	</div>
+</div>
+	<script src='/ajax/tags/<%- post.id %>'></script>
+	<script>
+		document.getElementById('input').style.height = 
+			(document.getElementById('control').offsetHeight - 224) + 'px';
+		update = function () {
+			document.getElementById('output').innerHTML = 
+				'<h3>' + document.getElementById('title').value + '</h3>' + 
+				marked(document.getElementById('input').value) + '<div id="time"><time>'  + 
+				String(new Date()).slice(16, 21) + '</time></div>';
+		}
+		el.value = tags.join(" ");
+		update();
+	</script>
+</body>
+</html>

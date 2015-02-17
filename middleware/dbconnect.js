@@ -39,23 +39,7 @@ exports.get_data = function (table, limit, show_hidden, callback) {
 
 exports.send_post = function (qstring, table, callback) {
 	console.log("Connectin....");
-	console.log(qstring);
 	pg.connect(db_url, function(err, client, done) {
-		console.log(this.qstring);
-		var handleError = function(err) {
-			if(!err) return false;
-			done(client);
-			res.writeHead(500, {'content-type': 'text/plain'});
-			res.end('An error occurred');
-			return true;
-		};
-		
-		if (!handleError) {return true};
-		
-		console.log(this.qstring);
-		
-		var qstring = "INSERT INTO " + table + " " + this.qstring;
-		
 		console.log(qstring);
 		
 		var query = client.query(qstring),
@@ -70,7 +54,7 @@ exports.send_post = function (qstring, table, callback) {
 			callback(result);
 		});
 		done();
-	}.bind({qstring:qstring}) );
+	});
 };
 
 exports.get_max_id = function (table, callback) {
@@ -315,6 +299,23 @@ exports.get_tags_by_post = function(table, id, callback) {
 		
 		console.log(qstring);
 		
+		var query = client.query(qstring);
+		
+		query.on('row', function (row, result) {
+			result.addRow(row);
+		});
+		
+		query.on('end', function(result) {
+			console.log(result.rows.length);
+			callback(result);
+		});
+		done();
+	});
+};
+
+exports.run = function(qstring, callback) {
+	console.log('Running' + qstring);
+	pg.connect(db_url, function(err, client, done) {				
 		var query = client.query(qstring);
 		
 		query.on('row', function (row, result) {

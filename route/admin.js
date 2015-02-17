@@ -39,3 +39,11 @@ exports.show_user = function (req, res) {
 	restricted(req, res, adm.show_user);
 };
 
+
+exports.edit_post = function (req, res) {
+	restricted(req, res, adm.show_edit_page);
+};
+
+exports.save_post = function (req, res) {
+	restricted(req, res, adm.save_edited_post);
+};
