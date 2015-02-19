@@ -114,7 +114,7 @@ exports.get_article = function(table, id, type, callback, failed) {
 		});
 		
 		query.on('end', function(result) {
-			if ((result.rows.length == 0 || result.rows[0].type != type) && type != undefined) {
+			if (/*(result.rows.length == 0 || result.rows[0].type != type) && type != undefined*/false) {
 				console.log('Failed');
 				failed();
 			} else {
