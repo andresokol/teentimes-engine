@@ -39,3 +39,8 @@ exports.hub_music = function (req, res) {
 exports.hub_lastissue = function (req, res) {
 	pages.hub(req, res, 'lastissue');
 };
+
+
+exports.tagsearch = function(req, res) {
+	pages.tagsearch(req, res);
+};

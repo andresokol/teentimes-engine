@@ -140,7 +140,8 @@ exports.get_hub = function(table, type, limit, callback, failed) {
 		
 		if (!handleError) {return true};
 		
-		var qstring = "SELECT * FROM " + table + " WHERE type = '" + type + "' ORDER BY id DESC LIMIT " + limit;
+		var qstring = 	"SELECT * FROM " + table + " WHERE type = '" + type + 
+						"' and visible = true ORDER BY id DESC LIMIT " + limit;
 		
 		console.log(qstring);
 		
@@ -220,7 +221,6 @@ exports.get_user = function(table, username, callback) {
 		});
 		
 		query.on('end', function(result) {
-			console.log("Found " + result.rows[0].length + " users " + username);
 			callback(result);	
 		});
 		done();
@@ -317,6 +317,24 @@ exports.run = function(qstring, callback) {
 	console.log('Running' + qstring);
 	pg.connect(db_url, function(err, client, done) {				
 		var query = client.query(qstring);
+		
+		query.on('row', function (row, result) {
+			result.addRow(row);
+		});
+		
+		query.on('end', function(result) {
+			console.log(result.rows.length);
+			callback(result);
+		});
+		done();
+	});
+};
+
+exports.get_posts_by_tag = function(table_posts, table_tags, tag, callback) {
+	pg.connect(db_url, function(err, client, done) {
+		var qstring =	"SELECT * FROM " + table_posts + " WHERE id in (SELECT id FROM " + table_tags + 
+						" WHERE tag = '" + tag + "') and visible = true;",
+			query = client.query(qstring);
 		
 		query.on('row', function (row, result) {
 			result.addRow(row);

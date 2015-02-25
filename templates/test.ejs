@@ -1,0 +1,22 @@
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<div class='tags' id='p16'></div><br>
+<div class='tags' id='p17'></div><br>
+<div class='tags' id='p18'></div><br>
+
+<script>
+	$(document).ready(function () {
+		$('.tags').each(function () {
+			var id = this.id;
+			$.ajax({
+				url: '/ajax/tags/' + id.substr(1, id.length - 1),
+				type: 'GET',
+				dataType: 'json',
+				success: function (msg) {
+					$(this).text(msg);
+					console.log(msg);
+				}.bind(this)
+			});
+		});
+	});
+</script>

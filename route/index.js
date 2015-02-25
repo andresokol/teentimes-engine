@@ -5,7 +5,7 @@ var main = require("./main"),
 	dbcheck = require("./dbcheck"),
 	ajax = require('./ajax'),
 	test = function(req, res) {
-		res.send('<div id="p16"></div><script src="/ajax/tags/16" type="text/javascript"></script>');
+		res.render('../templates/test.ejs');
 	};
 
 module.exports = function (app) {
@@ -20,8 +20,11 @@ module.exports = function (app) {
 	app.get('/lastissue/', main.hub_lastissue);
 	app.get('/lastissue/:id', main.lastissue);
 	
+	app.get('/tag/:tag', main.tagsearch);
+	
 	// AJAX
 	app.get('/ajax/tags/:id', ajax.tags);
+	app.get('/ajax/author/:username', ajax.author);
 	
 	// Admin page
 	app.get('/admin', admin.admin_page);

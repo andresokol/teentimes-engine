@@ -1,11 +1,25 @@
-var db = require('../middleware/dbconnect');
+var db = require('../middleware/dbconnect'),
+	tag_table = 'tags',
+	author_table = 'users';
 
 exports.tags = function(req, res) {
-	db.get_tags_by_post('tags', req.params.id, function (result) {
-		var ans = "var el = document.getElementById('p" + req.params.id + "');\n" + 
-				  'var tags = ["';
-		for(var i = 0; i < result.rows.length; i++) ans += result.rows[i].tag + '", "';
-		if (result.rows.length == 0) res.send('');
-		else res.send(ans.substr(0, ans.length - 3) + '];\nel.innerText = tags;');
+	var id = parseInt(req.params.id);
+	if (!isNaN(id)) {
+		db.get_tags_by_post('tags', id.toString(), function (result) {
+			var ans = [];
+			for(var i = 0; i < result.rows.length; i++) ans.push(result.rows[i].tag);
+			res.send(JSON.stringify(ans));
+		});
+	} else {
+		res.send('[]');
+	}
+};
+
+exports.author = function(req, res) {
+	var username = req.params.username.replace(/'/g, "''");
+	db.get_user(author_table, username, function(result) {
+		var ans = result.rows[0];
+		if(ans != null) delete ans.password;
+		res.send(JSON.stringify(ans));
 	});
 };
