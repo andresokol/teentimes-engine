@@ -305,8 +305,22 @@ NavBar #nyaa {
     margin-right: 15px;
     padding-right: 50px;
 }
-.footerref .textmain #authors p {
-    display: inline;
+.footerref .textmain #authors li {
+    display: inline-table;
+}
+.footerref .textmain #authors li p {
+    position: absolute;
+4
+    top: 50%;
+5
+    left: 50%;
+6
+    height: 30%;
+7
+    width: 50%;
+8
+    margin: -15% 0 0 -25%;
+
 }
 .footerref .textmain #authors img {
     border-radius: 100%;
