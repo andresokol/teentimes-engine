@@ -3,23 +3,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/public/img/favicon1.png">
-    <title>Login</title>
+    <title><%- user.username %></title>
     <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<style>
-	body {
-		background-color: #eee;
-	}
-	
+<style>	
 	.row {
 		margin: 10px;
 	}
 	
-	.row>div {
+	.row textarea {
 		border-radius: 5px;
+		border-width: 1px;
+		border-style: solid;
 		background-color: #fff;
 		padding: 5px;
+		resize: none;
 	}
 	
 	.name {
@@ -30,31 +29,41 @@
 		margin: 15px;
 	}
 	
-	.about>p {
-		margin: 10px;
-	}
-	
-	/*.logo {
-		width: 100px;
+	.about {
+		padding: 10px;
 		height: 100px;
 	}
 	
-	.row>img {
-		border-radius: 50%;
-	}*/
+	.imgurl {
+	}
 </style>
+<script>
+	function update_userpic() {
+		document.getElementById('userpic').src = document.getElementById('userpic_url').value;
+	}
+</script>
+<form method="post" action>
 <div class='container'>
 	<div class="row">
-		<img class="img-responsive img-circle col-md-2 col-xs-6" src="/public/img/profile_pics/<%- user.username %>.jpg">
-		<div class="name col-md-10 col-xs-6">
-			<h1><%- user.name %></h1>
-		</div>
+		<img class="img-responsive img-circle col-md-2 col-xs-6" src="<%- user.imgurl %>" id='userpic'>
+		<h1>
+			<textarea name="name" class="name col-md-10 col-xs-6"><%- user.name %></textarea>
+		</h1>
 	</div>
 	<div class="row">
-		<div class="about">
-			<p><%- user.about %></p>
-		</div>
+		<p>
+			<textarea name="about" class="about col-md-12 col-xs-12"><%- user.about %></textarea>
+		</p>
 	</div>
-	<a href="./" class="btn btn-lg btn-primary" role="button">Back</a>
+	<div class="row">
+		<p>Userpic URL here:</p>
+		<textarea name="imgurl" id='userpic_url' class="imgurl col-md-12 col-xs-12"><%- user.imgurl %></textarea>
+	</div>
+	<div class="row">
+		<a href="./" class="btn btn-lg btn-primary" role="button">Back</a>
+		<a onclick="update_userpic();" class="btn btn-lg btn-default" role="button">Check userpic!</a>
+		<input type="submit" class="btn btn-lg btn-default" value='Update'>
+	</div>
 </div>
+</form>
 </body>

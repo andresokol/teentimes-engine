@@ -39,6 +39,10 @@ exports.show_user = function (req, res) {
 	restricted(req, res, adm.show_user);
 };
 
+exports.update_user = function (req, res) {
+	restricted(req, res, adm.update_user);
+};
+
 
 exports.edit_post = function (req, res) {
 	restricted(req, res, adm.show_edit_page);

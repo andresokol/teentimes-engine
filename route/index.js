@@ -5,7 +5,7 @@ var main = require("./main"),
 	dbcheck = require("./dbcheck"),
 	ajax = require('./ajax'),
 	test = function(req, res) {
-		res.render('../templates/test.ejs');
+		res.send();
 	};
 
 module.exports = function (app) {
@@ -36,6 +36,7 @@ module.exports = function (app) {
 	app.get('/admin/delete/:id', admin.ask_for_delete);
 	app.post('/admin/delete', admin.delete_post);
 	app.get('/admin/user', admin.show_user);
+	app.post('/admin/user', admin.update_user);
 	app.get('/admin/edit/:id', admin.edit_post);
 	app.post('/admin/edit/:id', admin.save_post);
 	
@@ -47,5 +48,5 @@ module.exports = function (app) {
 	app.get('/lost', error.p404);
 	
 	// Test
-	app.get('/test', test);
+	app.post('/test', test);
 };

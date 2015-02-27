@@ -43,7 +43,7 @@ exports.show_success_page = function (req, res) {
 					+ " values(" + (id.rows[0].id+1) + ",'" 
 					+ req.body.title.replace(/'/g, "''") + "','" 
 					+ req.body.body.replace(/'/g, "''") + "','" 
-					+ date + "','" + req.body.type + "','false');",
+					+ date + "','" + req.body.type + "','false', '" + req.session.username + "');",
 			tags = req.body.tags.split(" ");
 		
 		console.log(tags.length);
@@ -82,9 +82,18 @@ exports.delete_post = function(req, res) {
 
 exports.show_user = function(req, res) {
 	db.get_user('users', req.session.username, function(query) {
+		console.log(query.rows[0].imgurl);
 		res.render('../templates/admin/user_page', {
 			user: query.rows[0]
 		});
+	});
+};
+
+exports.update_user = function(req, res) {
+	var ans = "UPDATE users SET name = '" + req.body.name.replace(/'/g, "''") + "', about = '" + 
+				req.body.about.replace(/'/g, "''") + "' WHERE username = '" + req.session.username + "';";
+	db.run(ans, function(query) {
+		res.redirect('/admin/user');
 	});
 };
 
@@ -102,7 +111,7 @@ exports.save_edited_post = function(req, res) {
 	var qstring =   'UPDATE ' + table + 
 					" SET body = '" + req.body.body + 
 					"', title = '" + req.body.title +
-					"' WHERE id = " + req.params.id;					;
+					"' WHERE id = " + req.params.id;
 	db.run(qstring, function(result) {
 		res.redirect('/admin')
 	}, function() {
