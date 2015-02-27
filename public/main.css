@@ -169,7 +169,7 @@ iframe{
 
 .NavBar {
     background-color: #2f4cd6;
-    position: fixed;
+    position: relative;
     z-index: 1;
     display: block;
     margin-left: auto;
@@ -184,7 +184,6 @@ iframe{
 }
 NavBar #nyaa {
     display: inline-block;
-    top: -40%;
     position: relative;
 }
 .NavBar li {
@@ -261,6 +260,7 @@ NavBar #nyaa {
 .tags {
     font-size: 14px;
     margin-left: 20px;
+    margin-top: 5px;
 }
 .tags a {
     color: #aeaeae;
@@ -268,6 +268,49 @@ NavBar #nyaa {
 #disqus_thread {
     margin:8px;
 }
+
+/* footref */
+
+.footerref {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.footerref .textmain {
+    background: #fff;
+    font-family: PT Sans, monospace;
+    width: 100%;
+    border: white solid;
+    box-shadow: 5px 5px 5px #888888;
+    padding: 5px;
+}
+.footerref .textmain #about {
+    text-align: left;
+}
+.footerref .textmain #about h3 {
+    text-align: center;
+}
+.footerref .textmain #contact {
+    font-family: PT Sans, monospace;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.footerref .textmain #contact input {
+    border: 0;
+    padding: 10px;
+    font-size: 18px;
+}
+.footerref .textmain #contact input[type="submit"] {
+    background: #195da1;
+    color: #fff;
+}
+    
+
+/*----------------------------------------------------*/
+/*----------------------------------------------------*/
+/*----------------------------------------------------*/
+
 
 /* media query */
 
