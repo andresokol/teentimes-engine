@@ -4,35 +4,60 @@
         <meta charset="utf-8">
         <meta name="viewport" content="ya-title=#2f4cd6,ya-dock=#fff">
         <link rel="stylesheet" type="text/css" href="/public/main.css">
-        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Istok+Web&subset=cyrillic-ext' rel='stylesheet' type='text/css'>
+        <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="/public/js/main.js"></script>
         <link rel="shortcut icon" href="/public/img/favicon1.png" type="image/png">
-        <title>Zen Sick</title>
+        <title><%- post.title %> - Zen Sick</title>
     </head>
     <body>
         <div class="NavBar">
-            <ul>
-                <li><a href="/"><img src="/public/img/nav1.png"></a>
-                <li><a href="/lastissue">LAST ISSUE</a></li>
-                <li><a href="/art">ART</a></li>
-                <li><a href="/music">MUSIC</a></li>
-                <li><a href="/literature">LITERATURE</a></li>
-                <li><a href="/articles">ARTICLES</a></li>
-            </ul>
+            <div id="zensick">
+            <a href="/"><img src="/public/img/nav1.png"></a>
+            </div>
+                <ul id="nyaa">
+                    <li><a href="/lastissue">LAST ISSUE</a></li>
+                    <li><a href="/img">ART</a></li>
+                    <li><a href="/music">MUSIC</a></li>
+                    <li><a href="/literature">LITERATURE</a></li>
+                    <li><a href="/article">ARTICLES</a></li>
+                </ul>
         </div>
         <div class="column">
-            <% for(var i = 0; i < posts.length; i++) { %>
-                <div class="<%- posts[i].type %>">
-			         <h3><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></h3>
-			         <%- posts[i].body %>
-            <div id="time">
-				<time><%- String(posts[i].created).slice(16, 21) %></time>
-			 </div>
-		          </div>
-            <% } %>
+            <div class="<%- post.type %>">
+			         <h3><a href="/article/<%- post.id %>"><%- post.title %></a></h3>
+			         <%- post.body %>
+                <div class='tags' id='t<%- post.id %>'></div>
+                <div id="time">
+				    <time><%- String(post.created).slice(16, 21) %></time>
+			    </div>
+                <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'zensick';
+    
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
         </div>
+        <div class="bars">
+        <div class="lowbar">
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/authors">Authors</a></li>
+                <li><a href="/contacts">Contact Us</a></li>
+                <li><p>©Zen Sick Webzin. 2014.</p></li>
+            </ul>
+        </div>
+    </div>
     </body>
 </html>

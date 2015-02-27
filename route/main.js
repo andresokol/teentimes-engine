@@ -44,3 +44,7 @@ exports.hub_lastissue = function (req, res) {
 exports.tagsearch = function(req, res) {
 	pages.tagsearch(req, res);
 };
+
+exports.about = function(req, res) {
+	res.render('../templates/pages/about', {});
+}

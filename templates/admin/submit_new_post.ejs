@@ -4,15 +4,13 @@
     <meta charset="utf-8">
     <!--<meta name="viewport" content="ya-title=#2f4cd6,ya-dock=#fff">-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/public/main.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/public/img/favicon1.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="/public/main.css">
     <title>Zen Sick</title>
 	<style>
 		body {
@@ -38,16 +36,22 @@
 		<input type="submit" value="Proceed" class="btn btn-primary btn-lg" form="forward">
 	</div>
 	
+	<div class='column'>
 	<div class="<%- type %>">
-		<h3><a href=""><%- title %></a></h3>
-		<%- rendered %>
-		<div id="time">
-			<time><%- time %></time>
+			<h3><a href=""><%- title %></a></h3>
+			<%- rendered %>
+			<div class='tags' id='tags'></div>
+			<div id="time">
+				<time><%- time %></time>
+			</div>
 		</div>
 	</div>
 	<script defer>
-		var x = '<%- tags %>';
-		alert(x.split(' '));
+		var tags = '<%- tags %>'.split(" "),
+			ans = '';
+		for (var i = 0; i < tags.length; i++) ans += '<a>#' + tags[i] + ' </a>';
+		document.getElementById('tags').innerHTML = ans;
+		console.log(ans);
 	</script>
 </body>
 </html>

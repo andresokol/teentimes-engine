@@ -6,8 +6,13 @@ $(document).ready(function () {
 				type: 'GET',
 				dataType: 'json',
 				success: function (msg) {
-					$(this).text(msg);
-					console.log(msg);
+                    var input='';
+                    for (var i=0; i<msg.length; i++)
+                    {
+                        input+='<a href="/tag/' + msg[i] + '">#' + msg[i] + ' </a>';
+					   console.log(input);
+                    }
+                $(this).html(input);
 				}.bind(this)
 			});
 		});

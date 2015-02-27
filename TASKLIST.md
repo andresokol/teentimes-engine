@@ -10,8 +10,3 @@ These a things to be done:
 * Markdown posts rendering - beautify plz
 
 ### On client side
-* Insert tags everywhere
-* Change all links to relative
-* Links to post pages according to type
-* Change navbar
-* Change `.picture` to `.img`

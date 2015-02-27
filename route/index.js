@@ -11,8 +11,8 @@ var main = require("./main"),
 module.exports = function (app) {
 	// Open pages
 	app.get('/', main.home);
-	app.get('/articles/', main.hub_article);
-	app.get('/articles/:id', main.article);
+	app.get('/article/', main.hub_article);
+	app.get('/article/:id', main.article);
 	app.get('/img/', main.hub_img);
 	app.get('/img/:id', main.img);
 	app.get('/music/', main.hub_music);
@@ -21,6 +21,7 @@ module.exports = function (app) {
 	app.get('/lastissue/:id', main.lastissue);
 	
 	app.get('/tag/:tag', main.tagsearch);
+	app.get('/about', main.about);
 	
 	// AJAX
 	app.get('/ajax/tags/:id', ajax.tags);
