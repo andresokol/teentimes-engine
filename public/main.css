@@ -153,6 +153,8 @@ iframe{
     opacity: 0.8;
     border: solid white; 
     width: 98vw;
+    z-index: 0;
+    position: relative;
 }
 .Header h1 {
     font-family: Shadows Into Light, sans-serif;
@@ -180,7 +182,7 @@ iframe{
 .NavBar {
     background-color: #2f4cd6;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -227,15 +229,12 @@ iframe{
 .lowbar {
     background-color: #fff;
     position: absolute;
-    z-index: 1;
     display: block;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0.85;
     width: 98vw;
-    text-align: center;
-    bottom:0;
 }
 .lowbar li {
     font-family: PT Sans, monospace;
