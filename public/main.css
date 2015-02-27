@@ -153,7 +153,6 @@ iframe{
     opacity: 0.8;
     border: solid white; 
     width: 98vw;
-    z-index: 0;
 }
 .Header h1 {
     font-family: Shadows Into Light, sans-serif;
