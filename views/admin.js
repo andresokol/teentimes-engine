@@ -91,7 +91,8 @@ exports.show_user = function(req, res) {
 
 exports.update_user = function(req, res) {
 	var ans = "UPDATE users SET name = '" + req.body.name.replace(/'/g, "''") + "', about = '" + 
-				req.body.about.replace(/'/g, "''") + "' WHERE username = '" + req.session.username + "';";
+				req.body.about.replace(/'/g, "''") + "', imgurl = '" + req.body.imgurl.replace(/'/g, "''") +
+				"' WHERE username = '" + req.session.username + "';";
 	db.run(ans, function(query) {
 		res.redirect('/admin/user');
 	});
