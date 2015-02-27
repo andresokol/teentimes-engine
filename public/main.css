@@ -3,7 +3,7 @@ body {
     background-size: auto;
     background-repeat: auto;
     min-width: 600px;
-    -webkit-filter: blur(0);
+    -webkit-filter: blur(2000);
 }
 
 /* column main */
@@ -322,8 +322,8 @@ iframe{
 .footerref .textmain #authors li {
     display: inline-table;
 }
-.footerref .textmain #authors p {
-    padding-left: 20px;
+.footerref .textmain #authors li p {
+
 }
 .footerref .textmain #authors img {
     border-radius: 100%;
