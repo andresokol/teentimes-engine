@@ -14,17 +14,21 @@
         <title><%- post.title %> - Zen Sick</title>
     </head>
     <body>
-        <div class="NavBar">
-            <div id="zensick">
-            <a href="/"><img src="/public/img/nav1.png"></a>
+        <div class="bars">
+            <div class="invis">
+            <div class="NavBar">
+                <div id="zensick">
+                    <a href="/"><img src="/public/img/nav1.png"></a>
+                </div>
+                    <ul id="nyaa">
+                        <li><a href="/lastissue">LAST ISSUE</a></li>
+                        <li><a href="/img">ART</a></li>
+                        <li><a href="/music">MUSIC</a></li>
+                        <li><a href="/literature">LITERATURE</a></li>
+                        <li><a href="/article">ARTICLES</a></li>
+                    </ul>
             </div>
-                <ul id="nyaa">
-                    <li><a href="/lastissue">LAST ISSUE</a></li>
-                    <li><a href="/img">ART</a></li>
-                    <li><a href="/music">MUSIC</a></li>
-                    <li><a href="/literature">LITERATURE</a></li>
-                    <li><a href="/article">ARTICLES</a></li>
-                </ul>
+            </div>
         </div>
         <div class="column">
             <div class="<%- post.type %>">

@@ -136,6 +136,16 @@ iframe{
     margin-right: auto;
 }
 
+.invis {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+    width: 98vw;
+    height: 50px;
+    position: relative;
+}
+
 /* header */
 
 .Header {
@@ -169,7 +179,7 @@ iframe{
 
 .NavBar {
     background-color: #2f4cd6;
-    position: relative;
+    position: fixed;
     z-index: 1;
     display: block;
     margin-left: auto;
@@ -179,18 +189,22 @@ iframe{
     text-align: center;
     height: 50px;
 }   
-#zensick {
+.NavBar #zensick {
     display: inline-block;
+    width: 50px;
+    height: inherit;
 }
-NavBar #nyaa {
+.NavBar #nyaa {
     display: inline-block;
     position: relative;
+    top: -40%;
+    margin: 0;
 }
 .NavBar li {
     font-family: Cutive Mono, monospace;
     display: inline-table;
     margin-right: 15px;
-    padding-right: 50px;
+    padding-right: 35px;
 }
 .NavBar a {
     text-decoration: none;
@@ -276,7 +290,6 @@ NavBar #nyaa {
     width: 800px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
 }
 .footerref .textmain {
     background: #fff;
@@ -285,6 +298,7 @@ NavBar #nyaa {
     border: white solid;
     box-shadow: 5px 5px 5px #888888;
     padding: 5px;
+    margin-top: 10px;
 }
 .footerref .textmain #about {
     text-align: left;
@@ -309,17 +323,6 @@ NavBar #nyaa {
     display: inline-table;
 }
 .footerref .textmain #authors li p {
-    position: absolute;
-4
-    top: 50%;
-5
-    left: 50%;
-6
-    height: 30%;
-7
-    width: 50%;
-8
-    margin: -15% 0 0 -25%;
 
 }
 .footerref .textmain #authors img {
@@ -338,6 +341,7 @@ NavBar #nyaa {
     border: 0;
     padding: 10px;
     font-size: 18px;
+    background: #eaeaea;
 }
 .footerref .textmain #contact input[type="submit"] {
     background: #195da1;
