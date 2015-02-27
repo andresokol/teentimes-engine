@@ -3,7 +3,6 @@ body {
     background-size: auto;
     background-repeat: auto;
     min-width: 600px;
-    -webkit-filter: blur(2000);
 }
 
 /* column main */
@@ -107,14 +106,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    margin-bottom: 20px;
     box-shadow: 5px 5px 5px #888888;
-    padding-left: 10px;
-        
 }
 .music #iframe {
     text-align:center;
-    width:100%;
+    width: 100%;
 }
 iframe{
     text-align:center;
@@ -131,7 +127,7 @@ iframe{
 /* bars */
 
 .bars {
-    max-width: 1333px;
+    max-width: 100vw;
     margin-left: auto;
     margin-right: auto;
 }
@@ -152,9 +148,10 @@ iframe{
     background-color: #fff;
     opacity: 0.8;
     border: solid white; 
-    width: 98vw;
     z-index: 0;
     position: relative;
+    z-index: -1;
+    width: inherit;
 }
 .Header h1 {
     font-family: Shadows Into Light, sans-serif;
@@ -184,12 +181,10 @@ iframe{
     position: fixed;
     z-index: 2;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     opacity: 0.95;
-    width: 98vw;
     text-align: center;
     height: 50px;
+    width: 98vw;
 }   
 .NavBar #zensick {
     display: inline-block;
@@ -199,14 +194,14 @@ iframe{
 .NavBar #nyaa {
     display: inline-block;
     position: relative;
-    top: -40%;
     margin: 0;
+    top: -40%;
 }
 .NavBar li {
     font-family: Cutive Mono, monospace;
     display: inline-table;
-    margin-right: 15px;
     padding-right: 35px;
+    margin: 0;
 }
 .NavBar a {
     text-decoration: none;
@@ -228,13 +223,17 @@ iframe{
 
 .lowbar {
     background-color: #fff;
-    position: absolute;
     display: block;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0.85;
-    width: 98vw;
+    bottom: 0;
+    margin-bottom:0px;
+    width: inherit;
+}
+.lowbar ul {
+    text-align: center;
 }
 .lowbar li {
     font-family: PT Sans, monospace;
@@ -262,6 +261,7 @@ iframe{
     text-align: center;
     font-size: 14px;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 #time {
     text-align: right;
@@ -301,6 +301,7 @@ iframe{
 }
 .footerref .textmain #about {
     text-align: left;
+    padding: 10px;
 }
 .footerref .textmain #about h3 {
     text-align: center;
@@ -309,6 +310,7 @@ iframe{
 .footerref .textmain #authors {
     display: block;
     text-decoration: none;
+    padding: 10px;
 }
 .footerref .textmain #authors h3 {
     text-align: center;
