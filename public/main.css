@@ -221,6 +221,7 @@ NavBar #nyaa {
     opacity: 0.85;
     width: 98vw;
     text-align: center;
+    bottom:0;
 }
 .lowbar li {
     font-family: PT Sans, monospace;
@@ -291,6 +292,29 @@ NavBar #nyaa {
 .footerref .textmain #about h3 {
     text-align: center;
 }
+
+.footerref .textmain #authors {
+    display: block;
+    text-decoration: none;
+}
+.footerref .textmain #authors h3 {
+    text-align: center;
+}
+.footerref .textmain #authors ul {
+    display: inline-table;
+    margin-right: 15px;
+    padding-right: 50px;
+}
+.footerref .textmain #authors p {
+    display: inline;
+}
+.footerref .textmain #authors img {
+    border-radius: 100%;
+    background: #fff;
+    width: 150px;
+    height: 150px;
+}
+
 .footerref .textmain #contact {
     font-family: PT Sans, monospace;
     text-align: center;
