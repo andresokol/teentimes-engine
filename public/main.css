@@ -425,7 +425,6 @@ iframe{
     }
     .lowbar {
         background-color: #fff;
-        position: absolute;
         z-index: 1;
         display: block;
         margin-top: 10px;
