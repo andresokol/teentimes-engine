@@ -89,7 +89,6 @@ body {
     color: #000;
     margin-left: auto;
     margin-right: auto;
-    font-weight: normal;
     opacity: 0.7;
 }
 
@@ -113,12 +112,20 @@ body {
     padding-left: 10px;
         
 }
-.music iframe {
-    padding: 25px:
+.music #iframe {
+    text-align:center;
+    width:100%;
+}
+iframe{
+    text-align:center;
     width: 350px;
-    display: block;
+    margin-bottom: 5px;
+}
+.music a:hover {
+    color: #000;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0.7;
 }
 
 /* bars */
