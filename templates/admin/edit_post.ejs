@@ -4,13 +4,14 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<meta name="viewport" content="ya-title=#2f4cd6,ya-dock=#fff">-->
-    <link rel="stylesheet" type="text/css" href="/main.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Patrick+Hand+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>	
     <link rel="shortcut icon" href="/public/img/favicon1.png" type="image/png">
+	<link rel="stylesheet" type="text/css" href="/main.css">
 	<link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script src="/public/js/marked.js"></script>
 	<style>
 		body {
@@ -36,18 +37,18 @@
 			resize: none;
 		}
 	</style>
-    <title>Edit post "<%- post.title %>"</title>
+    <title>New post</title>
 </head>
 <body>
-<form id='main_form' method="post" action=""></form>
+<form id='main_form' method="post" action="submit"></form>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12 col-md-6 col" id='control' style="padding-top:10px;background-color:white;">
 			<div class="form-group">
-				<input value='<%- post.title %>' id='title' name="title" type="text" form='main_form' placeholder="Title" class="form-control">
+				<input id='title' name="title" type="text" form='main_form' placeholder="Title" class="form-control" value="<%- post.title %>">
 			</div>
 			<div class="form-group">
-				<input id='p<%- post.id %>' name="tags" type="text" form='main_form' placeholder="Tags" class="form-control">
+				<input id='tags' name="tags" type="text" form='main_form' placeholder="Tags" class="form-control">
 			</div>
 			<div class="form-group">
 				<select name="type" required class="btn btn-default dropdown-toggle" form='main_form'>
@@ -55,35 +56,55 @@
 					<option class="btn">music</option>
 					<option class="btn">img</option>
 					<option class="btn">lastissue</option>
+					<option class="btn">literature</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<input class='update btn btn-default' value="Update" type="button" onclick="update();">
 				<input type="submit" value="Submit" form='main_form' class="btn btn-primary">
 			</div>
-			<textarea id='input' name="body" type='text' form='main_form' class="form-control"><%- post.body %>		</textarea>
+			<textarea id='input' name="body" type='text' form='main_form' class="form-control"><%- post.body %></textarea>
 		</div>
-		<div class="col-xs-12 col-md-6 col2">
+		<div class="column col-xs-12 col-md-6 col2" id='edit'>
 			<div id='output' class="article render">
 				<h3>Here goes title</h3>
 				<p>Here goes post</p>
+				<div class="tags"><a>#tags_goes_here</a></div>
 				<div id="time"><time>00:00</time></div>
 			</div>
 		</div>
 	</div>
 </div>
-	<script src='/ajax/tags/<%- post.id %>'></script>
 	<script>
 		document.getElementById('input').style.height = 
 			(document.getElementById('control').offsetHeight - 224) + 'px';
+		
 		update = function () {
-			document.getElementById('output').innerHTML = 
-				'<h3>' + document.getElementById('title').value + '</h3>' + 
-				marked(document.getElementById('input').value) + '<div id="time"><time>'  + 
-				String(new Date()).slice(16, 21) + '</time></div>';
+			var x = '<h3>' + document.getElementById('title').value + '</h3>' + 
+					marked(document.getElementById('input').value);
+			var tags = document.getElementById('tags').value.split(" ");
+			x += '<div class="tags">';
+			for (var i = 0; i < tags.length; i++) x += '<a>#' + tags[i] + ' </a>';
+			x += '</div>';
+			x += '<div id="time"><time>' + String(new Date()).slice(16, 21) + '</time></div>';
+			document.getElementById('output').innerHTML = x;
 		}
-		el.value = tags.join(" ");
-		update();
+		
+		$(document).ready(function () {
+			$('#tags').each(function () {
+				$.ajax({
+					url: '/ajax/tags/<%- post.id %>',
+					type: 'GET',
+					dataType: 'json',
+					success: function (msg) {
+						$(this).val(msg.join(' '));
+						console.log(msg.join(' '));
+						update();
+					}.bind(this)
+				});
+			});
+		});
+		
 	</script>
 </body>
 </html>

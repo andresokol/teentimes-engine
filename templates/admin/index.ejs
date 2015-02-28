@@ -42,6 +42,11 @@
 	form {
 		margin-bottom: 2px;
 	}
+	
+	.switch a {
+		margin-bottom: 2px;
+		width: 68px;
+	}
 </style>
 <center>
 	<h3>Hi, <%- username %>!</h3>
@@ -59,6 +64,7 @@
 	<button class="btn btn-default btn-lg" href="#" id="img-btn">Img</button>
 	<button class="btn btn-default btn-lg" href="#" id="music-btn">Music</button>
 	<button class="btn btn-default btn-lg" href="#" id="lastissue-btn">Last Issue</button>
+	<button class="btn btn-default btn-lg" href="#" id="literature-btn">Literature</button>
 </center>
 <br>
 
@@ -67,23 +73,24 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">TYPE</th>
+			<th class="type">AUTHOR</th>
 			<th class="title">TITLE</th>
 			<th class="body">BODY</th>
 			<th class="time">TIME</th>
-			<th class="switch">SHOW/HIDE</th>
+			<th class="switch">MANAGE</th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
 				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].type %></td>
-				<td class="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>
+				<td class="type"><%- posts[i].author %></td>
+				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
 				<td class="body"><div><%- posts[i].body %></div></td>
 				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
 				<td class="switch">
 					<form action="/admin/switch/<%- posts[i].id %>" method="post">
 						<input type='submit' value="Switch" class="btn btn-default">
 					</form>
+					<a class="btn btn-default disabled" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
 					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
 				</td>
 			</tr>
@@ -95,23 +102,24 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">TYPE</th>
+			<th class="type">AUTHOR</th>
 			<th class="title">TITLE</th>
 			<th class="body">BODY</th>
 			<th class="time">TIME</th>
-			<th class="switch">SHOW/HIDE</th>
+			<th class="switch">MANAGE</th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'article') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
 				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].type %></td>
-				<td class="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>
+				<td class="type"><%- posts[i].author %></td>
+				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
 				<td class="body"><div><%- posts[i].body %></div></td>
 				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
 				<td class="switch">
 					<form action="/admin/switch/<%- posts[i].id %>" method="post">
 						<input type='submit' value="Switch" class="btn btn-default">
 					</form>
+					<a class="btn btn-default disabled" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
 					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
 				</td>
 			</tr>
@@ -122,23 +130,24 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">TYPE</th>
+			<th class="type">AUTHOR</th>
 			<th class="title">TITLE</th>
 			<th class="body">BODY</th>
 			<th class="time">TIME</th>
-			<th class="switch">SHOW/HIDE</th>
+			<th class="switch">MANAGE</th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'img') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
 				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].type %></td>
-				<td class="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>
+				<td class="type"><%- posts[i].author %></td>
+				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
 				<td class="body"><div><%- posts[i].body %></div></td>
 				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
 				<td class="switch">
 					<form action="/admin/switch/<%- posts[i].id %>" method="post">
 						<input type='submit' value="Switch" class="btn btn-default">
 					</form>
+					<a class="btn btn-default disabled" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
 					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
 				</td>
 			</tr>
@@ -149,23 +158,24 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">TYPE</th>
+			<th class="type">AUTHOR</th>
 			<th class="title">TITLE</th>
 			<th class="body">BODY</th>
 			<th class="time">TIME</th>
-			<th class="switch">SHOW/HIDE</th>
+			<th class="switch">MANAGE</th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'music') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
 				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].type %></td>
-				<td class="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>
+				<td class="type"><%- posts[i].author %></td>
+				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
 				<td class="body"><div><%- posts[i].body %></div></td>
 				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
 				<td class="switch">
 					<form action="/admin/switch/<%- posts[i].id %>" method="post">
 						<input type='submit' value="Switch" class="btn btn-default">
 					</form>
+					<a class="btn btn-default disabled" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
 					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
 				</td>
 			</tr>
@@ -176,23 +186,52 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">TYPE</th>
+			<th class="type">AUTHOR</th>
 			<th class="title">TITLE</th>
 			<th class="body">BODY</th>
 			<th class="time">TIME</th>
-			<th class="switch">SHOW/HIDE</th>
+			<th class="switch">MANAGE</th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'lastissue') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
 				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].type %></td>
-				<td class="title"><a href="/articles/<%- posts[i].id %>"><%- posts[i].title %></a></td>
+				<td class="type"><%- posts[i].author %></td>
+				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
 				<td class="body"><div><%- posts[i].body %></div></td>
 				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
 				<td class="switch">
 					<form action="/admin/switch/<%- posts[i].id %>" method="post">
 						<input type='submit' value="Switch" class="btn btn-default">
 					</form>
+					<a class="btn btn-default disabled" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
+					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
+				</td>
+			</tr>
+		<% } %>
+	</table>
+</div>
+<div class="literature hddn">
+	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
+		<thead>
+			<th class="id">ID</th>
+			<th class="type">AUTHOR</th>
+			<th class="title">TITLE</th>
+			<th class="body">BODY</th>
+			<th class="time">TIME</th>
+			<th class="switch">MANAGE</th>
+		</thead>
+		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'literature') { %>
+			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
+				<td class="id"><%- posts[i].id %></td>
+				<td class="type"><%- posts[i].author %></td>
+				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
+				<td class="body"><div><%- posts[i].body %></div></td>
+				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
+				<td class="switch">
+					<form action="/admin/switch/<%- posts[i].id %>" method="post">
+						<input type='submit' value="Switch" class="btn btn-default">
+					</form>
+					<a class="btn btn-default disabled" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
 					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
 				</td>
 			</tr>

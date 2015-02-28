@@ -32,8 +32,9 @@ exports.article = function(req, res, type) {
 exports.hub = function(req, res, type) {
 	db.get_hub(table, type, 10, function (query) {
 		query = query.rows;
-		res.render('../templates/pages/main.ejs', {
-			posts: query
+		res.render('../templates/pages/hub.ejs', {
+			posts: query,
+			hub: type
 		});
 	}, function() {res.redirect('/lost');});
 };
@@ -44,8 +45,9 @@ exports.tagsearch = function(req, res) {
 		var posts = query.rows;
 		for(var i = 0; i < posts.length; i++)
 			posts[i].body = md(posts[i].body);
-		res.render('../templates/pages/main', {
-			posts: query.rows
+		res.render('../templates/pages/tagsearch', {
+			posts: query.rows,
+			tag: tag
 		});
 	});
 };

@@ -19,6 +19,8 @@ module.exports = function (app) {
 	app.get('/music/:id', main.music);
 	app.get('/lastissue/', main.hub_lastissue);
 	app.get('/lastissue/:id', main.lastissue);
+	app.get('/literature/', main.hub_literature);
+	app.get('/literature/:id', main.literature);
 	
 	app.get('/tag/:tag', main.tagsearch);
 	app.get('/about', main.about);

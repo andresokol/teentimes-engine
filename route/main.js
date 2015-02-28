@@ -22,6 +22,10 @@ exports.lastissue = function (req, res) {
 	pages.article(req, res, 'lastissue');
 };
 
+exports.literature = function (req, res) {
+	pages.article(req, res, 'literature');
+};
+
 
 
 exports.hub_article = function (req, res) {
@@ -38,6 +42,10 @@ exports.hub_music = function (req, res) {
 
 exports.hub_lastissue = function (req, res) {
 	pages.hub(req, res, 'lastissue');
+};
+
+exports.hub_literature = function (req, res) {
+	pages.hub(req, res, 'literature');
 };
 
 

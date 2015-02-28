@@ -33,4 +33,11 @@ $(document).ready( function () {
 		$(this).addClass('btn-primary');
 		$('.lastissue').removeClass('hddn');
 	});
+	
+	$('#literature-btn').click(function () {
+		$('.container').children().addClass('hddn');
+		$('button').removeClass('btn-primary');
+		$(this).addClass('btn-primary');
+		$('.literature').removeClass('hddn');
+	});
 });
