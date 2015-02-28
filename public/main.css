@@ -354,7 +354,7 @@ iframe{
 
 /* media query */
 
-@media only screen and (max-width: 480px) {
+/*@media only screen and (max-width: 480px) {
     body {
         max-width: 768px;
         background-image: url(/public/img/mobg.png);
@@ -442,4 +442,4 @@ iframe{
         margin-left: auto;
         margin-right: auto;
     }
-}
+}*/
