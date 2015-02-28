@@ -196,6 +196,12 @@ iframe{
     margin: 0;
     top: -40%;
 }
+.NavBar #nyaa1 {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    top: 35%;
+}
 .NavBar #hyperlink {
     text-align: center;
     display: inline-block;
@@ -218,12 +224,27 @@ iframe{
     padding-right: 35px;
     margin: 0;
 }
+.NavBar #nyaa1 li {
+    font-family: Cutive Mono, monospace;
+    display: inline-table;
+    padding-right: 35px;
+    margin: 0;
+}
 .NavBar #nyaa a {
     text-decoration: none;
     color: #fff;
     text-transform: none;
 }
 .NavBar #nyaa a:hover {
+    text-decoration: none;
+    text-transform: lowercase;
+}
+.NavBar #nyaa1 a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: none;
+}
+.NavBar #nyaa1 a:hover {
     text-decoration: none;
     text-transform: lowercase;
 }
