@@ -32,8 +32,8 @@
         </div>
         <div class="column">
             <div class="<%- post.type %>">
-			         <h3><a href="/article/<%- post.id %>"><%- post.title %></a></h3>
-			         <%- post.body %>
+			     <h3><a href="/article/<%- post.id %>"><%- post.title %></a></h3>
+			     <%- post.body %>
                 <div class='tags' id='t<%- post.id %>'></div>
                 <div id="time">
 				    <time><%- String(post.created).slice(16, 21) %></time>
