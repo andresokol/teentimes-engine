@@ -389,8 +389,16 @@ iframe{
 }
 #email p {
     margin-top: 25px;
-
 }
+.nfound {
+    font-family: PT Sans, monospace;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nfound img {
+    box-shadow: 5px 5px 5px #888888;
+}
+    
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/
