@@ -45,7 +45,7 @@ module.exports = function (app) {
 	// Authentification
 	app.get('/login', auth.show_login_form);
 	app.post('/login', auth.login);
-	app.get('/private', auth.check_login);
+	//app.get('/private', auth.check_login);
 	app.get('/logoff', auth.logoff);
 	app.get('/lost', error.p404);
 	

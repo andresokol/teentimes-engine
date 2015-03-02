@@ -46,13 +46,12 @@ exports.show_success_page = function (req, res) {
 					+ date + "','" + req.body.type + "','false', '" + req.session.username + "');",
 			tags = req.body.tags.split(" ");
 		
-		console.log(tags.length);
 		for(var i = 0; i < tags.length; i++) qstring += "INSERT INTO " + tag_table + 
 														" values(" + (id.rows[0].id+1) + 
-														",'" + tags[i] + "');";
+														",'" + tags[i].replace(/'/g, "''") + "');";
 		
-		console.log("Trying to put in db " + qstring);
 		db.send_post(qstring, table, function () {
+			console.log('[ADD] Post "' + req.body.title + '" added by ' + req.session.username);
 			res.redirect("/admin");
 		});
 	});
@@ -60,6 +59,7 @@ exports.show_success_page = function (req, res) {
 
 exports.switch_visibility = function(req, res) {
 	db.switch_visibility(table, req.params.id, function() {
+		console.log('[UPD] Switched visibility for post ' + req.params.id + ' by ' + req.session.username);
 		res.redirect('/admin');
 	});
 };
@@ -75,14 +75,14 @@ exports.ask_for_delete = function(req, res) {
 };
 
 exports.delete_post = function(req, res) {
-	db.delete_article(table, req.body.id, function() {
+	db.delete_article(table, tag_table, req.body.id, function() {
+		console.log('[DEL] Post ' + req.body.id + ' deleted by ' + req.session.username);
 		res.redirect('/admin');
 	});
 };
 
 exports.show_user = function(req, res) {
 	db.get_user('users', req.session.username, function(query) {
-		console.log(query.rows[0].imgurl);
 		res.render('../templates/admin/user_page', {
 			user: query.rows[0]
 		});
@@ -94,6 +94,7 @@ exports.update_user = function(req, res) {
 				req.body.about.replace(/'/g, "''") + "', imgurl = '" + req.body.imgurl.replace(/'/g, "''") +
 				"' WHERE username = '" + req.session.username + "';";
 	db.run(ans, function(query) {
+		console.log('[UPD] User ' + req.session.username + ' updated his profile');
 		res.redirect('/admin/user');
 	});
 };
@@ -109,12 +110,17 @@ exports.show_edit_page = function(req, res) {
 };
 
 exports.save_edited_post = function(req, res) {
-	var qstring =   'UPDATE ' + table + 
-					" SET body = '" + req.body.body + 
-					"', title = '" + req.body.title +
-					"' WHERE id = " + req.params.id;
+	var qstring =   'UPDATE ' + table + " SET body = '" + req.body.body.replace(/'/g, "''") +
+					"', title = '" + req.body.title.replace(/'/g, "''") +
+					"' WHERE id = " + req.params.id + ";\n",
+		tags = req.body.tags.split(' ');
+	qstring += "DELETE FROM " + tag_table + " WHERE id = " + req.params.id + ";";
+	for(var i = 0; i < tags.length; i++) qstring += " INSERT INTO " + tag_table +
+						" values(" + req.params.id + ", '" + tags[i].replace(/'/g, "''") + "');";
+	
 	db.run(qstring, function(result) {
-		res.redirect('/admin')
+		console.log('[UPD] Post ' + req.params.id + ' "' + req.body.title + '" edited by ' + req.session.username);
+		res.redirect('/admin');
 	}, function() {
 		res.send('error');
 	});
