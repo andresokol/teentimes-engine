@@ -18,7 +18,8 @@ $(document).ready(function () {
 	});
 	
 	$('.author').each(function() {
-		var author_username = this.id.substr(1, id.length - 1);
+		var author_username = this.id;
+		author_username = author_username.substr(1, author_username.length - 1);
 		$.ajax({
 			url: '/ajax/author/' + author_username,
 			type: 'GET',
@@ -29,8 +30,9 @@ $(document).ready(function () {
 					author.name     - имя, выбранное на странице в админке
 					author.about    - описание автора, написанное там же
 					author.imgurl   - url юзерпика */
-				var input = '<img src="' + author.imgurl + '" width="50px" style="border-radius:50%;">';
-																				//кругленький,чо
+				var input = '<img src="' + author.imgurl + '" width="100px" ' + 
+														'style="border-radius:50%;margin:10px;float:left;">';
+																//кругленький,чо
 				input += '<h1>' + author.name + '</h1>';
 				input += '<p>' + author.about + '</p>';
 				$(this).html(input);
