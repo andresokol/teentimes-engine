@@ -10,13 +10,21 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/public/js/main.js"></script>
     <link rel="shortcut icon" href="/public/img/favicon1.png" type="image/png">
-    
+    <script src="/public/js/SlickNav-master/jquery.slicknav.js"></script>
+	<link href="/public/slicknav.css" rel="stylesheet" type="text/css">
+	<script>
+		$(function () {
+			$('#nyaa').slicknav({
+				prependTo: '#nav_bar',
+				label: ''
+			});
+		});
+	</script>
     <title>Zen Sick</title>
 </head>
 <body>
     <div class="bars">
-            <div class="invis">
-            <div class="NavBar">
+            <div class="NavBar" id="nav_bar">
                 <div id="zensick">
                     <a href="/"><img src="/public/img/nav1.png"></a>
                 </div>
@@ -29,9 +37,10 @@
                         <li><a href="/article">ARTICLES</a></li>
                     </ul>
             </div>
-            </div>
     </div>
     
+	<div class="bars" style="opacity:0; height:50px;">this must be invisible</div>
+	
     <div class="bars">
         <div class="Header">
             <h1><a href="/">Zen Sick</a></h1>

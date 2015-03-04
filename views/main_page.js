@@ -32,7 +32,7 @@ exports.article = function(req, res, type) {
 exports.hub = function(req, res, type) {
 	db.get_hub(table, type, 10, function (query) {
 		query = query.rows;
-		for(var i = 0; i < query.rows.length; i++) query.rows[i].body = md(query.rows[i].body);
+		for(var i = 0; i < query.length; i++) query[i].body = md(query[i].body);
 		res.render('../templates/pages/hub.ejs', {
 			posts: query,
 			hub: type

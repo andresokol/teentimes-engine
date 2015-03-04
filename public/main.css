@@ -111,7 +111,7 @@ body {
     text-align:center;
     width: 100%;
 }
-iframe{
+iframe {
     text-align:center;
     width: 350px;
     margin-bottom: 5px;
@@ -149,7 +149,7 @@ iframe{
     border: solid white; 
     z-index: 0;
     position: relative;
-    z-index: -1;
+    z-index: 0;
     width: inherit;
 }
 .Header h1 {
@@ -401,7 +401,11 @@ img + strong /* former #imgcap */ {
     text-decoration: none;
     color: #000;
 }
-    
+
+.slicknav_menu {
+	display: none;
+}
+
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/
@@ -413,6 +417,7 @@ img + strong /* former #imgcap */ {
 @media only screen and (max-width: 750px) {
     body {
         background-image: url(/public/img/mobg.png);
+		margin: 0;
     }
 	.column {
 		width:97%!important;
@@ -428,5 +433,27 @@ img + strong /* former #imgcap */ {
 	}
 	.lowbar {
 		padding-top: 5px;
+	}
+	#nyaa1 {
+		display: none!important;
+	}
+	#nyaa {
+		display: none!important;
+	}
+	.slicknav_menu {
+		display: block;
+	}
+	.NavBar {
+		width: 100%!important;
+	}
+	#nav_bar_cnt {
+		width: 100%!important;
+	}
+	.invis {
+		width: 100%;
+		position: inherit;
+	}
+	#zensick {
+		display: none!important;
 	}
 }
