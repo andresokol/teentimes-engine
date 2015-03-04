@@ -7,16 +7,24 @@
         <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="/public/js/main.js"></script>
         <link rel="shortcut icon" href="/public/img/favicon1.png" type="image/png">
+		<script src="/public/js/SlickNav-master/jquery.slicknav.js"></script>
+		<link href="/public/slicknav.css" rel="stylesheet" type="text/css">
+		<script>
+			$(function () {
+				$('#nyaa').slicknav({
+					prependTo: '#nav_bar',
+					label: ''
+				});
+			});
+		</script>
         <title>Information - Zen Sick</title>
     </head>
     <body>
         <div class="bars">
-            <div class="invis">
-            <div class="NavBar">
+            <div class="NavBar" id="nav_bar">
                 <div id="zensick">
                     <a href="/"><img src="/public/img/nav1.png"></a>
                 </div>
@@ -29,8 +37,8 @@
                         <li><a href="/article">ARTICLES</a></li>
                     </ul>
             </div>
-            </div>
         </div>
+	    <div class="bars" style="opacity:0; height:50px;">this must be invisible</div>
         <div class="footerref">
             <div class="textmain">
                 <div id="about">
