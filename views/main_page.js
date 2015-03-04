@@ -1,7 +1,14 @@
 var db = require('../middleware/dbconnect'),
 	table = "test_posts",
 	tag_table = "tags",
-	md = require('marked');
+	md = require('marked'),
+	types = new Array();
+
+types['article'] = 'Статьи';
+types['img'] = 'Искусство';
+types['lastissue'] = 'Последний выпуск';
+types['music'] = 'Музыка';
+types['literature'] = 'Литература';
 
 exports.main = function(req, res, posts_on_page) {
 	db.get_data(table, posts_on_page, false, function (query) {
@@ -32,22 +39,33 @@ exports.article = function(req, res, type) {
 exports.hub = function(req, res, type) {
 	db.get_hub(table, type, 10, function (query) {
 		query = query.rows;
-		for(var i = 0; i < query.length; i++) query[i].body = md(query[i].body);
+		for(var i = 0; i < query.length; i++) query[i].body = md(query[i].body);		
 		res.render('../templates/pages/hub.ejs', {
 			posts: query,
-			hub: type
+			hub: types[type]
 		});
-	}, function() {res.redirect('/lost');});
+	}, function() {
+		var query = [{title: 'Мы ничего не нашли =(', body: '', created: '', id: '', type: 'article'}];
+		
+		res.render('../templates/pages/hub.ejs', {
+			posts: query,
+			hub: types[type]
+		});
+	});
 };
 
 exports.tagsearch = function(req, res) {
 	var tag = req.params.tag.replace(/'/g, "''");
 	db.get_posts_by_tag(table, tag_table, tag, function(query) {
 		var posts = query.rows;
-		for(var i = 0; i < posts.length; i++)
-			posts[i].body = md(posts[i].body);
+		
+		for(var i = 0; i < posts.length; i++) posts[i].body = md(posts[i].body);
+		
+		if (posts.length == 0) posts = [{title: 'Мы ничего не нашли =(', body: '', 
+										 created: '', id: '', type: 'article'}];
+		
 		res.render('../templates/pages/tagsearch', {
-			posts: query.rows,
+			posts: posts,
 			tag: tag
 		});
 	});
