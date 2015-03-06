@@ -293,7 +293,7 @@ exports.run = function(qstring, callback) {
 exports.get_posts_by_tag = function(table_posts, table_tags, tag, callback) {
 	pg.connect(db_url, function(err, client, done) {
 		var qstring =	"SELECT * FROM " + table_posts + " WHERE id in (SELECT id FROM " + table_tags + 
-						" WHERE tag = '" + tag + "') and visible = true;",
+						" WHERE tag = '" + tag + "') and visible = true ORDER BY id DESC;",
 			query = client.query(qstring);
 		
 		query.on('row', function (row, result) {
