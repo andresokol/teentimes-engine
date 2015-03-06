@@ -13,10 +13,15 @@ types['literature'] = 'Литература';
 exports.main = function(req, res, posts_on_page) {
 	db.get_data(table, posts_on_page, false, function (query) {
 		var posts = query.rows;
-		for(var i = 0; i < posts.length; i++)
-			posts[i].body = md(posts[i].body);
+		for(var i = 0; i < posts.length; i++) {
+			var t = posts[i].body,
+				n = t.indexOf('<c>');
+			if (n != -1) t = t.substr(0, n-3) + "\n\r\n\r*<a href='/" + posts[i].type + '/' + posts[i].id + 
+																						"'>Читать далее...</a>*";
+			posts[i].body = md(t);
+		}
 		res.render('../templates/pages/main', {
-			posts: query.rows
+			posts: posts
 		});
 	});
 };
@@ -39,7 +44,12 @@ exports.article = function(req, res, type) {
 exports.hub = function(req, res, type) {
 	db.get_hub(table, type, 10, function (query) {
 		query = query.rows;
-		for(var i = 0; i < query.length; i++) query[i].body = md(query[i].body);		
+		for(var i = 0; i < query.length; i++) {
+			var t = query[i].body,
+				n = t.indexOf('<c>');
+			if (n != -1) t = t.substr(0, n-3) + "\n\r\n\r*<a href='/" + query[i].type + '/' + query[i].id + "'>Читать далее...</a>*";
+			query[i].body = md(t);
+		}
 		res.render('../templates/pages/hub.ejs', {
 			posts: query,
 			hub: types[type]
@@ -59,7 +69,13 @@ exports.tagsearch = function(req, res) {
 	db.get_posts_by_tag(table, tag_table, tag, function(query) {
 		var posts = query.rows;
 		
-		for(var i = 0; i < posts.length; i++) posts[i].body = md(posts[i].body);
+		for(var i = 0; i < posts.length; i++) {
+			var t = posts[i].body,
+				n = t.indexOf('<c>');
+			if (n != -1) t = t.substr(0, n-3) + "\n\r\n\r*<a href='/" + posts[i].type + '/' + posts[i].id + 
+																						"'>Читать далее...</a>*";
+			posts[i].body = md(t);
+		}
 		
 		if (posts.length == 0) posts = [{title: 'Мы ничего не нашли =(', body: '', 
 										 created: '', id: '', type: 'article'}];
