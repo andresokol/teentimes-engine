@@ -56,6 +56,7 @@ body {
     margin-right: 5%;
     font-family: Cutive Mono, monospace;
     max-width: 90%;
+    white-space: pre-wrap;
 }
 .column>div blockquote {
     text-align: center;
