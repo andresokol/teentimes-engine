@@ -57,9 +57,11 @@ body {
     font-family: Cutive Mono, monospace;
     max-width: 90%;
     white-space: pre-wrap;
+    background-color: #e3e3e3;
+    padding: 2%;
 }
 .column>div blockquote {
-    text-align: center;
+    text-align: left;
     font-style: italic;
     font-size: 16px;
 }
@@ -70,6 +72,9 @@ body {
 .column>div ul {
     margin-left: 3vw;
     margin-right: 3vw;
+}
+.column>div hr {
+    margin: 3%;
 }
 
 /* articles */
