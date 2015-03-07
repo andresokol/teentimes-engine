@@ -91,7 +91,6 @@ body {
     box-shadow: 5px 5px 5px #888888;
 }
 .article a {
-    text-decoration: none;
     color: #000;
 }
 .article a:hover {
