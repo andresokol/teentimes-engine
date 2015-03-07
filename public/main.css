@@ -50,6 +50,7 @@ body {
     font-family: Cutive Mono, monospace;
 }
 .column>div blockquote {
+    text-align: center;
     font-style: italic;
 }
 .column>div ol {
