@@ -125,3 +125,7 @@ exports.save_edited_post = function(req, res) {
 		res.send('error');
 	});
 };
+
+exports.manual = function (req, res) {
+	res.render('../templates/admin/manual', {});
+};

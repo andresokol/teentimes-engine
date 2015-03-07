@@ -51,3 +51,8 @@ exports.edit_post = function (req, res) {
 exports.save_post = function (req, res) {
 	restricted(req, res, adm.save_edited_post);
 };
+
+
+exports.manual = function (req, res) {
+	restricted(req, res, adm.manual);
+};
