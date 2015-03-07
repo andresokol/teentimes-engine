@@ -358,6 +358,7 @@ img + strong /* former #imgcap */ {
 }
 .tags a {
     color: #aeaeae;
+    text-decoration: none!important;
 }
 #disqus_thread {
     margin:8px;
