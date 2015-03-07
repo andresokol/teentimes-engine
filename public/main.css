@@ -76,6 +76,9 @@ body {
 .column>div hr {
     margin: 3%;
 }
+.column>div p a {
+    text-decoration: underline;
+}
 
 /* articles */
 
@@ -91,6 +94,7 @@ body {
     box-shadow: 5px 5px 5px #888888;
 }
 .article a {
+    text-decoration: none;
     color: #000;
 }
 .article a:hover {
@@ -358,7 +362,6 @@ img + strong /* former #imgcap */ {
 }
 .tags a {
     color: #aeaeae;
-    text-decoration: none!important;
 }
 #disqus_thread {
     margin:8px;
