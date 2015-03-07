@@ -304,7 +304,6 @@ img + strong /* former #imgcap */ {
     margin-right: 5px;
     margin-bottom: 5px;
 }
-
 .tags {
     font-size: 14px;
     margin-left: 20px;
@@ -340,7 +339,6 @@ img + strong /* former #imgcap */ {
 .footerref .textmain #about h3 {
     text-align: center;
 }
-
 .footerref .textmain #authors {
     display: block;
     text-decoration: none;
@@ -366,7 +364,6 @@ img + strong /* former #imgcap */ {
     width: 150px;
     height: 150px;
 }
-
 .footerref .textmain #contact {
     font-family: PT Sans, monospace;
     text-align: center;
@@ -382,7 +379,9 @@ img + strong /* former #imgcap */ {
     background: #195da1;
     color: #fff;
 }
-    
+
+/* e-mail + 404 */
+
 #email h2 {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -394,18 +393,13 @@ img + strong /* former #imgcap */ {
     background-color: #AEAEAE;
     background-image: none;
 }
-.nfound img {
-    margin-left: 25vw;
-    margin-right: 25vw;
-}
-.nfound h2 {
-    margin-left: 21vw;
-    margin-right: 22vw;
-    margin-top: 0;
-}
+
 .slicknav_menu {
 	display: none;
 }
+
+/* author */
+
 .author {
     margin-left: 2vw;
     width: 30vw;
@@ -421,6 +415,7 @@ img + strong /* former #imgcap */ {
 .author img {
     margin: 0;
 }
+
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/
@@ -499,5 +494,14 @@ img + strong /* former #imgcap */ {
     .author img {
         margin: 0;
         width: 10vw;
+    }
+    .nfound {
+        background-color: #AEAEAE;
+        background-image: url(img/404mob.jpg)!IMPORTANT;
+        background-size: cover;
+    }   
+    .nfound a img {
+        width: 100%;
+        height: auto;
     }
 }
