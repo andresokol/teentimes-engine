@@ -45,13 +45,13 @@
             <div class="<%- post.type %>">
                 <h3><a href="/article/<%- post.id %>"><%- post.title %></a></h3>
 			    <%- post.body %>
+                <br>
                 <div class='author' id='_<%- post.author %>'></div>
-				<br>
+                <br>
 				<div class='tags' id='t<%- post.id %>'></div>
                 <div id="time">
 				    <time><%- String(post.created).slice(16, 21) %></time>
 			    </div>
-				<hr>
                 <div id="disqus_thread"></div>
                     <script type="text/javascript">
                     /* * * CONFIGURATION VARIABLES * * */

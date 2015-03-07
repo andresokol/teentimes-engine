@@ -391,22 +391,36 @@ img + strong /* former #imgcap */ {
     margin-top: 25px;
 }
 .nfound {
-    font-family: PT Sans, monospace;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #AEAEAE;
+    background-image: none;
 }
 .nfound img {
-    box-shadow: 5px 5px 5px #888888;
+    margin-left: 25vw;
+    margin-right: 25vw;
 }
-.nfound h2 a {
-    text-decoration: none;
-    color: #000;
+.nfound h2 {
+    margin-left: 21vw;
+    margin-right: 22vw;
+    margin-top: 0;
 }
-
 .slicknav_menu {
 	display: none;
 }
-
+.author {
+    margin-left: 2vw;
+    width: 30vw;
+}
+.author h1 {
+    font-size: 16px;
+    margin: 0;
+}
+.author p {
+    font-size: 14px;
+    margin: 0;
+}
+.author img {
+    margin: 0;
+}
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/
@@ -477,4 +491,13 @@ img + strong /* former #imgcap */ {
 	#zensick {
 		display: none!important;
 	}
+    .author {
+        margin-left: 2vw;
+        width: 60vw;
+        padding: 0;
+    }
+    .author img {
+        margin: 0;
+        width: 10vw;
+    }
 }

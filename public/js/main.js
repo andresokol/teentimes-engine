@@ -30,7 +30,7 @@ $(document).ready(function () {
 					author.name     - имя, выбранное на странице в админке
 					author.about    - описание автора, написанное там же
 					author.imgurl   - url юзерпика */
-				var input = '<img src="' + author.imgurl + '" width="100px" ' + 
+				var input = '<img src="' + author.imgurl + '" width="10%" ' + 
 														'style="border-radius:50%;margin:10px;float:left;">';
 																//кругленький,чо
 				input += '<h1>' + author.name + '</h1>';
