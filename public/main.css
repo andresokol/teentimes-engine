@@ -44,6 +44,22 @@ body {
     text-align: center;
     font-size: 18px;
 }
+.column>div pre {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    font-family: Cutive Mono, monospace;
+}
+.column>div blockquote {
+    font-style: italic;
+}
+.column>div ol {
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+.column>div ul {
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
 
 /* articles */
 
