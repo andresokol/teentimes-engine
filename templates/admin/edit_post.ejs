@@ -37,7 +37,7 @@
 			resize: none;
 		}
 	</style>
-    <title>New post</title>
+    <title>Изменение поста - ZenSick</title>
 </head>
 <body>
 <form id='main_form' method="post" action=""></form>
@@ -45,10 +45,10 @@
 	<div class="row">
 		<div class="col-xs-12 col-md-6 col" id='control' style="padding-top:10px;background-color:white;">
 			<div class="form-group">
-				<input id='title' name="title" type="text" form='main_form' placeholder="Title" class="form-control" value="<%- post.title %>">
+				<input id='title' name="title" type="text" form='main_form' placeholder="Заголовок" class="form-control" value="<%- post.title %>">
 			</div>
 			<div class="form-group">
-				<input id='tags' name="tags" type="text" form='main_form' placeholder="Tags" class="form-control">
+				<input id='tags' name="tags" type="text" form='main_form' placeholder="Теги" class="form-control">
 			</div>
 			<div class="form-group">
 				<select name="type" required class="btn btn-default dropdown-toggle" form='main_form'>
@@ -60,8 +60,8 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<input class='update btn btn-default' value="Update" type="button" onclick="update();">
-				<input type="submit" value="Submit" form='main_form' class="btn btn-primary">
+				<input class='update btn btn-default' value="Обновить превью" type="button" onclick="update();">
+				<input type="submit" value="Сохранить" form='main_form' class="btn btn-primary">
 			</div>
 			<textarea id='input' name="body" type='text' form='main_form' class="form-control"><%- post.body %></textarea>
 		</div>

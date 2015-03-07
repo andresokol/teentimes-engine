@@ -9,7 +9,7 @@
 
 <div class="">
 	<center>
-	<h1>Are sure to delete this post?</h1>
+	<h1>Удалить пост (насовсем)?</h1>
 	<hr>
 	<h3><%- post.title %></h3></center>
 	<%- post.body %>
@@ -18,10 +18,10 @@
 </div>
 <div>
 <center>
-<a href="/admin" class='btn btn-lg btn-default'>Cancel</a>
+<a href="/admin" class='btn btn-lg btn-default'>Не-не-не</a>
 <form method="post" action="/admin/delete" id="form" style="display:none;">
 	<input type="text"  name="id" value='<%- post.id %>'>
 </form>
-<input type="submit" value="Delete" class="btn btn-lg btn-danger" form="form">
+<input type="submit" value="Удаляй!" class="btn btn-lg btn-danger" form="form">
 </center>
 </div>

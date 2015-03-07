@@ -50,20 +50,20 @@
 	}
 </style>
 <center>
-	<h3>Hi, <%- username %>!</h3>
+	<h3>Привет, <%- username %>!</h3>
 </center>
 
 <center>
-	<a class="btn btn-primary btn-lg" href="/admin/add">Add new post here</a>
-	<a class="btn btn-default btn-lg" href="/admin/user">Check user info</a>
-	<a class="btn btn-default btn-lg" href="/logoff">Log off</a>
+	<a class="btn btn-success btn-lg" href="/admin/add">Ебашить пост!</a>
+	<a class="btn btn-default btn-lg" href="/admin/user">Информация об авторе</a>
+	<a class="btn btn-default btn-lg" href="/logoff">Выход</a>
 </center>
 
 <br>
 <center>
-	<button class="btn btn-default btn-primary btn-lg" href="#" id="all-btn">All</button>
+	<button class="btn btn-default btn-info btn-lg" href="#" id="all-btn">Все</button>
 	<button class="btn btn-default btn-lg" href="#" id="articles-btn">Articles</button>
-	<button class="btn btn-default btn-lg" href="#" id="img-btn">Img</button>
+	<button class="btn btn-default btn-lg" href="#" id="img-btn">Img (Art)</button>
 	<button class="btn btn-default btn-lg" href="#" id="music-btn">Music</button>
 	<button class="btn btn-default btn-lg" href="#" id="lastissue-btn">Last Issue</button>
 	<button class="btn btn-default btn-lg" href="#" id="literature-btn">Literature</button>
@@ -75,11 +75,11 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">AUTHOR</th>
-			<th class="title">TITLE</th>
-			<th class="body">BODY</th>
-			<th class="time">TIME</th>
-			<th class="switch">MANAGE</th>
+			<th class="type">АВТОР</th>
+			<th class="title">ЗАГОЛОВОК</th>
+			<th class="body">ПОСТ</th>
+			<th class="time">СОЗДАН</th>
+			<th class="switch"></th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
@@ -104,11 +104,11 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">AUTHOR</th>
-			<th class="title">TITLE</th>
-			<th class="body">BODY</th>
-			<th class="time">TIME</th>
-			<th class="switch">MANAGE</th>
+			<th class="type">АВТОР</th>
+			<th class="title">ЗАГОЛОВОК</th>
+			<th class="body">ПОСТ</th>
+			<th class="time">СОЗДАН</th>
+			<th class="switch"></th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'article') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
@@ -132,11 +132,11 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">AUTHOR</th>
-			<th class="title">TITLE</th>
-			<th class="body">BODY</th>
-			<th class="time">TIME</th>
-			<th class="switch">MANAGE</th>
+			<th class="type">АВТОР</th>
+			<th class="title">ЗАГОЛОВОК</th>
+			<th class="body">ПОСТ</th>
+			<th class="time">СОЗДАН</th>
+			<th class="switch"></th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'img') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
@@ -160,11 +160,11 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">AUTHOR</th>
-			<th class="title">TITLE</th>
-			<th class="body">BODY</th>
-			<th class="time">TIME</th>
-			<th class="switch">MANAGE</th>
+			<th class="type">АВТОР</th>
+			<th class="title">ЗАГОЛОВОК</th>
+			<th class="body">ПОСТ</th>
+			<th class="time">СОЗДАН</th>
+			<th class="switch"></th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'music') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
@@ -188,11 +188,11 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">AUTHOR</th>
-			<th class="title">TITLE</th>
-			<th class="body">BODY</th>
-			<th class="time">TIME</th>
-			<th class="switch">MANAGE</th>
+			<th class="type">АВТОР</th>
+			<th class="title">ЗАГОЛОВОК</th>
+			<th class="body">ПОСТ</th>
+			<th class="time">СОЗДАН</th>
+			<th class="switch"></th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'lastissue') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
@@ -216,11 +216,11 @@
 	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
 		<thead>
 			<th class="id">ID</th>
-			<th class="type">AUTHOR</th>
-			<th class="title">TITLE</th>
-			<th class="body">BODY</th>
-			<th class="time">TIME</th>
-			<th class="switch">MANAGE</th>
+			<th class="type">АВТОР</th>
+			<th class="title">ЗАГОЛОВОК</th>
+			<th class="body">ПОСТ</th>
+			<th class="time">СОЗДАН</th>
+			<th class="switch"></th>
 		</thead>
 		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'literature') { %>
 			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
