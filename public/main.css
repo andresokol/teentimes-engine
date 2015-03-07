@@ -44,14 +44,23 @@ body {
     text-align: center;
     font-size: 18px;
 }
+.column>div h6 {
+    text-align: center;
+    font-size: 16px;
+}
+.column>div li>p {
+    margin-left: 0!important;
+}
 .column>div pre {
-    margin-left: 3vw;
-    margin-right: 3vw;
+    margin-left: 5%;
+    margin-right: 5%;
     font-family: Cutive Mono, monospace;
+    max-width: 90%;
 }
 .column>div blockquote {
     text-align: center;
     font-style: italic;
+    font-size: 16px;
 }
 .column>div ol {
     margin-left: 3vw;
@@ -435,10 +444,10 @@ img + strong /* former #imgcap */ {
 
 .author {
     margin-left: 2vw;
-    width: 30vw;
 }
 .author h1 {
-    font-size: 16px;
+    font-size: 16px!important;
+    text-align: left!important;
     margin: 0;
 }
 .author p {
@@ -446,6 +455,7 @@ img + strong /* former #imgcap */ {
     margin: 0;
 }
 .author img {
+    width: 3vw;
     margin: 0;
 }
 
