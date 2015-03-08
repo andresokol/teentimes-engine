@@ -366,6 +366,10 @@ img + strong /* former #imgcap */ {
 #disqus_thread {
     margin:8px;
 }
+.pluso-engine {
+    margin-top: 4%;
+    margin-left: 3%;
+}
 
 /* footref */
 
@@ -467,6 +471,7 @@ img + strong /* former #imgcap */ {
     width: 3vw;
     margin: 0;
 }
+
 
 /*----------------------------------------------------*/
 /*----------------------------------------------------*/

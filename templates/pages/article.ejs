@@ -45,6 +45,16 @@
             <div class="<%- post.type %>">
                 <h2><a href="/article/<%- post.id %>"><%- post.title %></a></h2>
 			    <%- post.body %>
+                <script type="text/javascript">
+                    (function() {if (window.pluso) {return};
+                        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                        s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                        s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://x.pluso.ru/pluso-x.js';
+                        var h=d[g]('body')[0];
+                        h.appendChild(s);
+                    })();
+                </script>
+                <div class="pluso-engine" pluso-sharer={"buttons":"vkontakte,tumblr,facebook,twitter,google,email,more","style":{"size":"medium","shape":"round","theme":"theme11","css":"background:transparent"},"orientation":"horizontal","multiline":false} ></div> 
                 <hr>
                 <div class='author' id='_<%- post.author %>'></div>
                 <br>
