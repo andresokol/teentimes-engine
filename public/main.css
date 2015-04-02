@@ -501,6 +501,9 @@ img + strong /* former #imgcap */ {
     width: 3vw;
     margin: 0;
 }
+.counter {
+    display: none;
+}
 
 
 /*----------------------------------------------------*/

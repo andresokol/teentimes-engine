@@ -46,15 +46,15 @@
                 <h2><a href="/article/<%- post.id %>"><%- post.title %></a></h2>
 			    <%- post.body %>
                 <script type="text/javascript">(function() {
-                    if (window.pluso)if (typeof window.pluso.start == "function") return;
-                    if (window.ifpluso==undefined) { window.ifpluso = 1;
-                    var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                    s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-                    var h=d[g]('body')[0];
-                    h.appendChild(s);
-                }})();</script>
-                <div class="pluso" data-background="transparent" data-options="medium,round,line,horizontal,nocounter,theme=01" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print"></div> 
+  if (window.pluso)if (typeof window.pluso.start == "function") return;
+  if (window.ifpluso==undefined) { window.ifpluso = 1;
+    var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+    s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+    var h=d[g]('body')[0];
+    h.appendChild(s);
+  }})();</script>
+<div class="pluso" data-background="transparent" data-options="medium,round,line,horizontal,nocounter,theme=01" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email"></div>
                 <hr>
                 <div class='author' id='_<%- post.author %>'></div>
                 <br>
@@ -78,6 +78,39 @@
             </div>
         </div>
         <div class="bars">
+            <div class="counter">
+            <!-- Yandex.Metrika informer -->
+<a href="https://metrika.yandex.ru/stat/?id=29461140&amp;from=informer"
+target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/29461140/1_0_EFEFEFFF_EFEFEFFF_0_pageviews"
+style="width:80px; height:15px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" /></a>
+<!-- /Yandex.Metrika informer -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter29461140 = new Ya.Metrika({id:29461140,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/29461140" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+            </div>
         <div class="lowbar">
             <ul>
                 <li><a href="/about">About</a></li>
