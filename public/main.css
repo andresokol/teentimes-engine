@@ -228,11 +228,11 @@ body {
 .Header {
     background-color: #fff;
     opacity: 0.8;
-    border: solid white; 
+    border: solid white 1vw; 
     z-index: 0;
     position: relative;
     z-index: 0;
-    width: inherit;
+    width: 96vw;
 }
 .Header h1 {
     font-family: Shadows Into Light, sans-serif;
@@ -504,6 +504,27 @@ img + strong /* former #imgcap */ {
 .counter {
     display: none;
 }
+.column a.cut {
+    color: #424242;
+    text-decoration: none;
+    user-select: none;
+    background: #e1e1e1;
+    padding: 3px 5px;
+    outline: none;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+} 
+.column>a.cut:hover { 
+    background: #d4d4d4;
+    color: #2d2d2d;
+}
+.column>a.cut:active {
+    background: #c5c5c5;
+    color: #2d2d2d;
+}
 
 
 /*----------------------------------------------------*/
@@ -520,8 +541,11 @@ img + strong /* former #imgcap */ {
 		margin: 0;
     }
 	.column {
-		width:93%!important;
+		width:92%!important;
 	}
+    .column>div {
+        margin-bottom: 3vw;
+    }
 	.footerref {
 		width:97%!important;
 	}
@@ -593,5 +617,42 @@ img + strong /* former #imgcap */ {
     .nfound a img {
         width: 100%;
         height: auto;
+    }
+    a.cut {
+        color: #424242;
+        text-decoration: none;
+        user-select: none;
+        background: #e1e1e1;
+        padding: 10px 10px;
+        outline: none;
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 2px;
+    } 
+    a.cut:hover { 
+        background: #d4d4d4;
+        color: #424242;
+    }
+    a.cut:active {
+        background: #c5c5c5;
+        color: #424242;
+    }
+    .tags {
+        font-size: 14px;
+        margin-left: 5vw;
+        margin-top: 10px;
+    }
+    .tags a {
+        color: #aeaeae;
+    }
+    .lowbar li {
+        font-family: PT Sans, monospace;
+        font-size: 12px;
+        display: inline-table;
+        margin-top: auto;
+        margin-right: 5vw;
+        padding-right: 5vw;
     }
 }
