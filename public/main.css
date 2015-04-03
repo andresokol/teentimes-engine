@@ -504,7 +504,7 @@ img + strong /* former #imgcap */ {
     text-align: center;
     margin-bottom: 20px;
 }
-.footerref .textmain #contact input {
+.footerref .textmain form input {
     border: 0;
     padding: 10px;
     font-size: 18px;
