@@ -79,6 +79,27 @@ body {
 .column>div p a {
     text-decoration: underline;
 }
+.column a.cut {
+    color: #424242;
+    text-decoration: none;
+    user-select: none;
+    background: #e1e1e1;
+    padding: 3px 5px;
+    outline: none;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+} 
+.column>a.cut:hover { 
+    background: #d4d4d4;
+    color: #2d2d2d;
+}
+.column>a.cut:active {
+    background: #c5c5c5;
+    color: #2d2d2d;
+}
 
 /* articles */
 
@@ -366,6 +387,35 @@ body {
     text-decoration: underline;
 }
 
+/* page number */
+.pages {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+.pages span.currentpage {
+    font-family: PT Sans, monospace;
+    color: #000;
+    font-size: 24px;
+    padding: 0 5px;
+    margin: 0 3px;
+    font-weight: bold;
+}
+.pages a.alterpage {
+    font-family: PT Sans, monospace;
+    color: #000;
+    font-size: 24px;
+    padding: 0 5px;
+    margin: 0 3px;
+    font-weight: bold;
+}
+.pages a.alterpage:hover {
+    opacity: 0.75;
+}
+
 /* captures & time & tags */
 
 img + strong /* former #imgcap */ {
@@ -504,27 +554,6 @@ img + strong /* former #imgcap */ {
 .counter {
     display: none;
 }
-.column a.cut {
-    color: #424242;
-    text-decoration: none;
-    user-select: none;
-    background: #e1e1e1;
-    padding: 3px 5px;
-    outline: none;
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 2px;
-} 
-.column>a.cut:hover { 
-    background: #d4d4d4;
-    color: #2d2d2d;
-}
-.column>a.cut:active {
-    background: #c5c5c5;
-    color: #2d2d2d;
-}
 
 
 /*----------------------------------------------------*/
@@ -623,7 +652,7 @@ img + strong /* former #imgcap */ {
         text-decoration: none;
         user-select: none;
         background: #e1e1e1;
-        padding: 10px 10px;
+        padding: 5vw 3vw;
         outline: none;
         text-align: center;
         display: block;
@@ -654,5 +683,26 @@ img + strong /* former #imgcap */ {
         margin-top: auto;
         margin-right: 5vw;
         padding-right: 5vw;
+    }
+    .pages span.currentpage {
+        font-family: PT Sans, monospace;
+        color: #000;
+        font-size: 24px;
+        padding: 0 5px;
+        margin: 0 3px;
+        font-weight: bold;
+        background: #ffffff;
+    }
+    .pages a.alterpage {
+        font-family: PT Sans, monospace;
+        color: #000;
+        font-size: 24px;
+        padding: 0 5px;
+        margin: 0 3px;
+        font-weight: bold;
+        background: #ffffff;
+    }
+    .pages a.alterpage:hover {
+        opacity: 1;
     }
 }
