@@ -5,6 +5,6 @@ var express = require('express'),
 
 console.log(app.get('port'), app.get('ipaddr'));
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), app.get('ipaddr'), function() {
 	console.log("Node app is running at " + app.get('ipaddr') + ":" + app.get('port'));
 });
