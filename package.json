@@ -1,36 +1,36 @@
 {
-	"name": "teentimes-engine",
-	"version": "1.0.0",
-	"description": "Engine for rinsdesyu's TeenTimes blog",
-	"main": "server.js",
-	"dependencies": {
-		"body-parser": "^1.10.0",
-		"crypto": "0.0.3",
-		"ejs": "^1.0.0",
-		"ejs-locals": "^1.0.2",
-		"express": "^4.10.6",
-		"express-session": "^1.10.1",
-		"marked": "^0.3.2",
-		"pg": "^4.1.1",
-		"session": "^0.1.0",
-		"npm": "^1.2.25"
-	},
-	"devDependencies": {},
-    "engines": {
-        "node": "^0.10.33",
-        "npm": "^1.4.28"
-    },
-	"scripts": {
-		"start": "node server.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/AndreSokol/teentimes-engine.git"
-	},
-	"author": "AndreSokol",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/AndreSokol/teentimes-engine/issues"
-	},
-	"homepage": "https://github.com/AndreSokol/teentimes-engine"
+  "name": "teentimes-engine",
+  "version": "1.0.0",
+  "description": "Engine for rinsdesyu's TeenTimes blog",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "crypto": "^0.0.3",
+    "ejs": "^1.0.0",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.12.3",
+    "express-session": "^1.10.4",
+    "marked": "^0.3.3",
+    "npm": "^1.5.0-alpha-4",
+    "pg": "^4.3.0",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "^0.10.33",
+    "npm": "^1.4.28"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndreSokol/teentimes-engine.git"
+  },
+  "author": "AndreSokol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreSokol/teentimes-engine/issues"
+  },
+  "homepage": "https://github.com/AndreSokol/teentimes-engine"
 }
