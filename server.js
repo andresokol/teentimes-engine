@@ -3,8 +3,8 @@ var express = require('express'),
     app = express(),
     middleware = require('./middleware')(app, express);
 
-console.log(app.get('port'));
+console.log(app.get('port'), app.get('ipaddr'));
 
 app.listen(app.get('port'), function() {
-	console.log("Node app is running at localhost:" + app.get('port'));
+	console.log("Node app is running at " + app.get('ipaddr') + ":" + app.get('port'));
 });
