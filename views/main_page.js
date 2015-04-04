@@ -17,7 +17,7 @@ exports.main = function(req, res, posts_on_page) {
 			var t = posts[i].body,
 				n = t.indexOf('<c>');
 			if (n != -1) t = t.substr(0, n-3) + "\n\r\n\r*<a href='/" + posts[i].type + '/' + posts[i].id + 
-																						"'>Читать далее...</a>*";
+																						"' class='cut'>Читать далее...</a>*";
 			posts[i].body = md(t);
 		}
 		res.render('../templates/pages/main', {
@@ -47,7 +47,7 @@ exports.hub = function(req, res, type) {
 		for(var i = 0; i < query.length; i++) {
 			var t = query[i].body,
 				n = t.indexOf('<c>');
-			if (n != -1) t = t.substr(0, n-3) + "\n\r\n\r*<a href='/" + query[i].type + '/' + query[i].id + "'>Читать далее...</a>*";
+			if (n != -1) t = t.substr(0, n-3) + "\n\r\n\r*<a href='/" + query[i].type + '/' + query[i].id + "' class='cut'>Читать далее...</a>*";
 			query[i].body = md(t);
 		}
 		res.render('../templates/pages/hub.ejs', {
@@ -73,7 +73,7 @@ exports.tagsearch = function(req, res) {
 			var t = posts[i].body,
 				n = t.indexOf('<c>');
 			if (n != -1) t = t.substr(0, n-3) + "\n\r\n\r*<a href='/" + posts[i].type + '/' + posts[i].id + 
-																						"'>Читать далее...</a>*";
+																						"' class='cut'>Читать далее...</a>*";
 			posts[i].body = md(t);
 		}
 		

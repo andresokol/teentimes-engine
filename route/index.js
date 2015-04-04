@@ -5,7 +5,7 @@ var main = require("./main"),
 	dbcheck = require("./dbcheck"),
 	ajax = require('./ajax'),
 	test = function(req, res) {
-		res.send();
+		res.render("../templates/test");
 	};
 
 module.exports = function (app) {
@@ -51,5 +51,5 @@ module.exports = function (app) {
 	app.get('/lost', error.p404);
 	
 	// Test
-	app.post('/test', test);
+	app.get('/test', test);
 };

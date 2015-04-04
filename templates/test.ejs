@@ -1,22 +1,154 @@
 <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-<div class='tags' id='p16'></div><br>
-<div class='tags' id='p17'></div><br>
-<div class='tags' id='p18'></div><br>
+<link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <script>
-	$(document).ready(function () {
-		$('.tags').each(function () {
-			var id = this.id;
-			$.ajax({
-				url: '/ajax/tags/' + id.substr(1, id.length - 1),
-				type: 'GET',
-				dataType: 'json',
-				success: function (msg) {
-					$(this).text(msg);
-					console.log(msg);
-				}.bind(this)
-			});
+	$(document).ready(function() {
+		$(".title_cnt").click(function() {
+			$(this).parent().children('.dropdown_cnt').toggleClass("dropdown_cnt_hidden");
 		});
 	});
 </script>
+
+<style>
+	.post_cnt {
+		width: 600px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #efefef;
+		/*background: #efefef;*/
+		box-shadow: 2px 2px 2px #aaa;
+		margin: 15px;
+	}
+	
+	.post_cnt>div>div {
+		margin: 15px;
+	}
+	
+	.title_cnt {
+		display: inline-flex;
+		height: 50px;
+		cursor: pointer;
+		border-bottom: solid 1px #ddd;
+	}
+	
+	.id {
+		font-weight: bold;
+		width: 20px;
+		margin-left:22px!important;
+		margin-right:7px!important;
+	}
+	
+	.title {
+		width: 390px;
+		white-space: pre-wrap;
+		overflow: hidden;
+	}
+	
+	.author {
+		width: 100;
+		font-weight: bold;
+		text-align: center;
+	}
+	
+	.dropdown_cnt {
+		display: inline-table;
+	}
+	
+	.dropdown_cnt_hidden {
+		display: none!important;
+	}
+	
+	.dropdown_cnt div {
+		display: inline-table;
+		margin-top:0px!important;
+	}
+	
+	.time_cnt {
+		font-weight: bold;
+	}
+	
+	.body {
+		width: 390px;
+	}
+	
+	div .btns {
+		width: 85px;
+		text-align: center;
+		display: inline-table;
+		margin: 0px;
+		position: relative;
+		top: 10px;
+	}
+	
+	.btns a {
+		margin-bottom: 2px;
+		width: 68px;
+	}
+	
+	.body div {
+		max-height: 200px;
+		overflow-y: scroll;
+	}
+</style>
+
+<div class="post_cnt">
+	<div class="title_cnt">
+		<div class="id">16</div>
+		<div class="title">Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
+		<div class="author">gandalf</div>
+	</div>
+	<div class="dropdown_cnt dropdown_cnt_hidden">
+		<div class="id" style="opacity:0;">16</div>
+		<div class="body">
+			<div>Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
+			<div class="time_cnt">Wed Mar 25 2015 15:13</div>
+		</div>
+		<div class="btns">
+			<a class="btn btn-default" role="button">Switch</a>
+			<a class="btn btn-default" role="button">Edit</a>
+			<a class="btn btn-danger" role="button">Delete</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="post_cnt">
+	<div class="title_cnt">
+		<div class="id">16</div>
+		<div class="title">Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
+		<div class="author">gandalf</div>
+	</div>
+	<div class="dropdown_cnt dropdown_cnt_hidden">
+		<div class="id" style="opacity:0;">16</div>
+		<div class="body">
+			<div>Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
+			<div class="time_cnt">Wed Mar 25 2015 15:13</div>
+		</div>
+		<div class="btns">
+			<a class="btn btn-default" role="button">Switch</a>
+			<a class="btn btn-default" role="button">Edit</a>
+			<a class="btn btn-danger" role="button">Delete</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="post_cnt">
+	<div class="title_cnt">
+		<div class="id">16</div>
+		<div class="title">Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
+		<div class="author">gandalf</div>
+	</div>
+	<div class="dropdown_cnt dropdown_cnt_hidden">
+		<div class="id" style="opacity:0;">16</div>
+		<div class="body">
+			<div>Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
+			<div class="time_cnt">Wed Mar 25 2015 15:13</div>
+		</div>
+		<div class="btns">
+			<a class="btn btn-default" role="button">Switch</a>
+			<a class="btn btn-default" role="button">Edit</a>
+			<a class="btn btn-danger" role="button">Delete</a>
+		</div>
+	</div>
+</div>

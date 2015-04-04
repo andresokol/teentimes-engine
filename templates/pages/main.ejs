@@ -53,7 +53,6 @@
         <div class="<%- posts[i].type %>">
 			<h2><a href="/<%- posts[i].type %>/<%- posts[i].id %>"><%- posts[i].title %></a></h2>
 			<%- posts[i].body %>
-            <a href="#" class="cut">Читать дальше...</a>
             <div class='tags' id='t<%- posts[i].id %>'></div>
             <div id="time">
 				<time><%- String(posts[i].created).slice(16, 21) %></time>
