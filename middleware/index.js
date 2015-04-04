@@ -7,7 +7,7 @@ module.exports = function (app, express) {
 		session = require('express-session');
 
     app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 5000);
-    app.set('ipaddr', process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127:0:0:1");
+    app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP);
     /**
      * Page Rendering
      * */
