@@ -6,7 +6,7 @@ module.exports = function (app, express) {
         router = require('../route'),
 		session = require('express-session');
 
-    app.set('port', process.env.PORT || 5000);
+    app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 5000);
     /**
      * Page Rendering
      * */

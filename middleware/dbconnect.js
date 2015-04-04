@@ -1,5 +1,5 @@
 var pg = require('pg'),
-	db_url = process.env.DATABASE_URL || "postgres://postgres:lollipop11@localhost:5432/postgres";
+	db_url = process.env.DATABASE_URL || process.env.OPENSHIFT_POSTGRESQL_DB_URL  || "postgres://postgres:lollipop11@localhost:5432/postgres";
 
 exports.get_data = function (table, limit, show_hidden, callback) {
 	pg.connect(db_url, function(err, client, done) {
