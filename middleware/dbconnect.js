@@ -306,3 +306,20 @@ exports.get_posts_by_tag = function(table_posts, table_tags, tag, callback) {
 		done();
 	});
 };
+
+exports.add_email = function(table_emails, name, email, callback) {
+	pg.connect(db_url, function(err, client, done) {
+		var qstring =	"INSERT INTO " + table_emails + " values('" + name + 
+						"','" + email + "');",
+			query = client.query(qstring);
+		
+		query.on('row', function (row, result) {
+			result.addRow(row);
+		});
+		
+		query.on('end', function(result) {
+			callback();
+		});
+		done();
+	});
+};

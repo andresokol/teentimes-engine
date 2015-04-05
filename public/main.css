@@ -510,9 +510,14 @@ img + strong /* former #imgcap */ {
     font-size: 18px;
     background: #eaeaea;
 }
-.footerref .textmain #contact input[type="submit"] {
+.footerref .textmain #contact input[type="button"] {
     background: #195da1;
     color: #fff;
+	cursor: pointer;
+	width: 136px;
+}
+.footerref .textmain #contact input[type="button"]:hover {
+    background: #154e86;
 }
 
 /* e-mail + 404 */

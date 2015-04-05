@@ -28,6 +28,7 @@ module.exports = function (app) {
 	// AJAX
 	app.get('/ajax/tags/:id', ajax.tags);
 	app.get('/ajax/author/:username', ajax.author);
+	app.post('/ajax/add_email/', ajax.email);
 	
 	// Admin page
 	app.get('/admin', admin.admin_page);
@@ -51,5 +52,5 @@ module.exports = function (app) {
 	app.get('/lost', error.p404);
 	
 	// Test
-	app.get('/test', test);
+	//app.get('/test', test);
 };

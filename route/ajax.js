@@ -1,6 +1,7 @@
 var db = require('../middleware/dbconnect'),
 	tag_table = 'tags',
-	author_table = 'users';
+	author_table = 'users',
+	email_table = 'emails';
 
 exports.tags = function(req, res) {
 	var id = parseInt(req.params.id);
@@ -21,5 +22,14 @@ exports.author = function(req, res) {
 		var ans = result.rows[0];
 		if(ans != null) delete ans.password;
 		res.send(JSON.stringify(ans));
+	});
+};
+
+exports.email = function(req, res) {
+	var name = req.body.name.replace(/'/g, "''"),
+		email = req.body.email.replace(/'/g, "''");
+	db.add_email(email_table, name, email, function() {
+		console.log('[SUB] New subscriber! ' + name + ' ' + email);
+		res.send('true');
 	});
 };
