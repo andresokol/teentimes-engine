@@ -56,4 +56,5 @@ module.exports = function (app) {
 	
 	// Yandex shit
 	app.get('/42e8980dfe14', function(req, res) {res.send('9c3fc9c51ce5');});
+	app.get('/42e8980dfe14.html', function(req, res) {res.send('9c3fc9c51ce5');});
 };
