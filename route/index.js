@@ -53,4 +53,7 @@ module.exports = function (app) {
 	
 	// Test
 	//app.get('/test', test);
+	
+	// Yandex shit
+	app.get('/42e8980dfe14', function(req, res) {res.send('9c3fc9c51ce5');});
 };
