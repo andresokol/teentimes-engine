@@ -589,10 +589,11 @@ img + strong /* former #imgcap */ {
 		width:92%!important;
 	}
     .column>div {
-        margin-bottom: 3vw;
+        margin-top: 3vw;
     }
 	.footerref {
 		width:97%!important;
+        margin-top: 3vw;
 	}
 	.footerref .textmain {
 		padding:0px;
