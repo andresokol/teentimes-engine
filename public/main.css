@@ -471,15 +471,16 @@ img + strong /* former #imgcap */ {
     text-align: left;
     padding: 10px;
 }
-.footerref .textmain #about h3 {
+.footerref .textmain #about h2 {
     text-align: center;
 }
 .footerref .textmain #authors {
     display: block;
     text-decoration: none;
     padding: 10px;
+    text-align: center;
 }
-.footerref .textmain #authors h3 {
+.footerref .textmain #authors h2 {
     text-align: center;
 }
 .footerref .textmain #authors ul {
@@ -490,8 +491,12 @@ img + strong /* former #imgcap */ {
 .footerref .textmain #authors li {
     display: inline-table;
 }
-.footerref .textmain #authors li p {
-
+.footerref .textmain #authors a {
+    color: dodgerblue!important;
+    text-decoration: none;
+}
+.footerref .textmain #authors a:hover {
+    color: #3360ff!important;
 }
 .footerref .textmain #authors img {
     border-radius: 100%;
@@ -532,6 +537,12 @@ img + strong /* former #imgcap */ {
 .nfound {
     background-color: #AEAEAE;
     background-image: none;
+}
+.nfound>.nfound1 {
+    margin-left: auto;
+    margin-right: auto;
+    height: 640px;
+    width: 480px;
 }
 
 .slicknav_menu {
@@ -645,7 +656,7 @@ img + strong /* former #imgcap */ {
     }
     .nfound {
         background-color: #AEAEAE;
-        background-image: url(img/404mob.jpg)!important;
+        background-image: url(img/404.png)!important;
         background-size: cover;
     }   
     .nfound a img {
