@@ -599,7 +599,7 @@ img + strong /* former #imgcap */ {
         margin-top: 3vw;
     }
     .Header {
-        width: 100%!important;
+        width: 100vw!important;
     }
 	.footerref {
 		width:97%!important;
