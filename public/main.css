@@ -644,13 +644,13 @@ img + strong /* former #imgcap */ {
 		display: block;
 	}
 	.NavBar {
-		width: 100%!important;
+		width: 100vw!important;
 	}
 	#nav_bar_cnt {
-		width: 100%!important;
+		width: 100vw!important;
 	}
 	.invis {
-		width: 100%;
+		width: 100vw;
 		position: inherit;
 	}
 	#zensick {
