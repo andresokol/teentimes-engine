@@ -80,6 +80,11 @@ body {
     margin-top: 20px;
     max-width: 100%;
 }
+.column>div #iframe {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 5px;
+}
 .column>div hr {
     margin: 3%;
 }
@@ -569,6 +574,7 @@ img + strong /* former #imgcap */ {
 .author p {
     font-size: 14px;
     margin: 0;
+    max-width: 100%;
 }
 .author img {
     width: 3vw;
@@ -597,6 +603,9 @@ img + strong /* former #imgcap */ {
 	}
     .column>div {
         margin-top: 3vw;
+    }
+    .Header {
+        width: 100%!important;
     }
 	.footerref {
 		width:97%!important;
@@ -641,13 +650,13 @@ img + strong /* former #imgcap */ {
 		display: block;
 	}
 	.NavBar {
-		width: 100%!important;
+		width: 100vw!important;
 	}
 	#nav_bar_cnt {
-		width: 100%!important;
+		width: 100vw!important;
 	}
 	.invis {
-		width: 100%;
+		width: 100vw;
 		position: inherit;
 	}
 	#zensick {
