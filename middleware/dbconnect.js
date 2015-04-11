@@ -100,10 +100,12 @@ exports.get_article = function(table, id, type, callback, failed) {
 		});
 		
 		query.on('end', function(result) {
-			if (/*(result.rows.length == 0 || result.rows[0].type != type) && type != undefined*/false) {
+			if (result.rows.length == 0) {
 				failed();
 			} else {
-				callback(result);
+				if (result.rows[0].visible)
+					callback(result);
+				else failed();
 			}
 		});
 		done();
