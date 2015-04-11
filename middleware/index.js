@@ -28,16 +28,16 @@ module.exports = function (app, express) {
 					resave: false,
 					saveUninitialized: true
 					}));
-	
-    /* *
-     * Routing
-     * */
-    router(app);
-
 
     /**
      * Public directory
      * */
     app.use(express.static(path.join(__dirname, '../public')));
     app.use("/public", express.static(path.join(__dirname, '../public')));
+	
+	
+    /* *
+     * Routing
+     * */
+    router(app);
 };
