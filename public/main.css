@@ -73,6 +73,13 @@ body {
     margin-left: 3vw;
     margin-right: 3vw;
 }
+.column>div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    max-width: 100%;
+}
 .column>div hr {
     margin: 3%;
 }
@@ -180,7 +187,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    max-width: 725px; 
+    max-width: 95%; 
 }
 .img a {
     color: #000;
@@ -465,21 +472,22 @@ img + strong /* former #imgcap */ {
     border: white solid;
     box-shadow: 5px 5px 5px #888888;
     padding: 15px;
-    margin-top: 10px;
+    margin-top: 2vw;
 }
 .footerref .textmain #about {
     text-align: left;
     padding: 10px;
 }
-.footerref .textmain #about h3 {
+.footerref .textmain #about h2 {
     text-align: center;
 }
 .footerref .textmain #authors {
     display: block;
     text-decoration: none;
     padding: 10px;
+    text-align: center;
 }
-.footerref .textmain #authors h3 {
+.footerref .textmain #authors h2 {
     text-align: center;
 }
 .footerref .textmain #authors ul {
@@ -490,8 +498,12 @@ img + strong /* former #imgcap */ {
 .footerref .textmain #authors li {
     display: inline-table;
 }
-.footerref .textmain #authors li p {
-
+.footerref .textmain #authors a {
+    color: dodgerblue!important;
+    text-decoration: none;
+}
+.footerref .textmain #authors a:hover {
+    color: #3360ff!important;
 }
 .footerref .textmain #authors img {
     border-radius: 100%;
@@ -532,6 +544,12 @@ img + strong /* former #imgcap */ {
 .nfound {
     background-color: #AEAEAE;
     background-image: none;
+}
+.nfound>.nfound1 {
+    margin-left: auto;
+    margin-right: auto;
+    height: 640px;
+    width: 480px;
 }
 
 .slicknav_menu {
@@ -578,10 +596,11 @@ img + strong /* former #imgcap */ {
 		width:92%!important;
 	}
     .column>div {
-        margin-bottom: 3vw;
+        margin-top: 3vw;
     }
 	.footerref {
 		width:97%!important;
+        margin-top: 3vw;
 	}
 	.footerref .textmain {
 		padding:0px;
@@ -645,7 +664,7 @@ img + strong /* former #imgcap */ {
     }
     .nfound {
         background-color: #AEAEAE;
-        background-image: url(img/404mob.jpg)!important;
+        background-image: url(img/404.png)!important;
         background-size: cover;
     }   
     .nfound a img {
