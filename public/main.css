@@ -80,6 +80,11 @@ body {
     margin-top: 20px;
     max-width: 100%;
 }
+.column>div #iframe {
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 5px;
+}
 .column>div hr {
     margin: 3%;
 }
@@ -599,7 +604,7 @@ img + strong /* former #imgcap */ {
         margin-top: 3vw;
     }
     .Header {
-        width: 100vw!important;
+        width: 100%!important;
     }
 	.footerref {
 		width:97%!important;
