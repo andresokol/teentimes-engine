@@ -598,6 +598,9 @@ img + strong /* former #imgcap */ {
     .column>div {
         margin-top: 3vw;
     }
+    .Header {
+        width: 100%!important;
+    }
 	.footerref {
 		width:97%!important;
         margin-top: 3vw;
