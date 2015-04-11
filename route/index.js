@@ -43,6 +43,7 @@ module.exports = function (app) {
 	app.get('/admin/edit/:id', admin.edit_post);
 	app.post('/admin/edit/:id', admin.save_post);
 	app.get('/admin/manual', admin.manual);
+	app.get('/admin/subs', admin.subs);
 	
 	// Authentification
 	app.get('/login', auth.show_login_form);

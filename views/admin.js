@@ -129,3 +129,13 @@ exports.save_edited_post = function(req, res) {
 exports.manual = function (req, res) {
 	res.render('../templates/admin/manual', {});
 };
+
+
+exports.subs = function (req, res) {
+	db.run('SELECT * FROM emails;', function(result) {
+		console.log(result.rows.length);
+		res.render('../templates/admin/subs', {
+			a: result.rows
+		});
+	});
+};

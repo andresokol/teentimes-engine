@@ -1,0 +1,17 @@
+<style>
+	tr:nth-child(even) {
+		background-color: #e3e3e3;
+	}
+	table {
+		max-width: 600px;
+	}
+</style>
+
+<table border="0" width="100%">
+	<% for(var i = 0; i < a.length; i++) { %>
+	<tr>
+		<td width="50%"><%- a[i].name %></td>
+		<td width="50%"><%- a[i].email %></td>
+	</tr>
+	<% } %>
+</table>

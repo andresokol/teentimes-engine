@@ -56,3 +56,7 @@ exports.save_post = function (req, res) {
 exports.manual = function (req, res) {
 	restricted(req, res, adm.manual);
 };
+
+exports.subs = function (req, res) {
+	restricted(req, res, adm.subs);
+};
