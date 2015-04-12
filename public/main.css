@@ -4,6 +4,12 @@ body {
     background-repeat: auto;
 }
 
+::selection {
+    background: #989898; /* Safari */
+}
+::-moz-selection {
+    background: #989898; /* Firefox */
+}
 /* column main */
 
 .column:not(#edit) {
@@ -18,7 +24,7 @@ body {
     text-align: left;
     width: 100%;
     border: white solid;
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 0px 5px 20px #888888;
 }
 .column>div p {
     margin-left: 3vw;
@@ -89,7 +95,11 @@ body {
     margin: 3%;
 }
 .column>div p a {
-    text-decoration: underline;
+    text-decoration: none;
+    color: #3360ff;
+}
+.column>div p a:hover {
+    color: #2245bf;
 }
 .column a.cut {
     color: #424242;
@@ -331,6 +341,7 @@ body {
 }
 .NavBar #nyaa #hyperlink a:hover {
     text-transform: none;
+    opacity: 0.9;
 }
 .NavBar #nyaa li {
     font-family: Cutive Mono, monospace;
