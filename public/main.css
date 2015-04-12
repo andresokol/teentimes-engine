@@ -94,13 +94,6 @@ body {
 .column>div hr {
     margin: 3%;
 }
-.column>div p a {
-    text-decoration: none;
-    color: #3360ff;
-}
-.column>div p a:hover {
-    color: #2245bf;
-}
 .column a.cut {
     color: #424242;
     text-decoration: none;
@@ -117,10 +110,18 @@ body {
 .column>a.cut:hover { 
     background: #d4d4d4;
     color: #2d2d2d;
+    opacity: 0.75;
 }
 .column>a.cut:active {
     background: #c5c5c5;
     color: #2d2d2d;
+}
+.column>div p a {
+    text-decoration: none;
+    color: #3360ff;
+}
+.column>div p a:hover {
+    color: #2245bf;
 }
 
 /* articles */
