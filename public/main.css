@@ -5,7 +5,7 @@ body {
 }
 
 ::selection {
-    background: #989898; /* Safari */
+    background: #989898;
 }
 ::-moz-selection {
     background: #989898; /* Firefox */
