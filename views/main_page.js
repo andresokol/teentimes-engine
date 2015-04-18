@@ -31,7 +31,7 @@ exports.article = function(req, res, type) {
 		console.log('Under attack!!!');
 		res.redirect('/lost');
 	} else {
-		db.get_article(table, req.params.id, type, function (query) {
+		db.get_article(table, req.params.id, type, false, function (query) {
 			query = query.rows[0];
 			query.body = md(query.body);
 			res.render('../templates/pages/article.ejs', {

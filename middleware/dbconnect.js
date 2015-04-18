@@ -78,7 +78,7 @@ exports.get_max_id = function (table, callback) {
 	});
 };
 
-exports.get_article = function(table, id, type, callback, failed) {
+exports.get_article = function(table, id, type, editing, callback, failed) {
 	pg.connect(db_url, function(err, client, done) {
 		var handleError = function(err) {
 			if(!err) return false;
@@ -103,7 +103,7 @@ exports.get_article = function(table, id, type, callback, failed) {
 			if (result.rows.length == 0) {
 				failed();
 			} else {
-				if (result.rows[0].visible)
+				if (result.rows[0].visible || editing)
 					callback(result);
 				else failed();
 			}

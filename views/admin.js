@@ -100,7 +100,7 @@ exports.update_user = function(req, res) {
 };
 
 exports.show_edit_page = function(req, res) {
-	db.get_article(table, req.params.id, undefined, function(result) {
+	db.get_article(table, req.params.id, undefined, true, function(result) {
 		res.render('../templates/admin/edit_post', {
 			post: result.rows[0]
 		});
