@@ -43,6 +43,7 @@ module.exports = function (app) {
 	app.get('/admin/edit/:id', admin.edit_post);
 	app.post('/admin/edit/:id', admin.save_post);
 	app.get('/admin/manual', admin.manual);
+	app.get('/admin/guideline', admin.guideline);
 	app.get('/admin/subs', admin.subs);
 	
 	// Authentification
@@ -53,7 +54,7 @@ module.exports = function (app) {
 	app.get('/lost', error.p404);
 	
 	// Test
-	//app.get('/test', test);
+	app.get('/test', admin.test);
 	
 	// If nothing else matched
 	app.use('*', error.p404);

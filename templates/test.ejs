@@ -10,14 +10,26 @@
 </script>
 
 <style>
-	.post_cnt {
+	body {
+		display: inline-flex;
+	}
+	
+	.cnt {
 		width: 600px;
-		border-style: solid;
+		margin: 15px;
+	}
+	
+	.post_cnt {
+		width: 100%;
+		/*border-style: solid;
 		border-width: 1px;
 		border-color: #efefef;
-		/*background: #efefef;*/
-		box-shadow: 2px 2px 2px #aaa;
-		margin: 15px;
+		background: #efefef;
+		box-shadow: 2px 2px 2px #aaa;*/
+	}
+	
+	.post_cnt:hover {
+		background: #f5f5f5;
 	}
 	
 	.post_cnt>div>div {
@@ -91,64 +103,58 @@
 	}
 </style>
 
-<div class="post_cnt">
-	<div class="title_cnt">
-		<div class="id">16</div>
-		<div class="title">Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
-		<div class="author">gandalf</div>
-	</div>
-	<div class="dropdown_cnt dropdown_cnt_hidden">
-		<div class="id" style="opacity:0;">16</div>
-		<div class="body">
-			<div>Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
-			<div class="time_cnt">Wed Mar 25 2015 15:13</div>
+
+<!--       Visible posts      -->
+<div class="cnt">
+	Dat shit is visible
+	<% for(var i = 0; i < posts.length; i++) { %>
+	<% if(!posts[i].visible) continue; %>
+	<div class="post_cnt">
+		<div class="title_cnt">
+			<div class="id"><%- posts[i].id %></div>
+			<div class="title"><%- posts[i].title %></div>
+			<div class="author"><%- posts[i].author %></div>
 		</div>
-		<div class="btns">
-			<a class="btn btn-default" role="button">Switch</a>
-			<a class="btn btn-default" role="button">Edit</a>
-			<a class="btn btn-danger" role="button">Delete</a>
+		<div class="dropdown_cnt dropdown_cnt_hidden">
+			<div class="id" style="opacity:0;">42</div>
+			<div class="body">
+				<div><%- posts[i].body %></div>
+				<div class="time_cnt"><%- posts[i].created %></div>
+			</div>
+			<div class="btns">
+				<a class="btn btn-default" role="button">Switch</a>
+				<a class="btn btn-default" role="button">Edit</a>
+				<a class="btn btn-danger" role="button">Delete</a>
+			</div>
 		</div>
 	</div>
+	<% } %>
 </div>
 
 
-<div class="post_cnt">
-	<div class="title_cnt">
-		<div class="id">16</div>
-		<div class="title">Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
-		<div class="author">gandalf</div>
-	</div>
-	<div class="dropdown_cnt dropdown_cnt_hidden">
-		<div class="id" style="opacity:0;">16</div>
-		<div class="body">
-			<div>Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
-			<div class="time_cnt">Wed Mar 25 2015 15:13</div>
+<!--       Invisible ones      -->
+<div class="cnt">
+	Dat shit is not
+	<% for(var i = 0; i < posts.length; i++) { %>
+	<% if(posts[i].visible) continue; %>
+	<div class="post_cnt">
+		<div class="title_cnt">
+			<div class="id"><%- posts[i].id %></div>
+			<div class="title"><%- posts[i].title %></div>
+			<div class="author"><%- posts[i].author %></div>
 		</div>
-		<div class="btns">
-			<a class="btn btn-default" role="button">Switch</a>
-			<a class="btn btn-default" role="button">Edit</a>
-			<a class="btn btn-danger" role="button">Delete</a>
-		</div>
-	</div>
-</div>
-
-
-<div class="post_cnt">
-	<div class="title_cnt">
-		<div class="id">16</div>
-		<div class="title">Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
-		<div class="author">gandalf</div>
-	</div>
-	<div class="dropdown_cnt dropdown_cnt_hidden">
-		<div class="id" style="opacity:0;">16</div>
-		<div class="body">
-			<div>Ololo, pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch pysch</div>
-			<div class="time_cnt">Wed Mar 25 2015 15:13</div>
-		</div>
-		<div class="btns">
-			<a class="btn btn-default" role="button">Switch</a>
-			<a class="btn btn-default" role="button">Edit</a>
-			<a class="btn btn-danger" role="button">Delete</a>
+		<div class="dropdown_cnt dropdown_cnt_hidden">
+			<div class="id" style="opacity:0;">42</div>
+			<div class="body">
+				<div><%- posts[i].body %></div>
+				<div class="time_cnt"><%- posts[i].created %></div>
+			</div>
+			<div class="btns">
+				<a class="btn btn-default" role="button">Switch</a>
+				<a class="btn btn-default" role="button">Edit</a>
+				<a class="btn btn-danger" role="button">Delete</a>
+			</div>
 		</div>
 	</div>
+	<% } %>
 </div>

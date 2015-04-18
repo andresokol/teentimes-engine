@@ -57,6 +57,16 @@ exports.manual = function (req, res) {
 	restricted(req, res, adm.manual);
 };
 
+exports.guideline = function (req, res) {
+	restricted(req, res, adm.guideline);
+};
+
 exports.subs = function (req, res) {
 	restricted(req, res, adm.subs);
+};
+
+
+
+exports.test = function (req, res) {
+	adm.show_admin_page_test(req, res);
 };

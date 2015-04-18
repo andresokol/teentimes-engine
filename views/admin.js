@@ -15,6 +15,17 @@ exports.show_admin_page = function(req, res) {
 	});
 };
 
+exports.show_admin_page_test = function(req, res) {
+	db.get_data(table, 100, true, function(query){
+		var posts = query.rows;
+		for(var i = 0; i < posts.length; i++)
+			posts[i].body = md(posts[i].body);
+		res.render("../templates/test", {
+			posts: posts,
+		});
+	});
+};
+
 exports.show_add_page = function(req, res) {
 	res.render('../templates/admin/add_new_post', {});
 };
@@ -65,7 +76,7 @@ exports.switch_visibility = function(req, res) {
 };
 
 exports.ask_for_delete = function(req, res) {
-	db.get_article(table, req.params.id, undefined, function(query) {
+	db.get_article(table, req.params.id, undefined, true, function(query) {
 		res.render('../templates/admin/delete_post', {
 				   post: query.rows[0]
 		});
@@ -130,6 +141,9 @@ exports.manual = function (req, res) {
 	res.render('../templates/admin/manual', {});
 };
 
+exports.guideline = function (req, res) {
+	res.render('../templates/admin/guideline', {});
+};
 
 exports.subs = function (req, res) {
 	db.run('SELECT * FROM emails;', function(result) {
