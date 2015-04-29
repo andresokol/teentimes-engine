@@ -271,7 +271,7 @@ body {
 
 .Header {
     background-color: #fff;
-    opacity: 0.8;
+    opacity: 0.95;
     border: solid white 1vw; 
     z-index: 0;
     position: relative;
