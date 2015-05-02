@@ -215,7 +215,7 @@ exports.switch_visibility = function(table, id, callback) {
 		if (!handleError) {return true};
 		
 		var qstring = "UPDATE " + table + " SET visible = not (SELECT visible FROM " + table + " WHERE id = " + id + 
-						") WHERE id = " + id + ";";
+						") WHERE id = " + id + "; SELECT visible FROM " + table + " WHERE id = " + id + ";";
 				
 		var query = client.query(qstring),
 			cnt = 0;
@@ -225,7 +225,7 @@ exports.switch_visibility = function(table, id, callback) {
 		});
 		
 		query.on('end', function(result) {
-			callback();
+			callback(result);
 		});
 		done();
 	});

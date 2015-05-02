@@ -34,7 +34,7 @@ module.exports = function (app) {
 	app.get('/admin', admin.admin_page);
 	app.get('/admin/add', admin.add_new_post);
 	app.post('/admin/submit', admin.submit_new_post);
-	app.post('/admin/switch/:id', admin.switch_visibility);
+	app.get('/admin/switch/:id', admin.switch_visibility);
 	app.post('/admin', admin.add_post_to_db);
 	app.get('/admin/delete/:id', admin.ask_for_delete);
 	app.post('/admin/delete', admin.delete_post);

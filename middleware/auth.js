@@ -31,4 +31,5 @@ exports.logoff = function(req, res, done) {
 exports.isAuthentificated = function(req, res, succeed, failed) {
 	if (req.session.username == undefined) failed(req, res);
 	else succeed(req, res);
+	//succeed(req, res); // debug version
 };

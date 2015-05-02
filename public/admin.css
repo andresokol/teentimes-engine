@@ -1,0 +1,127 @@
+.container {
+	width: 100%;
+}
+
+.container>div {
+	display: inline-flex;
+	width: 100%;
+}
+
+.cnt {
+	width: 40vw;
+	min-width: 600px;
+	margin: 15px;
+}
+
+.cnt:nth-of-type(even) {
+	/*border-color: #eeeeee;
+	border-style: solid;
+	border-width: 2px;*/
+}
+
+.post_cnt {
+	width: 100%;
+	position: relative;
+}
+
+.post_cnt:hover {
+	background: #f5f5f5;
+}
+
+.post_cnt>div>div {
+	margin: 15px;
+}
+
+.title_cnt {
+	display: inline-flex;
+	height: 50px;
+	cursor: pointer;
+	border-bottom: solid 1px #ddd;
+}
+
+.id {
+	font-weight: bold;
+	width: 20px;
+	margin-left:22px!important;
+	margin-right:7px!important;
+}
+
+.title {
+	width: 390px;
+	white-space: pre-wrap;
+	overflow: hidden;
+}
+
+.author {
+	width: 100;
+	font-weight: bold;
+	text-align: center;
+}
+
+.dropdown_cnt_hidden {
+	display: none!important;
+}
+
+.dropdown_cnt>div {
+	vertical-align: top;
+	display: inline-flex;
+}
+
+.time_cnt {
+	font-weight: bold;
+}
+
+.body {
+	width: 390px;
+}
+
+div .btns {
+	width: 85px;
+	text-align: center;
+	display: inline-block;
+	margin: 0px;
+}
+
+.btns * {
+	margin-bottom: 2px;
+	width: 68px;
+}
+
+.body {
+	display: inline-block!important;
+}
+
+.body .body_cnt {
+	width: 100%;
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.body .body_cnt * {
+	max-width: 100%;
+}
+
+.hddn {
+	display:none!important;
+}
+
+/*  EDITING SHIT */
+.edited {
+	opacity: 0.5;
+}
+
+.cover {
+	display:none;
+}
+
+.edited>.cover {
+	display: block;
+	position: absolute;
+	background: rgba(180, 180, 180, 0.7);
+	height: 100%;
+	width:100%;
+	text-align: center;
+	vertical-align: center;
+	font-style: italic;
+	z-index: 100;
+}

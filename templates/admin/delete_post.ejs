@@ -2,9 +2,22 @@
 <style>
 	div {
 		width: 750px;
-		margin:auto;
+		margin: auto;
 	}
 </style>
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
+<script>
+	var socket = io();
+	socket.emit('start_editing', {user: '<%- username %>', id: 'p<%- post.id %>'});
+	
+	var sendinfo = function (form) {
+		socket.emit('delete_post', 'p<%- post.id %>');
+		form.submit();
+	}
+</script>
+
 
 
 <div class="">
@@ -18,10 +31,10 @@
 </div>
 <div>
 <center>
-<a href="/admin" class='btn btn-lg btn-default'>Не-не-не</a>
-<form method="post" action="/admin/delete" id="form" style="display:none;">
+<a href="/admin" class='btn btn-lg btn-default'>Отмена</a>
+<form method="post" action="/admin/delete" onsubmit="sendinfo(this);return false;" id="form" style="display:none;">
 	<input type="text"  name="id" value='<%- post.id %>'>
 </form>
-<input type="submit" value="Удаляй!" class="btn btn-lg btn-danger" form="form">
+<input type="submit" value="Удалить" class="btn btn-lg btn-danger" form="form">
 </center>
 </div>

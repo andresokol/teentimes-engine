@@ -1,250 +1,100 @@
 <title>ZenSick's dark side</title>
 <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/public/admin.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<script>
+	var username = '<%- username %>';
+</script>
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="/public/js/admin.js"></script>
-<style>
-	.body>div {
-		max-height: 300px;
-		max-width: 70vw;
-		overflow-y: auto;
-		overflow-x: auto;
-	}
-	
-	.time {
-		width: 160px;
-	}
-	
-	.id {
-		width: 30px;
-		font-weight: bold;
-	}
-	
-	.type {
-		width: 50px;
-	}
-	
-	.title {
-		width: 200px;
-	}
-	
-	.switch {
-		text-align: center;
-		width: 110px;
-	}
-	
-	.hddn {
-		display: none;
-	}
-	
-	.container {
-		width: 100%;
-		padding: 0px;
-	}
-	
-	form {
-		margin-bottom: 2px;
-	}
-	
-	.switch a {
-		margin-bottom: 2px;
-		width: 68px;
-	}
-</style>
-<center>
-	<h3>Привет, <%- username %>!</h3>
-</center>
 
-<center>
-	<a class="btn btn-success btn-lg" href="/admin/add">Ебашить пост!</a>
-	<a class="btn btn-default btn-lg" href="/admin/user">Информация об авторе</a>
-	<a class="btn btn-default btn-lg" href="/logoff">Выход</a>
-</center>
-<br>
-<center>
-	<a class="btn btn-default btn-lg" href="admin/guideline">Гайдлайн</a>
-	<a class="btn btn-default btn-lg" href="admin/manual">Мануал по оформлению</a>
-</center>
+<!--  HEADER -->
 
-<br>
-<center>
-	<button class="btn btn-default btn-info btn-lg" href="#" id="all-btn">Все</button>
-	<button class="btn btn-default btn-lg" href="#" id="articles-btn">Articles</button>
-	<button class="btn btn-default btn-lg" href="#" id="img-btn">Img (Art)</button>
-	<button class="btn btn-default btn-lg" href="#" id="music-btn">Music</button>
-	<button class="btn btn-default btn-lg" href="#" id="lastissue-btn">Last Issue</button>
-	<button class="btn btn-default btn-lg" href="#" id="literature-btn">Literature</button>
-</center>
-<br>
+<div class="head">
+	<center>
+		<h3>Привет, <%- username %>!</h3>
+	</center>
+
+	<center>
+		<a class="btn btn-success btn-lg" href="/admin/add">Ебашить пост!</a>
+		<a class="btn btn-default btn-lg" href="/admin/user">Информация об авторе</a>
+		<a class="btn btn-default btn-lg" href="/logoff">Выход</a>
+	</center>
+	<br>
+	<center>
+		<a class="btn btn-default btn-lg" href="admin/guideline">Гайдлайн</a>
+		<a class="btn btn-default btn-lg" href="admin/manual">Мануал по оформлению</a>
+	</center>
+
+	<br>
+	<center>
+		<button class="btn btn-default btn-info btn-lg" href="#" id="all-btn">Все</button>
+		<button class="btn btn-default btn-lg" href="#" id="articles-btn">Articles</button>
+		<button class="btn btn-default btn-lg" href="#" id="img-btn">Img (Art)</button>
+		<button class="btn btn-default btn-lg" href="#" id="music-btn">Music</button>
+		<button class="btn btn-default btn-lg" href="#" id="lastissue-btn">Last Issue</button>
+		<button class="btn btn-default btn-lg" href="#" id="literature-btn">Literature</button>
+	</center>
+	<br>
+</div>
+
+<!--  /HEADER -->
 
 <div class="container">
 <div id="all">
-	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
-		<thead>
-			<th class="id">ID</th>
-			<th class="type">АВТОР</th>
-			<th class="title">ЗАГОЛОВОК</th>
-			<th class="body">ПОСТ</th>
-			<th class="time">СОЗДАН</th>
-			<th class="switch"></th>
-		</thead>
+	<div class="cnt">
+		Видны читателям
 		<% for(var i = 0; i < posts.length; i++) { %>
-			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
-				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].author %></td>
-				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
-				<td class="body"><div><%- posts[i].body %></div></td>
-				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
-				<td class="switch">
-					<form action="/admin/switch/<%- posts[i].id %>" method="post">
-						<input type='submit' value="Switch" class="btn btn-default">
-					</form>
+		<% if(!posts[i].visible) continue; %>
+		<div class="post_cnt <%- posts[i].type %>" id='p<%- posts[i].id %>'>
+			<div class="cover">LOL</div>
+			<div class="title_cnt">
+				<div class="id"><%- posts[i].id %></div>
+				<div class="title"><%- posts[i].title %></div>
+				<div class="author"><%- posts[i].author %></div>
+			</div>
+			<div class="dropdown_cnt dropdown_cnt_hidden">
+				<div class="id" style="opacity:0;">42</div>
+				<div class="body">
+					<div class='body_cnt'><%- posts[i].body %></div>
+					<div class="time_cnt"><%- posts[i].created %></div>
+				</div>
+				<div class="btns">
+					<button class="btn btn-default switch">Switch</button>
 					<a class="btn btn-default" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
 					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
-				</td>
-			</tr>
+				</div>
+			</div>
+		</div>
 		<% } %>
-	</table>
-</div>
-
-<div class="articles hddn">
-	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
-		<thead>
-			<th class="id">ID</th>
-			<th class="type">АВТОР</th>
-			<th class="title">ЗАГОЛОВОК</th>
-			<th class="body">ПОСТ</th>
-			<th class="time">СОЗДАН</th>
-			<th class="switch"></th>
-		</thead>
-		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'article') { %>
-			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
-				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].author %></td>
-				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
-				<td class="body"><div><%- posts[i].body %></div></td>
-				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
-				<td class="switch">
-					<form action="/admin/switch/<%- posts[i].id %>" method="post">
-						<input type='submit' value="Switch" class="btn btn-default">
-					</form>
+	</div>
+	<div class="cnt">
+		Не видны читателям
+		<% for(var i = 0; i < posts.length; i++) { %>
+		<% if(posts[i].visible) continue; %>
+		<div class="post_cnt <%- posts[i].type %>" id='p<%- posts[i].id %>'>
+			<div class="cover">LOL</div>
+			<div class="title_cnt">
+				<div class="id"><%- posts[i].id %></div>
+				<div class="title"><%- posts[i].title %></div>
+				<div class="author"><%- posts[i].author %></div>
+			</div>
+			<div class="dropdown_cnt dropdown_cnt_hidden">
+				<div class="id" style="opacity:0;">42</div>
+				<div class="body">
+					<div class='body_cnt'><%- posts[i].body %></div>
+					<div class="time_cnt"><%- posts[i].created %></div>
+				</div>
+				<div class="btns">
+					<button class="btn btn-default switch">Switch</button>
 					<a class="btn btn-default" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
 					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
-				</td>
-			</tr>
+				</div>
+			</div>
+		</div>
 		<% } %>
-	</table>
+	</div>
 </div>
-<div class="img hddn">
-	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
-		<thead>
-			<th class="id">ID</th>
-			<th class="type">АВТОР</th>
-			<th class="title">ЗАГОЛОВОК</th>
-			<th class="body">ПОСТ</th>
-			<th class="time">СОЗДАН</th>
-			<th class="switch"></th>
-		</thead>
-		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'img') { %>
-			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
-				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].author %></td>
-				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
-				<td class="body"><div><%- posts[i].body %></div></td>
-				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
-				<td class="switch">
-					<form action="/admin/switch/<%- posts[i].id %>" method="post">
-						<input type='submit' value="Switch" class="btn btn-default">
-					</form>
-					<a class="btn btn-default" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
-					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
-				</td>
-			</tr>
-		<% } %>
-	</table>
-</div>
-<div class="music hddn">
-	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
-		<thead>
-			<th class="id">ID</th>
-			<th class="type">АВТОР</th>
-			<th class="title">ЗАГОЛОВОК</th>
-			<th class="body">ПОСТ</th>
-			<th class="time">СОЗДАН</th>
-			<th class="switch"></th>
-		</thead>
-		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'music') { %>
-			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
-				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].author %></td>
-				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
-				<td class="body"><div><%- posts[i].body %></div></td>
-				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
-				<td class="switch">
-					<form action="/admin/switch/<%- posts[i].id %>" method="post">
-						<input type='submit' value="Switch" class="btn btn-default">
-					</form>
-					<a class="btn btn-default" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
-					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
-				</td>
-			</tr>
-		<% } %>
-	</table>
-</div>
-<div class="lastissue hddn">
-	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
-		<thead>
-			<th class="id">ID</th>
-			<th class="type">АВТОР</th>
-			<th class="title">ЗАГОЛОВОК</th>
-			<th class="body">ПОСТ</th>
-			<th class="time">СОЗДАН</th>
-			<th class="switch"></th>
-		</thead>
-		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'lastissue') { %>
-			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
-				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].author %></td>
-				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
-				<td class="body"><div><%- posts[i].body %></div></td>
-				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
-				<td class="switch">
-					<form action="/admin/switch/<%- posts[i].id %>" method="post">
-						<input type='submit' value="Switch" class="btn btn-default">
-					</form>
-					<a class="btn btn-default" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
-					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
-				</td>
-			</tr>
-		<% } %>
-	</table>
-</div>
-<div class="literature hddn">
-	<table class="table table-condensed table-striped" style="margin:auto; width:98%; min-width:800px;">
-		<thead>
-			<th class="id">ID</th>
-			<th class="type">АВТОР</th>
-			<th class="title">ЗАГОЛОВОК</th>
-			<th class="body">ПОСТ</th>
-			<th class="time">СОЗДАН</th>
-			<th class="switch"></th>
-		</thead>
-		<% for(var i = 0; i < posts.length; i++) if(posts[i].type == 'literature') { %>
-			<tr class="<% if(!posts[i].visible){ %>warning<% } %>">
-				<td class="id"><%- posts[i].id %></td>
-				<td class="type"><%- posts[i].author %></td>
-				<td class="title"><a href="/<%- posts[i].type %>/<%- posts[i].id %>" target="_blank"><%- posts[i].title %></a></td>
-				<td class="body"><div><%- posts[i].body %></div></td>
-				<td class="time"><time><%- String(posts[i].created).slice(0, 21) %></time></td>
-				<td class="switch">
-					<form action="/admin/switch/<%- posts[i].id %>" method="post">
-						<input type='submit' value="Switch" class="btn btn-default">
-					</form>
-					<a class="btn btn-default" role="button" href="/admin/edit/<%- posts[i].id %>">Edit</a>
-					<a class="btn btn-danger" role="button" href="/admin/delete/<%- posts[i].id %>">Delete</a>
-				</td>
-			</tr>
-		<% } %>
-	</table>
-</div>
-	
 </div>

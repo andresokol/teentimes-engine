@@ -6,8 +6,9 @@ var db = require('../middleware/dbconnect'),
 exports.show_admin_page = function(req, res) {
 	db.get_data(table, 100, true, function(query){
 		var posts = query.rows;
-		for(var i = 0; i < posts.length; i++)
-			posts[i].body = md(posts[i].body);
+		for(var i = 0; i < posts.length; i++) {
+			posts[i].body = md(posts[i].body).replace(/<img\ssrc=['"][^'"]*['"]/g, '<img');
+		}
 		res.render("../templates/admin", {
 			posts: posts,
 			username: req.session.username
@@ -69,16 +70,17 @@ exports.show_success_page = function (req, res) {
 };
 
 exports.switch_visibility = function(req, res) {
-	db.switch_visibility(table, req.params.id, function() {
+	db.switch_visibility(table, req.params.id, function(query) {
 		console.log('[UPD] Switched visibility for post ' + req.params.id + ' by ' + req.session.username);
-		res.redirect('/admin');
+		res.send(query.rows[0].visible);
 	});
 };
 
 exports.ask_for_delete = function(req, res) {
 	db.get_article(table, req.params.id, undefined, true, function(query) {
 		res.render('../templates/admin/delete_post', {
-				   post: query.rows[0]
+			post: query.rows[0],
+			username: req.session.username
 		});
 	}, function () {
 		res.send('No such article =(');
@@ -113,7 +115,8 @@ exports.update_user = function(req, res) {
 exports.show_edit_page = function(req, res) {
 	db.get_article(table, req.params.id, undefined, true, function(result) {
 		res.render('../templates/admin/edit_post', {
-			post: result.rows[0]
+			post: result.rows[0],
+			username: req.session.username
 		});
 	}, function() {
 		res.send('<h1>No such post =(</h1>');
