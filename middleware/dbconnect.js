@@ -18,7 +18,7 @@ exports.get_data = function (table, limit, page, show_hidden, callback) {
 		if (!show_hidden) qstring += " WHERE visible = true";
 		
         qstring += " ORDER BY id DESC LIMIT " + limit;
-		if (page != undefined) qstring += " OFFSET " + page;
+		if (page != undefined) qstring += " OFFSET " + (page * 10 - 10).toString();
 		
 		
 		var query = client.query(qstring),
@@ -323,6 +323,27 @@ exports.add_email = function(table_emails, name, email, callback) {
 		
 		query.on('end', function(result) {
 			callback();
+		});
+		done();
+	});
+};
+
+exports.get_visible_posts_count = function(table_posts, post_type, callback) {
+    pg.connect(db_url, function(err, client, done) {
+		var qstring = "SELECT count(visible = 'true'";
+        
+        if (post_type != undefined) qstring += " AND type = '" + post_type + "'";
+        
+        qstring += ") FROM " + table_posts;
+        
+        var query = client.query(qstring);
+		
+		query.on('row', function (row, result) {
+			result.addRow(row);
+		});
+		
+		query.on('end', function(result) {
+			callback(result);
 		});
 		done();
 	});

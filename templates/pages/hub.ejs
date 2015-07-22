@@ -64,6 +64,48 @@
 	
 	
     <div class="bars">
+        
+        <!-- page buttons -->       
+        <div class="page_bar">
+            <div class="page_bar_inner">
+                <% for(var i = 1; i <= posts_count; i += 1) { %>
+                <div class="page_button<%= i == current_page ? ' page_button_current' : '' %>">
+                    <a href="?p=<%- i %>"><%- i %></a>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <style>
+            .page_button_current {
+                font-weight: bold;
+                text-decoration: underline;
+            }
+            .page_bar {
+                margin-top: 10px;
+                text-align: center;
+                width: 100%;
+            }
+            .page_bar_inner {
+                margin: auto;
+                display: inline-flex;
+            }
+            .page_button {
+                padding: 5px;
+                background: white;
+                margin: 5px;
+            }
+            
+            .page_button a {
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                font-size: 24px;
+                font-family: PT Sans,monospace;
+            }
+        </style>
+        <!-- end of page buttons -->
+        
+        
         <div class="counter">
             <!-- Yandex.Metrika informer -->
             <a href="https://metrika.yandex.ru/stat/?id=29461140&amp;from=informer"

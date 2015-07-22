@@ -20,9 +20,16 @@ exports.main = function(req, res, limit, page_to_show) {
 																						"' class='cut'>Читать далее...</a>*";
 			posts[i].body = md(t);
 		}
-		res.render('../templates/pages/main', {
-			posts: posts
-		});
+        
+        db.get_visible_posts_count(table, undefined, function(query) {
+            var page = 1;
+            if (req.query.p != undefined) page = parseInt(req.query.p);
+            res.render('../templates/pages/main', {
+                posts: posts,
+                posts_count: parseInt((parseInt(query.rows[0].count) + 9) / 10),
+                current_page: page
+            });
+        });
 	});
 };
 
@@ -53,16 +60,25 @@ exports.hub = function(req, res, type) {
 			if (n != -1) t = t.substr(0, n-3) + "\n\r\n\r*<a href='/" + query[i].type + '/' + query[i].id + "' class='cut'>Читать далее...</a>*";
 			query[i].body = md(t);
 		}
-		res.render('../templates/pages/hub.ejs', {
-			posts: query,
-			hub: types[type]
-		});
+        
+        db.get_visible_posts_count(table, type, function(count) {
+            var page = 1;
+            if (req.query.p != undefined) page = parseInt(req.query.p);
+            res.render('../templates/pages/hub', {
+                posts: query,
+                hub: types[type],
+                posts_count: parseInt((parseInt(count.rows[0].count) + 9) / 10),
+                current_page: page
+            });
+        });
 	}, function() {
 		var query = [{title: 'Мы ничего не нашли =(', body: '', created: '', id: '', type: 'article'}];
 		
 		res.render('../templates/pages/hub.ejs', {
 			posts: query,
-			hub: types[type]
+			hub: types[type],
+            posts_count: 0,
+            current_page: 0
 		});
 	});
 };
