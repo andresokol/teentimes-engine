@@ -3,8 +3,16 @@
 These a things to be done:
 
 ### On server side
-* Switch to AJAX
-* Redesign admin page
+
+* Search
 * Cipher passwords in table
+* Auto-crop user pictures
+* Background-choose-menu
+* Change-password-menu
+* Visible-on-first-page-menu
 
 ### On client side
+
+* Random background from list
+* Search page
+* Limit amount of posts on page
