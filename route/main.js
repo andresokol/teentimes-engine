@@ -1,7 +1,9 @@
 var pages = require('../views/main_page');
 
 exports.home = function (req, res) {
-	pages.main(req, res, 10);
+    page_to_show = parseInt(req.query.p);
+    if (isNaN(page_to_show)) page_to_show = 1;
+	pages.main(req, res, 10, page_to_show);
 };
 
 

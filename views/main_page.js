@@ -10,8 +10,8 @@ types['lastissue'] = 'Последний выпуск';
 types['music'] = 'Музыка';
 types['literature'] = 'Литература';
 
-exports.main = function(req, res, posts_on_page) {
-	db.get_data(table, posts_on_page, false, function (query) {
+exports.main = function(req, res, limit, page_to_show) {
+	db.get_data(table, limit, page_to_show, false, function (query) {
 		var posts = query.rows;
 		for(var i = 0; i < posts.length; i++) {
 			var t = posts[i].body,
@@ -42,7 +42,10 @@ exports.article = function(req, res, type) {
 };
 
 exports.hub = function(req, res, type) {
-	db.get_hub(table, type, 10, function (query) {
+    page_to_show = parseInt(req.query.p);
+    if (isNaN(page_to_show)) page_to_show = 1;
+    
+	db.get_hub(table, type, 10, page_to_show * 10 - 10, function (query) {
 		query = query.rows;
 		for(var i = 0; i < query.length; i++) {
 			var t = query[i].body,

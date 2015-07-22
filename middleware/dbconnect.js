@@ -1,7 +1,7 @@
 var pg = require('pg'),
 	db_url = process.env.DATABASE_URL || process.env.OPENSHIFT_POSTGRESQL_DB_URL  || "postgres://postgres:lollipop11@localhost:5432/postgres";
 
-exports.get_data = function (table, limit, show_hidden, callback) {
+exports.get_data = function (table, limit, page, show_hidden, callback) {
 	pg.connect(db_url, function(err, client, done) {
 		var handleError = function(err) {
 			if(!err) return false;
@@ -17,7 +17,8 @@ exports.get_data = function (table, limit, show_hidden, callback) {
 		
 		if (!show_hidden) qstring += " WHERE visible = true";
 		
-		qstring += " ORDER BY id DESC LIMIT " + limit;
+        qstring += " ORDER BY id DESC LIMIT " + limit;
+		if (page != undefined) qstring += " OFFSET " + page;
 		
 		
 		var query = client.query(qstring),
@@ -113,7 +114,7 @@ exports.get_article = function(table, id, type, editing, callback, failed) {
 };
 
 
-exports.get_hub = function(table, type, limit, callback, failed) {
+exports.get_hub = function(table, type, limit, page_to_show, callback, failed) {
 	pg.connect(db_url, function(err, client, done) {
 		var handleError = function(err) {
 			if(!err) return false;
@@ -126,7 +127,8 @@ exports.get_hub = function(table, type, limit, callback, failed) {
 		if (!handleError) {return true};
 		
 		var qstring = 	"SELECT * FROM " + table + " WHERE type = '" + type + 
-						"' and visible = true ORDER BY id DESC LIMIT " + limit;
+						"' and visible = true ORDER BY id DESC LIMIT " + limit + 
+                        " OFFSET " + page_to_show;
 				
 		var query = client.query(qstring),
 			cnt = 0;
