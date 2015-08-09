@@ -4,7 +4,7 @@ var db = require('../middleware/dbconnect'),
 	md = require('marked');
 
 exports.show_admin_page = function(req, res) {
-	db.get_data(table, 100, 0, true, function(query){
+	db.get_data(table, 100, undefined, true, function(query){
 		var posts = query.rows;
 		for(var i = 0; i < posts.length; i++) {
 			posts[i].body = md(posts[i].body).replace(/<img\ssrc=['"][^'"]*['"]/g, '<img');
