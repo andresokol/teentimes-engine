@@ -4,7 +4,8 @@ module.exports = function (app, express) {
 		bodyParser = require('body-parser'),
         router = require('../route'),
 		session = require('express-session'),
-		sockets = require('./sockets');
+		sockets = require('./sockets'),
+        engine = require('./engine');
 
     app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 5000);
     app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP);
@@ -13,7 +14,7 @@ module.exports = function (app, express) {
      * Page Rendering
      * */
     app.engine('html', ejs);
-    app.engine('ejs', ejs);
+    app.engine('ejs', engine.render);
     app.set('views', path.join(__dirname, '../views'));
     app.set('view engine', 'ejs');
 	
