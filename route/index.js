@@ -4,6 +4,7 @@ var main = require("./main"),
 	admin = require('./admin'),
 	dbcheck = require("./dbcheck"),
 	ajax = require('./ajax'),
+    gen = require('../gen'),
 	test = function(req, res) {
 		res.render("../templates/test");
 	};
@@ -30,6 +31,9 @@ module.exports = function (app) {
 	app.get('/ajax/author/:username', ajax.author);
 	app.post('/ajax/add_email/', ajax.email);
 	
+    // Go generative
+    app.get('/gen/wallpaper', gen.wallpaper);
+    
 	// Admin page
 	app.get('/admin', admin.admin_page);
 	app.get('/admin/add', admin.add_new_post);
