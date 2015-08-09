@@ -1,43 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="ya-dock=#fff,width=device-width,initial-scale=1">
-    <meta name="description" content="Хаб <%- hub %>">
-    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    <link rel="stylesheet" type="text/css" href="/public/main.css">
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="/public/js/main.js"></script>
-    <link rel="shortcut icon" href="/public/img/favicon1.png" type="image/png">
-    <script src="/public/js/SlickNav-master/jquery.slicknav.js"></script>
-	<link href="/public/slicknav.css" rel="stylesheet" type="text/css">
-	<script>
-		$(function () {
-			$('#nyaa').slicknav({
-				prependTo: '#nav_bar',
-				label: ''
-			});
-		});
-	</script>
+    <%- block_header %>
     <title><%- hub %> - Zen Sick</title>
 </head>
 <body>
-    <div class="bars" id='nav_bar_cnt'>
-		<div class="NavBar" id='nav_bar'>
-			<ul id="nyaa1">
-                <li><a href="/img">ART</a></li>
-                <li><a href="/music">MUSIC</a></li>
-                <li><a href="/literature">LITERATURE</a></li>
-                <li><a href="/article">ARTICLES</a></li>
-			</ul>
-		</div>
-    </div>
-    
-	<div class="bars" style="opacity:0; height:50px;">this must be invisible</div>
-	
+    <%- block_navbarmain %>
     <div class="bars">
         <div class="Header">
             <h1><a href="/">Zen Sick</a></h1>
@@ -66,87 +34,10 @@
     <div class="bars">
         
         <!-- page buttons -->       
-        <div class="page_bar">
-            <div class="page_bar_inner">
-                <% for(var i = 1; i <= posts_count; i += 1) { %>
-                <div class="page_button<%= i == current_page ? ' page_button_current' : '' %>">
-                    <a href="?p=<%- i %>"><%- i %></a>
-                </div>
-                <% } %>
-            </div>
-        </div>
-        <style>
-            .page_button_current {
-                font-weight: bold;
-                text-decoration: underline;
-            }
-            .page_bar {
-                margin-top: 10px;
-                text-align: center;
-                width: 100%;
-            }
-            .page_bar_inner {
-                margin: auto;
-                display: inline-flex;
-            }
-            .page_button {
-                padding: 5px;
-                background: white;
-                margin: 5px;
-            }
-            
-            .page_button a {
-                text-decoration: none;
-                color: black;
-                font-weight: bold;
-                font-size: 24px;
-                font-family: PT Sans,monospace;
-            }
-        </style>
+        <%- block_pagebar %>
         <!-- end of page buttons -->
         
-        
-        <div class="counter">
-            <!-- Yandex.Metrika informer -->
-            <a href="https://metrika.yandex.ru/stat/?id=29461140&amp;from=informer"
-target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/29461140/1_0_EFEFEFFF_EFEFEFFF_0_pageviews"
-style="width:80px; height:15px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" /></a>
-            <!-- /Yandex.Metrika informer -->
-
-            <!-- Yandex.Metrika counter -->
-            <script type="text/javascript">
-                (function (d, w, c) {
-                    (w[c] = w[c] || []).push(function() {
-                    try {
-                            w.yaCounter29461140 = new Ya.Metrika({id:29461140,
-                            trackLinks:true,
-                            accurateTrackBounce:true});
-                        } catch(e) { }
-                    });
-
-                    var n = d.getElementsByTagName("script")[0],
-                    s = d.createElement("script"),
-                    f = function () { n.parentNode.insertBefore(s, n); };
-                    s.type = "text/javascript";
-                    s.async = true;
-                    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-
-                    if (w.opera == "[object Opera]") {
-                        d.addEventListener("DOMContentLoaded", f, false);
-                    } else { f(); }
-                })(document, window, "yandex_metrika_callbacks");
-            </script>
-            <noscript><div><img src="//mc.yandex.ru/watch/29461140" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-            <!-- /Yandex.Metrika counter -->
-        </div>
-        <div class="lowbar">
-            <ul>
-                <li><a href="/about#about">FAQ</a></li>
-                <li><a href="/about#authors">Authors</a></li>
-                <li><a href="/about#contact">Contact Us</a></li>
-                <li><p>©Zen Sick Webzin. 2015.</p></li>
-            </ul>
-        </div>
+        <%- block_footer %>
     </div>
 </body>
 </html>

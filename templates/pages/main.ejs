@@ -6,19 +6,7 @@
     <title>Zen Sick</title>
 </head>
 <body>
-    <div class="bars" id='nav_bar_cnt'>
-		<div class="NavBar" id='nav_bar'>
-			<ul id="nyaa1">
-                <li><a href="/img">ART</a></li>
-                <li><a href="/music">MUSIC</a></li>
-                <li><a href="/literature">LITERATURE</a></li>
-                <li><a href="/article">ARTICLES</a></li>
-			</ul>
-		</div>
-    </div>
-	
-	<div class="bars" style="opacity:0; height:50px;">this must be invisible</div>
-    
+    <%- block_navbarmain %>
     <div class="bars">
         <div class="Header">
             <h1><a href="/">Zen Sick</a></h1>
@@ -47,43 +35,7 @@
     <div class="bars">
         
         <!-- page buttons -->       
-        <div class="page_bar">
-            <div class="page_bar_inner">
-                <% for(var i = 1; i <= posts_count; i += 1) { %>
-                <div class="page_button<%= i == current_page ? ' page_button_current' : '' %>">
-                    <a href="?p=<%- i %>"><%- i %></a>
-                </div>
-                <% } %>
-            </div>
-        </div>
-        <style>
-            .page_button_current {
-                font-weight: bold;
-                text-decoration: underline;
-            }
-            .page_bar {
-                margin-top: 10px;
-                text-align: center;
-                width: 100%;
-            }
-            .page_bar_inner {
-                margin: auto;
-                display: inline-flex;
-            }
-            .page_button {
-                padding: 5px;
-                background: white;
-                margin: 5px;
-            }
-            
-            .page_button a {
-                text-decoration: none;
-                color: black;
-                font-weight: bold;
-                font-size: 24px;
-                font-family: PT Sans,monospace;
-            }
-        </style>
+        <%- block_pagebar %>
         <!-- end of page buttons -->
         
         <%- block_footer %>
