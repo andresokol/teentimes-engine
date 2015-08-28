@@ -6,7 +6,7 @@ var main = require("./main"),
 	ajax = require('./ajax'),
     gen = require('../gen'),
 	test = function(req, res) {
-		res.render("../templates/test");
+		res.render("../templates/pages/new_main");
 	};
 
 module.exports = function (app) {
@@ -30,6 +30,7 @@ module.exports = function (app) {
 	app.get('/ajax/tags/:id', ajax.tags);
 	app.get('/ajax/author/:username', ajax.author);
 	app.post('/ajax/add_email/', ajax.email);
+    app.get('/ajax/main_page_content', ajax.main_page_content);
 	
     // Go generative
     app.get('/gen/wallpaper', gen.wallpaper);
@@ -58,7 +59,7 @@ module.exports = function (app) {
 	app.get('/lost', error.p404);
 	
 	// Test
-	app.get('/test', admin.test);
+	app.get('/test', test);
 	
 	// If nothing else matched
 	app.use('*', error.p404);

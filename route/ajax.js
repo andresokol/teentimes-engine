@@ -33,3 +33,12 @@ exports.email = function(req, res) {
 		res.send('true');
 	});
 };
+
+exports.main_page_content = function(req, res) {
+    var ans = [
+        ['hello1', 'hello2', 'hello3'],
+        ['BIGGEST HELLO EVER!!1!1']
+    ];
+    
+    res.send(JSON.stringify(ans));
+};
