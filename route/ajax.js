@@ -1,4 +1,5 @@
 var db = require('../middleware/dbconnect'),
+    post_table = 'test_posts',
 	tag_table = 'tags',
 	author_table = 'users',
 	email_table = 'emails';
@@ -42,3 +43,10 @@ exports.main_page_content = function(req, res) {
     
     res.send(JSON.stringify(ans));
 };
+
+exports.get_post = function(req, res) {
+    var post_id = req.param.id;
+    db.get_data(post_table, 10, undefined, false, function(query) {
+        res.send(JSON.stringify(query));
+    });
+}
