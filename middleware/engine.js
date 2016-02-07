@@ -34,9 +34,14 @@ exports.render = function (filePath, options, callback) {
         
         content = content.toString();
         
-        content.match(pattern).forEach( function (element, index, array) {
-            content = content.replace(element, html_blocks[element.slice(3, -3)]);
-        });
+        try {
+            content.match(pattern).forEach( function (element, index, array) {
+                content = content.replace(element, html_blocks[element.slice(3, -3)]);
+            });
+            
+        } catch (e) {
+            console.log(e);
+        }
         // -----------------
         
         var rendered = ejs.render(content.toString(), options);
