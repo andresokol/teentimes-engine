@@ -44,9 +44,8 @@ exports.main_page_content = function(req, res) {
     res.send(JSON.stringify(ans));
 };
 
-exports.get_post = function(req, res) {
-    var post_id = req.param.id;
+exports.posts = function(req, res) {
     db.get_data(post_table, 10, undefined, false, function(query) {
-        res.send(JSON.stringify(query));
+        res.send(JSON.stringify(query.rows));
     });
 }

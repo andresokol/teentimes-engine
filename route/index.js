@@ -31,7 +31,7 @@ module.exports = function (app) {
 	app.get('/ajax/author/:username', ajax.author);
 	app.post('/ajax/add_email/', ajax.email);
     app.get('/ajax/main_page_content', ajax.main_page_content);
-    app.get('/ajax/post/:id', ajax.get_post);
+    app.get('/ajax/post/', ajax.posts);
 	
     // Go generative
     app.get('/gen/wallpaper', gen.wallpaper);
