@@ -44,7 +44,7 @@ exports.render = function (filePath, options, callback) {
         }
         // -----------------
         
-        var rendered = ejs.render(content.toString(), options);
+        var rendered = ejs.render(content.toString(), options, {});
         
         return callback(null, rendered);
     });
