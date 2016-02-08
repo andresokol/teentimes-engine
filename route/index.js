@@ -63,5 +63,5 @@ module.exports = function (app) {
 	app.get('/test', test);
 	
 	// If nothing else matched
-	//app.use('*', error.p404);
+	app.use('*', error.p404);
 };
