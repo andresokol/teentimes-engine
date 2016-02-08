@@ -44,6 +44,7 @@ exports.render = function (filePath, options, callback) {
         }
         // -----------------
         
+        console.log("[DEBUG] " + filePath);
         var rendered = ejs.render(content.toString(), options, {filename: filePath});
         
         return callback(null, rendered);
