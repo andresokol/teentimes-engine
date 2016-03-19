@@ -21,7 +21,7 @@ body {
 .column>div {
     padding 2vw;
     background: #fff;
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     text-align: left;
     width: 100%;
     border: white solid;
@@ -61,7 +61,7 @@ body {
 .column>div pre {
     margin-left: 5%;
     margin-right: 5%;
-    font-family: Cutive Mono, monospace;
+    font-family: 'Cutive Mono', monospace;
     max-width: 90%;
     white-space: pre-wrap;
     background-color: #e3e3e3;
@@ -130,7 +130,7 @@ body {
 .article {
     background: #fff;
 	width:100%;
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     text-align: left;
     border: white solid;
     margin-left: auto;
@@ -189,7 +189,7 @@ body {
 
 .img {
     background: #fff;
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     text-align: left;
     width: 100%;
     border: white solid;
@@ -225,7 +225,7 @@ body {
 }
 .music {
     background: #fff;
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     text-align: left;
     width: 750px;
     border: white solid;
@@ -280,7 +280,7 @@ body {
     width: 96vw;
 }
 .Header h1 {
-    font-family: Shadows Into Light, sans-serif;
+    font-family: 'Shadows Into Light', sans-serif;
     font-size: 54px;
     text-align: center;
     margin: 75px;
@@ -294,7 +294,7 @@ body {
     opacity: 0.6;
 }
 .Header p {
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     font-size: 20px;
     text-align: center;
 }
@@ -332,7 +332,7 @@ body {
     text-align: center;
     display: inline-block;
     height: inherit;
-    font-family: Shadows Into Light, sans-serif;
+    font-family: 'Shadows Into Light', sans-serif;
     margin-left: -40px;
     margin-bottom: 10px;
 }
@@ -346,13 +346,13 @@ body {
     opacity: 0.9;
 }
 .NavBar #nyaa li {
-    font-family: Cutive Mono, monospace;
+    font-family: 'Cutive Mono', monospace;
     display: inline-table;
     padding-right: 35px;
     margin: 0;
 }
 .NavBar #nyaa1 li {
-    font-family: Cutive Mono, monospace;
+    font-family: 'Cutive Mono', monospace;
     display: inline-table;
     padding-right: 35px;
     margin: 0;
@@ -397,7 +397,7 @@ body {
     text-align: center;
 }
 .lowbar li {
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     font-size: 12px;
     display: inline-table;
     margin-top: auto;
@@ -422,7 +422,7 @@ body {
     margin-bottom: 2vw;
 }
 .pages span.currentpage {
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     color: #000;
     font-size: 24px;
     padding: 0 5px;
@@ -430,7 +430,7 @@ body {
     font-weight: bold;
 }
 .pages a.alterpage {
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     color: #000;
     font-size: 24px;
     padding: 0 5px;
@@ -485,7 +485,7 @@ img + strong /* former #imgcap */ {
 }
 .footerref .textmain {
     background: #fff;
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     width: 100%;
     border: white solid;
     box-shadow: 5px 5px 5px #888888;
@@ -530,7 +530,7 @@ img + strong /* former #imgcap */ {
     height: 150px;
 }
 .footerref .textmain #contact {
-    font-family: PT Sans, monospace;
+    font-family: 'PT Sans', monospace;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -723,7 +723,7 @@ img + strong /* former #imgcap */ {
         color: #aeaeae;
     }
     .lowbar li {
-        font-family: PT Sans, monospace;
+        font-family: 'PT Sans', monospace;
         font-size: 12px;
         display: inline-table;
         margin-top: auto;
@@ -731,7 +731,7 @@ img + strong /* former #imgcap */ {
         padding-right: 5vw;
     }
     .pages span.currentpage {
-        font-family: PT Sans, monospace;
+        font-family: 'PT Sans', monospace;
         color: #000;
         font-size: 24px;
         padding: 0 5px;
@@ -740,7 +740,7 @@ img + strong /* former #imgcap */ {
         background: #ffffff;
     }
     .pages a.alterpage {
-        font-family: PT Sans, monospace;
+        font-family: 'PT Sans', monospace;
         color: #000;
         font-size: 24px;
         padding: 0 5px;
